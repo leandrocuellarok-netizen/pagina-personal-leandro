@@ -1,0 +1,1623 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Cambia a 'master' si tu rama principal se llama así
+  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
+
+# PERMISOS NECESARIOS - ESTO ES CRÍTICO
+permissions:
+  contents: write  # Necesario para hacer push a gh-pages
+  pages: write
+  id-token: write
+
+# Solo permite un deploy a la vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          # Mantener historial de commits
+          force_orphan: false
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none"><rect width="1200" height="1200" fill="#EAEAEA" rx="3"/><g opacity=".5"><g opacity=".5"><path fill="#FAFAFA" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/></g><path stroke="url(#a)" stroke-width="2.418" d="M0-1.209h553.581" transform="scale(1 -1) rotate(45 1163.11 91.165)"/><path stroke="url(#b)" stroke-width="2.418" d="M404.846 598.671h391.726"/><path stroke="url(#c)" stroke-width="2.418" d="M599.5 795.742V404.017"/><path stroke="url(#d)" stroke-width="2.418" d="m795.717 796.597-391.441-391.44"/><path fill="#fff" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/><g clip-path="url(#e)"><path fill="#666" fill-rule="evenodd" d="M616.426 586.58h-31.434v16.176l3.553-3.554.531-.531h9.068l.074-.074 8.463-8.463h2.565l7.18 7.181V586.58Zm-15.715 14.654 3.698 3.699 1.283 1.282-2.565 2.565-1.282-1.283-5.2-5.199h-6.066l-5.514 5.514-.073.073v2.876a2.418 2.418 0 0 0 2.418 2.418h26.598a2.418 2.418 0 0 0 2.418-2.418v-8.317l-8.463-8.463-7.181 7.181-.071.072Zm-19.347 5.442v4.085a6.045 6.045 0 0 0 6.046 6.045h26.598a6.044 6.044 0 0 0 6.045-6.045v-7.108l1.356-1.355-1.282-1.283-.074-.073v-17.989h-38.689v23.43l-.146.146.146.147Z" clip-rule="evenodd"/></g><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/></g><defs><linearGradient id="a" x1="554.061" x2="-.48" y1=".083" y2=".087" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="b" x1="796.912" x2="404.507" y1="599.963" y2="599.965" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="c" x1="600.792" x2="600.794" y1="403.677" y2="796.082" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="d" x1="404.85" x2="796.972" y1="403.903" y2="796.02" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><clipPath id="e"><path fill="#fff" d="M581.364 580.535h38.689v38.689h-38.689z"/></clipPath></defs></svg>
+User-agent: *
+Allow: /
+
+#root {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  text-align: left;
+}
+
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+
+const queryClient = new QueryClient();
+const basename = import.meta.env.BASE_URL || "/";
+const App = () => (
+  <ErrorBoundary>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter basename={basename}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
+  </ErrorBoundary>
+);
+
+export default App;
+
+// src/components/ErrorBoundary.tsx
+import { Component, ErrorInfo, ReactNode } from "react";
+import { Button } from "@/components/ui/button";
+
+interface Props {
+  children: ReactNode;
+}
+
+interface State {
+  hasError: boolean;
+  error?: Error;
+}
+
+export class ErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false,
+  };
+
+  public static getDerivedStateFromError(error: Error): State {
+    return { hasError: true, error };
+  }
+
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error("Error capturado por ErrorBoundary:", error, errorInfo);
+  }
+
+  public render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex min-h-screen items-center justify-center bg-background p-4">
+          <div className="text-center max-w-md">
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Algo salió mal
+            </h1>
+            <p className="text-muted-foreground mb-6">
+              Ocurrió un error inesperado. Por favor, intenta recargar la página.
+            </p>
+            {process.env.NODE_ENV === "development" && this.state.error && (
+              <pre className="text-left text-xs bg-muted p-4 rounded mb-4 overflow-auto">
+                {this.state.error.toString()}
+              </pre>
+            )}
+            <div className="flex gap-4 justify-center">
+              <Button 
+                onClick={() => window.location.reload()}
+                size="lg"
+              >
+                Recargar página
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => window.location.href = "/"}
+                size="lg"
+              >
+                Ir al inicio
+              </Button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+import { siteConfig } from "@/config/site";
+
+const Footer = () => {
+  return (
+    <footer id="contacto" className="border-t border-black/10 px-6 py-16 md:px-10 lg:px-14">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Contacto</p>
+          <p className="mt-4 text-sm leading-7 text-black/70">{siteConfig.contact.email}</p>
+          <p className="text-sm leading-7 text-black/70">{siteConfig.contact.phone}</p>
+        </div>
+
+        <div className="flex flex-col gap-4 text-[11px] uppercase tracking-[0.3em] text-black/70 md:items-end">
+          <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-70">
+            Instagram
+          </a>
+          <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-70">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-6xl border-t border-black/10 pt-6 text-sm text-black/50">
+        © {new Date().getFullYear()} {siteConfig.name}
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+import { useState } from "react";
+import { Menu, X } from "@/lib/icons";
+import { navLinks } from "@/data/navigation";
+
+const Header = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#fcfbf7]/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10 lg:px-14">
+        <a href="#inicio" className="text-[11px] uppercase tracking-[0.35em] text-black">
+          Leandro A. Cuellar
+        </a>
+
+        <nav className="hidden items-center gap-6 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <button
+          className="text-black md:hidden"
+          onClick={() => setOpen(!open)}
+          aria-label="Menú"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {open && (
+        <nav className="border-t border-black/10 bg-[#fcfbf7] px-6 py-3 md:hidden">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block py-2 text-[11px] uppercase tracking-[0.3em] text-black/70"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
+    </header>
+  );
+};
+
+export default Header;
+
+import { siteConfig } from "@/config/site";
+
+const Hero = () => {
+  return (
+    <section id="inicio" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14 lg:py-28">
+      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-black/55">Perfil editorial</p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-light leading-[0.9] sm:text-6xl lg:text-7xl">
+            {siteConfig.name}
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-black/70">
+            Página biográfica organizada en torno a cuatro dimensiones: autor, intelectual, estratega y comunicador.
+          </p>
+
+          <div className="mt-12 flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.3em] text-black/60">
+            <span>Filosofía Imagen</span>
+            <span>Filosofía Poder</span>
+            <span>Filosofía IA</span>
+            <span>Profesor</span>
+            <span>Comunicador</span>
+          </div>
+        </div>
+
+        <figure className="border border-black/10 bg-[#f4f1ea] p-4 sm:p-6">
+          <img
+            src="/photos/hero.webp"
+            alt="Leandro A. Cuellar"
+            className="w-full"
+            loading="eager"
+          />
+          <figcaption className="mt-3 text-[10px] uppercase tracking-[0.3em] text-black/45">
+            Leandro A. Cuellar / hero
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
+import { NavLink as RouterNavLink, NavLinkProps } from "react-router-dom";
+import { forwardRef } from "react";
+import { cn } from "@/lib/utils";
+
+interface NavLinkCompatProps extends Omit<NavLinkProps, "className"> {
+  className?: string;
+  activeClassName?: string;
+  pendingClassName?: string;
+}
+
+const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
+  ({ className, activeClassName, pendingClassName, to, ...props }, ref) => {
+    return (
+      <RouterNavLink
+        ref={ref}
+        to={to}
+        className={({ isActive, isPending }) =>
+          cn(className, isActive && activeClassName, isPending && pendingClassName)
+        }
+        {...props}
+      />
+    );
+  },
+);
+
+NavLink.displayName = "NavLink";
+
+export { NavLink };
+
+import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { MapPin } from "@/lib/icons";
+import { Proyecto } from "@/types/index";
+
+interface ProyectoCardProps {
+  proyecto: Proyecto;
+}
+
+export const ProyectoCard = ({ proyecto }: ProyectoCardProps) => {
+  return (
+    <Card className="border-none shadow-md hover:shadow-lg transition-shadow bg-background">
+      <CardContent className="p-6 space-y-4">
+        <div className="h-32 bg-primary/5 rounded-lg flex items-center justify-center mb-2">
+          <span className="font-heading text-sm text-muted-foreground">
+            Imagen del proyecto
+          </span>
+        </div>
+        <h3 className="font-heading text-lg font-bold text-foreground">
+          {proyecto.title}
+        </h3>
+        <p className="font-body text-sm text-muted-foreground leading-relaxed">
+          {proyecto.desc}
+        </p>
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-heading font-semibold text-primary">
+              {proyecto.status}
+            </span>
+            <span className="text-muted-foreground">{proyecto.progress}%</span>
+          </div>
+          <Progress value={proyecto.progress} className="h-2" />
+        </div>
+        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+          <MapPin size={14} /> {proyecto.location}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+import { Helmet } from "react-helmet-async";
+
+interface SEOProps {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+export const SEO = ({ title, description, image }: SEOProps) => {
+  const siteTitle = title
+    ? `${title} | Leandro A. Cuellar`
+    : "Leandro A. Cuellar";
+
+  const seoDescription = description ?? "Autor, intelectual, estratega y comunicador. Página editorial y biográfica de Leandro A. Cuellar.";
+
+  return (
+    <Helmet>
+      <title>{siteTitle}</title>
+      <meta name="description" content={seoDescription} />
+      <meta property="og:title" content={siteTitle} />
+      <meta property="og:description" content={seoDescription} />
+      {image && <meta property="og:image" content={image} />}
+    </Helmet>
+  );
+};
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
+  },
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };
+
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />
+));
+Card.displayName = "Card";
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  ),
+);
+CardHeader.displayName = "CardHeader";
+
+const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ className, ...props }, ref) => (
+    <h3 ref={ref} className={cn("text-2xl font-semibold leading-none tracking-tight", className)} {...props} />
+  ),
+);
+CardTitle.displayName = "CardTitle";
+
+const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
+  ({ className, ...props }, ref) => (
+    <p ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+  ),
+);
+CardDescription.displayName = "CardDescription";
+
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />,
+);
+CardContent.displayName = "CardContent";
+
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  ),
+);
+CardFooter.displayName = "CardFooter";
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent };
+
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { Check } from "@/lib/icons";
+
+import { cn } from "@/lib/utils";
+
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <CheckboxPrimitive.Root
+    ref={ref}
+    className={cn(
+      "peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+      className,
+    )}
+    {...props}
+  >
+    <CheckboxPrimitive.Indicator className={cn("flex items-center justify-center text-current")}>
+      <Check className="h-4 w-4" />
+    </CheckboxPrimitive.Indicator>
+  </CheckboxPrimitive.Root>
+));
+Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+
+export { Checkbox };
+
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { Slot } from "@radix-ui/react-slot";
+import { Controller, ControllerProps, FieldPath, FieldValues, FormProvider, useFormContext } from "react-hook-form";
+
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
+
+const Form = FormProvider;
+
+type FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> = {
+  name: TName;
+};
+
+const FormFieldContext = React.createContext<FormFieldContextValue>({} as FormFieldContextValue);
+
+const FormField = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>({
+  ...props
+}: ControllerProps<TFieldValues, TName>) => {
+  return (
+    <FormFieldContext.Provider value={{ name: props.name }}>
+      <Controller {...props} />
+    </FormFieldContext.Provider>
+  );
+};
+
+const useFormField = () => {
+  const fieldContext = React.useContext(FormFieldContext);
+  const itemContext = React.useContext(FormItemContext);
+  const { getFieldState, formState } = useFormContext();
+
+  const fieldState = getFieldState(fieldContext.name, formState);
+
+  if (!fieldContext) {
+    throw new Error("useFormField should be used within <FormField>");
+  }
+
+  const { id } = itemContext;
+
+  return {
+    id,
+    name: fieldContext.name,
+    formItemId: `${id}-form-item`,
+    formDescriptionId: `${id}-form-item-description`,
+    formMessageId: `${id}-form-item-message`,
+    ...fieldState,
+  };
+};
+
+type FormItemContextValue = {
+  id: string;
+};
+
+const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
+
+const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const id = React.useId();
+
+    return (
+      <FormItemContext.Provider value={{ id }}>
+        <div ref={ref} className={cn("space-y-2", className)} {...props} />
+      </FormItemContext.Provider>
+    );
+  },
+);
+FormItem.displayName = "FormItem";
+
+const FormLabel = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+>(({ className, ...props }, ref) => {
+  const { error, formItemId } = useFormField();
+
+  return <Label ref={ref} className={cn(error && "text-destructive", className)} htmlFor={formItemId} {...props} />;
+});
+FormLabel.displayName = "FormLabel";
+
+const FormControl = React.forwardRef<React.ElementRef<typeof Slot>, React.ComponentPropsWithoutRef<typeof Slot>>(
+  ({ ...props }, ref) => {
+    const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
+
+    return (
+      <Slot
+        ref={ref}
+        id={formItemId}
+        aria-describedby={!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`}
+        aria-invalid={!!error}
+        {...props}
+      />
+    );
+  },
+);
+FormControl.displayName = "FormControl";
+
+const FormDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
+  ({ className, ...props }, ref) => {
+    const { formDescriptionId } = useFormField();
+
+    return <p ref={ref} id={formDescriptionId} className={cn("text-sm text-muted-foreground", className)} {...props} />;
+  },
+);
+FormDescription.displayName = "FormDescription";
+
+const FormMessage = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
+  ({ className, children, ...props }, ref) => {
+    const { error, formMessageId } = useFormField();
+    const body = error ? String(error?.message) : children;
+
+    if (!body) {
+      return null;
+    }
+
+    return (
+      <p ref={ref} id={formMessageId} className={cn("text-sm font-medium text-destructive", className)} {...props}>
+        {body}
+      </p>
+    );
+  },
+);
+FormMessage.displayName = "FormMessage";
+
+export { useFormField, Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField };
+
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
+Input.displayName = "Input";
+
+export { Input };
+
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
+
+const labelVariants = cva("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
+
+const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> & VariantProps<typeof labelVariants>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root ref={ref} className={cn(labelVariants(), className)} {...props} />
+));
+Label.displayName = LabelPrimitive.Root.displayName;
+
+export { Label };
+
+import * as React from "react";
+import * as ProgressPrimitive from "@radix-ui/react-progress";
+
+import { cn } from "@/lib/utils";
+
+const Progress = React.forwardRef<
+  React.ElementRef<typeof ProgressPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
+>(({ className, value, ...props }, ref) => (
+  <ProgressPrimitive.Root
+    ref={ref}
+    className={cn("relative h-4 w-full overflow-hidden rounded-full bg-secondary", className)}
+    {...props}
+  >
+    <ProgressPrimitive.Indicator
+      className="h-full w-full flex-1 bg-primary transition-all"
+      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+    />
+  </ProgressPrimitive.Root>
+));
+Progress.displayName = ProgressPrimitive.Root.displayName;
+
+export { Progress };
+
+import { useTheme } from "next-themes";
+import { Toaster as Sonner, toast } from "sonner";
+
+type ToasterProps = React.ComponentProps<typeof Sonner>;
+
+const Toaster = ({ ...props }: ToasterProps) => {
+  const { theme = "system" } = useTheme();
+
+  return (
+    <Sonner
+      theme={theme as ToasterProps["theme"]}
+      className="toaster group"
+      toastOptions={{
+        classNames: {
+          toast:
+            "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+          description: "group-[.toast]:text-muted-foreground",
+          actionButton: "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+          cancelButton: "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
+        },
+      }}
+      {...props}
+    />
+  );
+};
+
+export { Toaster, toast };
+
+import * as React from "react";
+import * as ToastPrimitives from "@radix-ui/react-toast";
+import { cva, type VariantProps } from "class-variance-authority";
+import { X } from "@/lib/icons";
+
+import { cn } from "@/lib/utils";
+
+const ToastProvider = ToastPrimitives.Provider;
+
+const ToastViewport = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Viewport>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Viewport
+    ref={ref}
+    className={cn(
+      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+      className,
+    )}
+    {...props}
+  />
+));
+ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
+
+const toastVariants = cva(
+  "group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+  {
+    variants: {
+      variant: {
+        default: "border bg-background text-foreground",
+        destructive: "destructive group border-destructive bg-destructive text-destructive-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+const Toast = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> & VariantProps<typeof toastVariants>
+>(({ className, variant, ...props }, ref) => {
+  return <ToastPrimitives.Root ref={ref} className={cn(toastVariants({ variant }), className)} {...props} />;
+});
+Toast.displayName = ToastPrimitives.Root.displayName;
+
+const ToastAction = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Action>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Action
+    ref={ref}
+    className={cn(
+      "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors group-[.destructive]:border-muted/40 hover:bg-secondary group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 group-[.destructive]:focus:ring-destructive disabled:pointer-events-none disabled:opacity-50",
+      className,
+    )}
+    {...props}
+  />
+));
+ToastAction.displayName = ToastPrimitives.Action.displayName;
+
+const ToastClose = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Close>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Close
+    ref={ref}
+    className={cn(
+      "absolute right-2 top-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity group-hover:opacity-100 group-[.destructive]:text-red-300 hover:text-foreground group-[.destructive]:hover:text-red-50 focus:opacity-100 focus:outline-none focus:ring-2 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600",
+      className,
+    )}
+    toast-close=""
+    {...props}
+  >
+    <X className="h-4 w-4" />
+  </ToastPrimitives.Close>
+));
+ToastClose.displayName = ToastPrimitives.Close.displayName;
+
+const ToastTitle = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Title>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Title ref={ref} className={cn("text-sm font-semibold", className)} {...props} />
+));
+ToastTitle.displayName = ToastPrimitives.Title.displayName;
+
+const ToastDescription = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Description>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Description ref={ref} className={cn("text-sm opacity-90", className)} {...props} />
+));
+ToastDescription.displayName = ToastPrimitives.Description.displayName;
+
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
+
+type ToastActionElement = React.ReactElement<typeof ToastAction>;
+
+export {
+  type ToastProps,
+  type ToastActionElement,
+  ToastProvider,
+  ToastViewport,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
+};
+
+import { useToast } from "@/hooks/use-toast";
+import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/components/ui/toast";
+
+export function Toaster() {
+  const { toasts } = useToast();
+
+  return (
+    <ToastProvider>
+      {toasts.map(function ({ id, title, description, action, ...props }) {
+        return (
+          <Toast key={id} {...props}>
+            <div className="grid gap-1">
+              {title && <ToastTitle>{title}</ToastTitle>}
+              {description && <ToastDescription>{description}</ToastDescription>}
+            </div>
+            {action}
+            <ToastClose />
+          </Toast>
+        );
+      })}
+      <ToastViewport />
+    </ToastProvider>
+  );
+}
+
+import * as React from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+
+import { cn } from "@/lib/utils";
+
+const TooltipProvider = TooltipPrimitive.Provider;
+
+const Tooltip = TooltipPrimitive.Root;
+
+const TooltipTrigger = TooltipPrimitive.Trigger;
+
+const TooltipContent = React.forwardRef<
+  React.ElementRef<typeof TooltipPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
+>(({ className, sideOffset = 4, ...props }, ref) => (
+  <TooltipPrimitive.Content
+    ref={ref}
+    sideOffset={sideOffset}
+    className={cn(
+      "z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className,
+    )}
+    {...props}
+  />
+));
+TooltipContent.displayName = TooltipPrimitive.Content.displayName;
+
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
+
+import { useToast, toast } from "@/hooks/use-toast";
+
+export { useToast, toast };
+
+export const siteConfig = {
+  name: "Leandro A. Cuellar",
+  description: "Autor, intelectual, estratega y comunicador.",
+  url: "https://tu-dominio.com",
+  contact: {
+    email: "leandrocuellarok@gmail.com",
+    phone: "+54 9 1130538404",
+    whatsapp: "5491130538404"
+  },
+  social: {
+    instagram: "https://www.instagram.com/reel/DZyEahzvtsZ/?igsh=MTQ4OHBvZzA4Mmd1dw==",
+    linkedin: "https://www.linkedin.com/in/leandrocuellarok"
+  }
+} as const;
+export const navLinks = [
+  { label: "Imagen", href: "#filosofiaImagen" },
+  { label: "Poder", href: "#filosofiaPoder" },
+  { label: "IA", href: "#filosofiaIA" },
+  { label: "Profesor", href: "#profesor" },
+  { label: "Comunicador", href: "#comunicador" },
+  { label: "Libro", href: "#libro" },
+  { label: "Contacto", href: "#contacto" },
+] as const;
+import * as React from "react";
+
+const MOBILE_BREAKPOINT = 768;
+
+export function useIsMobile() {
+  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined);
+
+  React.useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const onChange = () => {
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    };
+    mql.addEventListener("change", onChange);
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  return !!isMobile;
+}
+
+import * as React from "react";
+
+import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
+
+const TOAST_LIMIT = 1;
+const TOAST_REMOVE_DELAY = 1000000;
+
+type ToasterToast = ToastProps & {
+  id: string;
+  title?: React.ReactNode;
+  description?: React.ReactNode;
+  action?: ToastActionElement;
+};
+
+const actionTypes = {
+  ADD_TOAST: "ADD_TOAST",
+  UPDATE_TOAST: "UPDATE_TOAST",
+  DISMISS_TOAST: "DISMISS_TOAST",
+  REMOVE_TOAST: "REMOVE_TOAST",
+} as const;
+
+let count = 0;
+
+function genId() {
+  count = (count + 1) % Number.MAX_SAFE_INTEGER;
+  return count.toString();
+}
+
+type ActionType = typeof actionTypes;
+
+type Action =
+  | {
+      type: ActionType["ADD_TOAST"];
+      toast: ToasterToast;
+    }
+  | {
+      type: ActionType["UPDATE_TOAST"];
+      toast: Partial<ToasterToast>;
+    }
+  | {
+      type: ActionType["DISMISS_TOAST"];
+      toastId?: ToasterToast["id"];
+    }
+  | {
+      type: ActionType["REMOVE_TOAST"];
+      toastId?: ToasterToast["id"];
+    };
+
+interface State {
+  toasts: ToasterToast[];
+}
+
+const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
+
+const addToRemoveQueue = (toastId: string) => {
+  if (toastTimeouts.has(toastId)) {
+    return;
+  }
+
+  const timeout = setTimeout(() => {
+    toastTimeouts.delete(toastId);
+    dispatch({
+      type: "REMOVE_TOAST",
+      toastId: toastId,
+    });
+  }, TOAST_REMOVE_DELAY);
+
+  toastTimeouts.set(toastId, timeout);
+};
+
+export const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "ADD_TOAST":
+      return {
+        ...state,
+        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+      };
+
+    case "UPDATE_TOAST":
+      return {
+        ...state,
+        toasts: state.toasts.map((t) => (t.id === action.toast.id ? { ...t, ...action.toast } : t)),
+      };
+
+    case "DISMISS_TOAST": {
+      const { toastId } = action;
+
+      // ! Side effects ! - This could be extracted into a dismissToast() action,
+      // but I'll keep it here for simplicity
+      if (toastId) {
+        addToRemoveQueue(toastId);
+      } else {
+        state.toasts.forEach((toast) => {
+          addToRemoveQueue(toast.id);
+        });
+      }
+
+      return {
+        ...state,
+        toasts: state.toasts.map((t) =>
+          t.id === toastId || toastId === undefined
+            ? {
+                ...t,
+                open: false,
+              }
+            : t,
+        ),
+      };
+    }
+    case "REMOVE_TOAST":
+      if (action.toastId === undefined) {
+        return {
+          ...state,
+          toasts: [],
+        };
+      }
+      return {
+        ...state,
+        toasts: state.toasts.filter((t) => t.id !== action.toastId),
+      };
+  }
+};
+
+const listeners: Array<(state: State) => void> = [];
+
+let memoryState: State = { toasts: [] };
+
+function dispatch(action: Action) {
+  memoryState = reducer(memoryState, action);
+  listeners.forEach((listener) => {
+    listener(memoryState);
+  });
+}
+
+type Toast = Omit<ToasterToast, "id">;
+
+function toast({ ...props }: Toast) {
+  const id = genId();
+
+  const update = (props: ToasterToast) =>
+    dispatch({
+      type: "UPDATE_TOAST",
+      toast: { ...props, id },
+    });
+  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
+
+  dispatch({
+    type: "ADD_TOAST",
+    toast: {
+      ...props,
+      id,
+      open: true,
+      onOpenChange: (open) => {
+        if (!open) dismiss();
+      },
+    },
+  });
+
+  return {
+    id: id,
+    dismiss,
+    update,
+  };
+}
+
+function useToast() {
+  const [state, setState] = React.useState<State>(memoryState);
+
+  React.useEffect(() => {
+    listeners.push(setState);
+    return () => {
+      const index = listeners.indexOf(setState);
+      if (index > -1) {
+        listeners.splice(index, 1);
+      }
+    };
+  }, [state]);
+
+  return {
+    ...state,
+    toast,
+    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+  };
+}
+
+export { useToast, toast };
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 25% 97%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 40 20% 95%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 7%;
+
+    --radius: 0rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a {
+    @apply transition-opacity duration-200;
+  }
+
+  a:hover {
+    @apply opacity-80;
+  }
+
+  ::selection {
+    background: #111111;
+    color: #ffffff;
+  }
+}
+
+export {
+  Eye,
+  Users,
+  Shield,
+  BookOpen,
+  TrendingUp,
+  Leaf,
+  MapPin,
+  CalendarDays,
+  User,
+  Instagram,
+  Twitter,
+  Mail,
+  Phone,
+  Menu,
+  X,
+  MessageCircle,
+  Target,
+  Check,
+  Drama,
+  Linkedin,
+  Youtube
+} from "lucide-react";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+import { z } from "zod";
+
+export const contactSchema = z.object({
+  nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  localidad: z.string().min(2, "La localidad es requerida"),
+  telefono: z.string().regex(/^\+?[0-9\s-]+$/, "Teléfono inválido"),
+  voluntario: z.boolean()
+});
+
+export type ContactFormData = z.infer<typeof contactSchema>;
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+
+createRoot(document.getElementById("root")!).render(<App />);
+
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
+
+const sectionImageBase = "/photos";
+
+const authorImages = [
+  { src: `${sectionImageBase}/autor_libro_1.webp`, alt: "Leandro A. Cuellar - Autor - Libro", caption: "Autor / libro 01", wide: true },
+  { src: `${sectionImageBase}/autor_foto_1.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Autor / fotografía 01" },
+  { src: `${sectionImageBase}/autor_foto_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Autor / fotografía 02" },
+  { src: `${sectionImageBase}/autor_foto_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Autor / fotografía 03" },
+  { src: `${sectionImageBase}/autor_foto_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 4", caption: "Autor / fotografía 04" },
+] as const;
+
+const intelectualImages = [
+  { src: `${sectionImageBase}/intec_1.webp`, alt: "Leandro A. Cuellar - Autor - Libro", caption: "libro 01 / Agotado", wide: true },
+  { src: `${sectionImageBase}/intec_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Intelectual / marca" },
+  { src: `${sectionImageBase}/intec_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Intelectual / Cine" },
+  { src: `${sectionImageBase}/intec_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Intelectual / libro 02" },
+  { src: `${sectionImageBase}/intec_5.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 4", caption: "Intelectual / fotografía" },
+] as const;
+
+const bookCover = `${sectionImageBase}/portada_libro.webp`;
+
+const libro2Links = [
+  { label: "Nota: El Pensador", href: "https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" },
+  { label: "Nota: Voces de la Comuna 15", href: "https://vocesdelacomuna15.com.ar/press/leandro-a-cuellar-presenta-su-segundo-libro-mientras-todavia-hayaimagenes/" },
+  { label: "Nota: Pehuenche Digital", href: "https://www.pehuenchedigital.com.ar/articulo/17753/leandro-cuellar-presenta----mientras-todav--a-haya-im--genes--el-diario-privado-de-un-espectador-" },
+] as const;
+
+const authorLinks = [
+  { label: "Artículo académico", href: "https://www.academia.edu/143381434/Cuellar_Leandro_Abel_Cap%C3%ADtulo_Una_mirada_al_documental_El_Bot%C3%B3n_de_N%C3%A1car_En_El_cine_en_tiempos_de_angustia_2023_" },
+] as const;
+
+const communicatorLinks = [
+  { label: "Instagram reel", href: "https://www.instagram.com/reel/DZyEahzvtsZ/?igsh=MTQ4OHBvZzA4Mmd1dw==" },
+] as const;
+
+const YouTubePreview = ({ href, title }: { href: string; title: string }) => {
+  const embedSrc = href.replace("watch?v=", "embed/");
+
+  return (
+    <div className="overflow-hidden border border-black/12 bg-white">
+      <div className="aspect-video bg-[#f4f1ea]">
+        <iframe
+          className="h-full w-full"
+          src={embedSrc}
+          title={title}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+    </div>
+  );
+};
+
+const EditorialImage = ({ src, alt, caption, wide = false }: { src: string; alt: string; caption: string; wide?: boolean }) => (
+  <figure className={wide ? "md:col-span-2" : ""}>
+    <img src={src} alt={alt} className="w-full border border-black/10 bg-[#f4f1ea]" loading="lazy" />
+    <figcaption className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">{caption}</figcaption>
+  </figure>
+);
+
+const Paragraphs = ({ items }: { items: string[] }) => (
+  <div className="space-y-6 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
+    {items.map((item) => (
+      <p key={item}>{item}</p>
+    ))}
+  </div>
+);
+
+const Index = () => {
+  const FilosofiaImagenParagraphs = [
+    "Su trabajo parte de la observación de lo cotidiano y de la exploración de la identidad, la memoria, el tiempo y las relaciones humanas, buscando construir una obra con una voz propia.",
+    "Esta dimensión reúne tres disciplinas que dialogan entre sí: el cine como lenguaje de la imagen en movimiento, la escritura como herramienta de reflexión y creación de sentido, y la fotografía como ejercicio de observación y síntesis visual. Cada una alimenta a las otras, conformando una producción autoral coherente que privilegia la sensibilidad, el pensamiento y una estética personal.",
+    "Más que producir contenidos, aspira a construir una obra capaz de permanecer en el tiempo, abrir preguntas y establecer un diálogo con quienes la contemplan. Es la dimensión desde la cual Leandro Cuellar entiende la creación como una forma de conocimiento y como una manera de interpretar el mundo. No importa con qué herramienta sea.",
+    "En noviembre de 2020, Leandro Cuellar fundó la escuela de cine Amour du cinéma. Más que un centro dedicado a la realización cinematográfica, el proyecto nació como un espacio para pensar el cine. A través de clases, encuentros y conferencias, reúne a personas de distintos países interesadas en explorar el diálogo entre el cine, la filosofía y el pensamiento contemporáneo.",
+    "A lo largo de su trayectoria, Amour du cinéma ha recibido críticas por un supuesto \"elitismo artístico\". Sin embargo, su propuesta nunca ha sido la formación técnica de cineastas, sino la reflexión sobre el cine como forma de pensamiento y sobre la imagen como herramienta filosófica, estética y cultural.",
+    "Con el paso de los años, el proyecto amplió su horizonte y hoy Amour du cinéma también funciona como productora audiovisual, impulsando proyectos cinematográficos.",
+    "En el ámbito editorial, Leandro Cuellar publicó en 2022 el libro El cine en tiempos de angustia, una obra dedicada a analizar la relación entre el cine, la subjetividad y el contexto contemporáneo. Debido a su recepción, el libro fue reeditado en 2023.",
+    "En el ámbito de la fotografía, Leandro Cuellar desarrolla actualmente el proyecto Ensayos sobre la identidad, una obra de carácter multidisciplinario que trasciende el lenguaje fotográfico. Aunque la fotografía constituye su eje central, el proyecto integra también recursos audiovisuales y textos ensayísticos, conformando un recorrido en el que la imagen y la escritura dialogan entre sí.",
+    "Organizado en capítulos temáticos, Ensayos sobre la identidad explora distintas dimensiones de la experiencia humana, entre ellas la angustia, la intimidad, la sensualidad y otras manifestaciones de la identidad contemporánea. La propuesta busca comprender la identidad no como una esencia fija, sino como un proceso en permanente transformación, articulando reflexión filosófica, sensibilidad estética y experimentación visual.",
+    "En conclusión, Leandro Cuellar como autor se caracteriza por una búsqueda constante de unidad entre pensamiento y creación. Ya sea a través del cine, la escritura o la fotografía, su obra concibe la imagen como una forma de conocimiento y el arte como un espacio desde el cual interrogar la identidad, el tiempo y la experiencia humana. Más que desarrollar disciplinas por separado, su propósito es construir una obra autoral coherente, en la que cada lenguaje contribuya a una misma búsqueda estética e intelectual.",
+  ];
+
+  const intelectualParagraphs = [
+    "El pensamiento constituye uno de los ejes centrales de la trayectoria de Leandro Cuellar. Su interés por la filosofía, el psicoanálisis, la teoría política y las ciencias sociales atraviesa tanto su producción artística como su actividad docente de seminarios privados y en investigación independiente. Entiende el conocimiento como una práctica viva, capaz de vincular disciplinas y ofrecer nuevas formas de comprender la realidad contemporánea.",
+    "Su trabajo se caracteriza por un enfoque interdisciplinario, estableciendo puentes entre autores clásicos y problemas actuales. Desde la filosofía de Friedrich Nietzsche hasta el psicoanálisis de Sigmund Freud y Jacques Lacan, pasando por el pensamiento político de Nicolás Maquiavelo o Carl Schmitt, desarrolla una lectura que integra distintas tradiciones para analizar la cultura, la identidad, el poder y la subjetividad.",
+    "Como docente, ha impulsado seminarios privados destinados a estudiantes de cine, profesionales, psicoanalistas, antropólogos, y público general, privilegiando el diálogo, el pensamiento crítico y la construcción colectiva del conocimiento. Sus seminarios buscan convertir conceptos complejos en herramientas para interpretar la vida cotidiana, el arte y la política.",
+    "En paralelo, desarrolla una labor permanente de investigación sobre cine, filosofía, comunicación, inteligencia artificial, marketing político y transformaciones culturales. Más que especializarse en un único campo, procura comprender los fenómenos contemporáneos desde una perspectiva transversal, donde las distintas disciplinas se complementan y enriquecen mutuamente.",
+    "Para Leandro Cuellar, pensar no constituye una actividad separada de la creación o de la acción. La reflexión filosófica, la investigación y la enseñanza forman parte de un mismo proceso: producir conocimiento que permita comprender mejor el mundo y actuar sobre él con mayor lucidez.",
+    "Durante su trayectoria académica, Leandro Cuellar mantuvo un conflicto con el investigador Javier Flax a raíz de profundas diferencias sobre el rol de la docencia universitaria y la libertad de pensamiento en el aula.",
+    "Según Leandro Cuellar, durante una clase se expusieron posicionamientos políticos que, a su juicio, excedían el análisis académico y eran presentados como verdades incuestionables. Entre los aspectos que cuestionó se encontraba el tratamiento de temas de fuerte controversia política y la manifestación de preferencias partidarias en el ámbito de la evaluación, por considerar que la universidad debe promover el pensamiento crítico y el debate plural antes que la adhesión a una determinada posición ideológica.",
+    "Leandro Cuellar sostiene que un docente tiene derecho a poseer convicciones políticas, filosóficas o religiosas, pero considera que estas no deben imponerse a los estudiantes ni constituir un criterio de evaluación. Desde su perspectiva, la función de la educación es ofrecer herramientas para el análisis crítico y garantizar un espacio donde puedan coexistir distintas posiciones dentro del respeto y el rigor intelectual.",
+    "Asimismo, Leandro Cuellar sostiene haber recibido amenazas por parte de Javier Flax durante el desarrollo de este conflicto. También afirma que sus diferencias con el pensamiento predominante dentro de determinados ámbitos académicos influyeron negativamente en su trayectoria universitaria. Según su relato, fue objeto de acusaciones que considera infundadas y de situaciones que, a su entender, obstaculizaron el pleno ejercicio de su derecho a cursar y participar en una universidad pública en condiciones de igualdad y libertad de expresión.",
+    "Como consecuencia de estas experiencias, Leandro Cuellar decidió orientar su actividad docente hacia seminarios y espacios de formación independientes, sustentados en el pluralismo intelectual, el respeto por la diversidad de ideas y el pensamiento crítico. Su propuesta pedagógica se basa en el análisis comparativo de autores y tradiciones, entendiendo que la educación no debe formar adherentes a una doctrina, sino personas capaces de construir un juicio propio.",
+    "En sus seminarios es posible estudiar y contrastar perspectivas muy diferentes entre sí, es posible leer a historiadores contemporáneos y contrastarlos como pueden ser: el marxista Eric Hobsbawm y el liberal Rondo Cameron, así como otros autores de diversas corrientes de pensamiento. Para Leandro Cuellar, el verdadero aprendizaje surge de la confrontación respetuosa entre ideas y de la libertad de cada alumno para elaborar sus propias conclusiones y crear pensamiento autónomo. Incluso en sus propias palabras: estoy de acuerdo en pensar que todas mis creencias actuales pueden ser falsas.",
+  ];
+
+  const filosofiaPoderParagraphs = [
+    "En este marco, Leandro Cuellar fundó Vilanova Group, un holding especializado en estrategia, comunicación e innovación que integra distintas áreas de trabajo vinculadas al marketing empresarial, el marketing político, la inteligencia artificial y el análisis de la opinión pública. Su propósito es desarrollar soluciones interdisciplinarias que permitan a organizaciones, empresas, gobiernos y líderes comprender escenarios complejos, fortalecer su posicionamiento y diseñar estrategias de largo plazo.",
+    "A través de sus diferentes unidades, Vilanova Group articula herramientas de comunicación estratégica, branding, consultoría institucional, formación ejecutiva, investigación social e inteligencia artificial aplicada a la toma de decisiones. El holding parte de la premisa de que la comunicación contemporánea requiere integrar tecnología, análisis de datos, comportamiento humano y construcción de narrativas para interpretar con mayor precisión las dinámicas de la sociedad.",
+    "Desde esta perspectiva, Vilanova Group concibe la estrategia no solo como un instrumento para alcanzar objetivos, sino como una metodología para comprender la opinión pública, anticipar transformaciones y construir organizaciones más sólidas, adaptables e innovadoras.",
+    "Cree que la inteligencia artificial constituye una de las herramientas más trascendentes del siglo XXI. Sin embargo, sostiene que su desarrollo debe estar guiado por principios éticos, transparencia y responsabilidad. La IA no debe reemplazar el juicio humano ni convertirse en un mecanismo de manipulación de las personas, sino ampliar las capacidades de análisis, creatividad y toma de decisiones de individuos e instituciones.",
+    "Desde esta perspectiva, cuestiona el uso de la inteligencia artificial y de las tecnologías de comunicación con fines exclusivamente propagandísticos. Considera que una democracia pierde calidad cuando las herramientas digitales se orientan a reforzar sesgos, polarizar a la ciudadanía o influir emocionalmente sobre los votantes mediante la desinformación, la segmentación opaca o la manipulación algorítmica.",
+    "Para Leandro Cuellar, la tecnología debe contribuir a una ciudadanía mejor informada y más libre, no a una ciudadanía más predecible o manipulable. Por ello, sostiene que la comunicación política debe privilegiar el debate público, el acceso a información verificable, la confrontación respetuosa de ideas y la autonomía crítica de los ciudadanos. La inteligencia artificial, afirma, alcanza su mayor valor cuando fortalece la deliberación democrática y amplía la capacidad de las personas para comprender la realidad, en lugar de sustituir su libertad de pensar.",
+  ];
+
+  const comunicadorParagraphs = [
+    "La comunicación constituye una de las herramientas fundamentales mediante las cuales Leandro Cuellar busca trasladar sus ideas al espacio público. Su propuesta parte de una concepción pluralista del diálogo, entendiendo que una sociedad democrática se fortalece cuando diferentes perspectivas pueden encontrarse, debatir y confrontar argumentos en un marco de respeto intelectual.",
+    "Con ese propósito impulsa FOCO LATAM, un espacio de análisis político que reúne a dirigentes, candidatos y referentes de distintos partidos y corrientes ideológicas. El proyecto busca contribuir a una conversación pública más amplia, privilegiando el intercambio de ideas por encima de la confrontación partidaria y promoviendo el acceso de la ciudadanía a una diversidad de voces y perspectivas.",
+    "En paralelo, creó Mujeres del Siglo XXI, un podcast dedicado a conversar con mujeres provenientes de ámbitos como la política, el empresariado, la academia y la sociedad civil. El proyecto propone un espacio para reflexionar sobre liderazgo, identidad, trabajo, participación pública y los desafíos contemporáneos, fomentando además una comunidad abierta donde hombres y mujeres puedan escuchar, dialogar y comprender distintas experiencias y formas de pensar.",
+    "Su actividad como comunicador también incluye la participación habitual como presidente de Vilanova Group y analista político y cultural en medios de comunicación y espacios de debate. Ha sido invitado a programas de televisión, señales informativas y plataformas de streaming, entre ellas Canal 26, así como distintos espacios digitales de análisis político y actualidad como RealPolitik. Del mismo modo, sus artículos, entrevistas y opiniones han sido publicados por diversos portales periodísticos y medios especializados.",
+    "Para Leandro Cuellar, comunicar no consiste únicamente en transmitir información, sino en generar espacios de encuentro donde las ideas puedan circular libremente. Su objetivo es contribuir a una esfera pública más plural, crítica y abierta al diálogo, entendiendo que la comunicación adquiere su mayor valor cuando fortalece la comprensión mutua y la calidad del debate democrático.",
+    "Como parte de sus investigaciones sobre comunicación política y construcción de identidad, desarrolló el personaje Nano Vilanova, un asesor político ficticio inspirado en la figura del consultor estadounidense Roger Stone. Concebido como un ejercicio de experimentación narrativa y performática, el personaje encarna una personalidad fría, calculadora y cínica, permitiéndole explorar los mecanismos de la persuasión, el poder, la propaganda y la construcción de liderazgo en la política contemporánea.",
+    "La propuesta trascendió el plano teórico: Leandro Cuellar llegó a participar en distintos espacios de comunicación bajo esa identidad, diseñó tarjetas personales y desarrolló una imagen pública diferenciada, convirtiendo a Nano Vilanova en un laboratorio sobre la construcción del personaje político. A través de recursos provenientes de la actuación de método y de la performance, investigó hasta qué punto una identidad puede moldearse mediante el lenguaje, la estética y el comportamiento.",
+    "Esta experiencia se inscribe dentro de una preocupación más amplia por comprender cómo se construyen las figuras públicas y cómo la comunicación puede transformar la percepción de una persona. Para Leandro Cuellar, Nano Vilanova no representa una identidad paralela, sino una herramienta de investigación sobre los límites entre la representación, la comunicación estratégica y la identidad en la vida pública.",
+  ];
+
+  const FilosofiaIAParagraphs = [
+    "La filosofía de la inteligencia artificial de Leandro A. Cuellar nace de una preocupación más antigua que la propia tecnología: comprender qué significa ser humano en una época en la que las imágenes, el lenguaje y la memoria pueden comenzar a ser producidos, almacenados y procesados por máquinas. Formado en filosofía y profundamente vinculado al cine y a la teoría de la imagen, Leandro encuentra en la inteligencia artificial un nuevo escenario para interrogar la condición humana.",
+    "En su pensamiento aparece una pregunta especialmente radical: ¿qué sucedería si aquello que llamamos conciencia pudiera ser trasladado a una máquina? El problema del mind uploading -como explicó en Perfil con Juan Bernaus y Julieta Fantini- lleva hasta el límite una cuestión que atraviesa su reflexión: si pudiéramos copiar nuestra memoria, nuestros pensamientos o incluso nuestra personalidad en un sistema artificial, ¿seguiríamos siendo nosotros mismos? ¿Dónde comienza y dónde termina una persona? ¿Es la conciencia información, o existe algo irreductible en la experiencia de estar vivo?",
+    "Desde esta perspectiva, Leandro Cuellar no entiende la inteligencia artificial únicamente como una herramienta tecnológica. La considera un acontecimiento filosófico capaz de modificar nuestra relación con el cuerpo, la identidad, la memoria, el deseo y la muerte. Su pregunta no es solamente qué puede hacer una máquina, sino qué ocurre con nosotros cuando comenzamos a delegar en ella facultades que históricamente consideramos humanas.",
+    "El algoritmo, para Cuellar, tampoco es neutral: detrás de cada sistema existen decisiones, intereses y relaciones de poder. Por eso su pensamiento se mueve entre la fascinación y la sospecha. 'La IA puede ampliar la potencia humana, pero también puede transformar nuestra manera de mirar, desear y comprender el mundo', como señaló a Matías Ale en Canal P.",
+    "En última instancia, su filosofía de la IA vuelve siempre a una pregunta esencial: si algún día pudiéramos reproducir nuestra mente, ¿habríamos vencido a la muerte o simplemente habríamos creado una copia de nosotros mismos?",
+  ];
+
+  return (
+    <>
+      <SEO title="Leandro A. Cuellar" description="Página biográfica editorial de Leandro A. Cuellar, en torno a la filósofía de la imagen, el poder y la inteligencia artificial." />
+      <div className="min-h-screen bg-[#fcfbf7] text-black">
+        <Header />
+        <Hero />
+
+        <main>
+          <section id="filosofiaImagen" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía de la Imagen</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía de la Imagen</h2>
+                  <div className="mt-8 max-w-xl">
+                    <Paragraphs items={FilosofiaImagenParagraphs.slice(0)} />
+                  </div>
+                </div>
+
+                <div className="space-y-10 lg:pt-2">
+
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {authorImages.map((image) => (
+                      <EditorialImage key={image.src} {...image} />
+                    ))}
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-3">
+                    {authorLinks.map((link) => (
+                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="space-y-4">
+                    <YouTubePreview href="https://www.youtube.com/watch?v=Dx8oXMBTo_8" title="filosofiaImagen - Video 01" />
+                    <YouTubePreview href="https://www.youtube.com/watch?v=NRBDfdrw8L0" title="filosofiaImagen - Video 02" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section id="filosofiaPoder" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía del Poder</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía del Poder</h2>
+                  <div className="mt-8">
+                    <Paragraphs items={filosofiaPoderParagraphs.slice(0, 3)} />
+                  </div>
+                </div>
+
+                <div className="space-y-8 lg:pt-2">
+                  <Paragraphs items={filosofiaPoderParagraphs.slice(3)} />
+
+                  <YouTubePreview href="https://www.youtube.com/watch?v=1as7rDoh4RM" title="FilosofiaPoder - Video 01" />
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section id="filosofiaIA" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía de la Inteligencia Artificial</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía de la Inteligencia Artificial</h2>
+                  <div className="mt-8">
+                    <Paragraphs items={FilosofiaIAParagraphs.slice(0,2)} />
+                  </div>
+                </div>
+
+                <div className="space-y-8 lg:pt-2">
+                  <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
+                  <YouTubePreview href="https://www.youtube.com/watch?v=JucRmxVSRV4" title="filosofiaIA - Video 01" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="profesor" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div className="mt-8">
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Profesor</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Profesor</h2>
+                  <Paragraphs items={intelectualParagraphs.slice(0, 4)} />
+                  <div className="mt-8 space-y-6">
+                  <Paragraphs items={intelectualParagraphs.slice(4, 6)} />
+
+                  <blockquote className="border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
+                    “La educación no consiste en acumular información, sino en aprender a pensar y crear. Una persona verdaderamente educada no es la que repite conocimientos, sino la que ha desarrollado una mirada propia sobre el mundo de forma autónoma. Enseñar es ofrecer herramientas para esa búsqueda, no imponer conclusiones doctrinarias. El pensamiento incomoda“. Leandro Cuellar.
+                  </blockquote>
+
+                  <Paragraphs items={intelectualParagraphs.slice(6, 9)} />
+                  </div>
+                </div>
+                
+                <div className="space-y-8 lg:pt-2">
+                  <Paragraphs items={intelectualParagraphs.slice(9)} />  
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {intelectualImages.map((image) => (
+                      <EditorialImage key={image.src} {...image} />
+                    ))}
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+
+          <section id="comunicador" className="px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Comunicador</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Comunicador</h2>
+                  <div className="mt-8">
+                    <Paragraphs items={comunicadorParagraphs.slice(0, 5)} />
+                  </div>
+                </div>
+
+                <div className="space-y-8 lg:pt-2">
+                  <Paragraphs items={comunicadorParagraphs.slice(5)} />
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {communicatorLinks.map((link) => (
+                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+
+                  <YouTubePreview href="https://www.youtube.com/watch?v=HKyg4wg_R-A" title="Comunicador - Video 01" />
+                  <YouTubePreview href="https://www.youtube.com/watch?v=Zos5RhTT0OA" title="Comunicador - Video 02" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="libro" className="border-y border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+
+                <div>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Libro</h2>
+                  <br />
+                  <figure className="overflow-hidden border border-black/10 bg-[#f4f1ea]">
+                    <img src={bookCover} alt="Portada del libro El cine en tiempos de angustia" className="w-full" loading="lazy" />
+                  </figure>
+                  <br />
+                  <a
+                    href={`https://wa.me/5491130538404?text=${encodeURIComponent("Hola, quiero adquirir El cine en tiempos de angustia.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex border border-black bg-black px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
+                  >
+                    Adquiérelo
+                  </a>
+                </div>
+                <div className="space-y-6 lg:pt-2">
+                    <div className="grid gap-4 md:grid-cols-2">
+                    {libro2Links.map((link) => (
+                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
+                        {link.label}
+                      </a>
+                    ))}
+                    </div>
+                    <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default Index;
+
+import { SEO } from "@/components/SEO";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+const NotFound = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+  }, [location.pathname]);
+
+  return (
+    <>
+      <SEO 
+        title="Página no encontrada" 
+        description="La página que buscas no existe"
+      />
+      <div className="flex min-h-screen items-center justify-center bg-muted">
+        <div className="text-center">
+          <h1 className="mb-4 text-4xl font-bold">404</h1>
+          <p className="mb-4 text-xl text-muted-foreground">Oops! Página no encontrada</p>
+          <a href="/" className="text-primary underline hover:text-primary/90">
+            Volver al inicio
+          </a>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default NotFound;
+import { describe, it, expect } from "vitest";
+
+describe("example", () => {
+  it("should pass", () => {
+    expect(true).toBe(true);
+  });
+});
+
+import "@testing-library/jest-dom";
+
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => {},
+  }),
+});
+
+export interface Proyecto {
+  title: string;
+  desc: string;
+  status: string;
+  progress: number;
+  location: string;
+}
+
+export interface Articulo {
+  title: string;
+  author: string;
+  date: string;
+  excerpt: string;
+}
+
+export interface Valor {
+  icon: ImageData;
+  title: string;
+  desc: string;
+}
+/// <reference types="vite/client" />
