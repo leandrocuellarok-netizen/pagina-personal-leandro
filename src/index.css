@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 25% 97%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 40 20% 95%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 7%;
+
+    --radius: 0rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a {
+    @apply transition-opacity duration-200;
+  }
+
+  a:hover {
+    @apply opacity-80;
+  }
+
+  ::selection {
+    background: #111111;
+    color: #ffffff;
+  }
+}
