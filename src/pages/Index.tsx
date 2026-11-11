@@ -123,8 +123,7 @@ const Index = () => {
     "La filosofía de la inteligencia artificial de Leandro A. Cuellar nace de una preocupación más antigua que la propia tecnología: comprender qué significa ser humano en una época en la que las imágenes, el lenguaje y la memoria pueden comenzar a ser producidos, almacenados y procesados por máquinas. Formado en filosofía y profundamente vinculado al cine y a la teoría de la imagen, Leandro encuentra en la inteligencia artificial un nuevo escenario para interrogar la condición humana.",
     "En su pensamiento aparece una pregunta especialmente radical: ¿qué sucedería si aquello que llamamos conciencia pudiera ser trasladado a una máquina? El problema del mind uploading -como explicó en Perfil con Juan Bernaus y Julieta Fantini- lleva hasta el límite una cuestión que atraviesa su reflexión: si pudiéramos copiar nuestra memoria, nuestros pensamientos o incluso nuestra personalidad en un sistema artificial, ¿seguiríamos siendo nosotros mismos? ¿Dónde comienza y dónde termina una persona? ¿Es la conciencia información, o existe algo irreductible en la experiencia de estar vivo?",
     "Desde esta perspectiva, Leandro Cuellar no entiende la inteligencia artificial únicamente como una herramienta tecnológica. La considera un acontecimiento filosófico capaz de modificar nuestra relación con el cuerpo, la identidad, la memoria, el deseo y la muerte. Su pregunta no es solamente qué puede hacer una máquina, sino qué ocurre con nosotros cuando comenzamos a delegar en ella facultades que históricamente consideramos humanas.",
-    "El algoritmo, para Cuellar, tampoco es neutral: detrás de cada sistema existen decisiones, intereses y relaciones de poder. Por eso su pensamiento se mueve entre la fascinación y la sospecha. 'La IA puede ampliar la potencia humana, pero también puede transformar nuestra manera de mirar, desear y comprender el mundo', como señaló a Matías Ale en Canal P.",
-    "En última instancia, su filosofía de la IA vuelve siempre a una pregunta esencial: si algún día pudiéramos reproducir nuestra mente, ¿habríamos vencido a la muerte o simplemente habríamos creado una copia de nosotros mismos?",
+    "También colabora en medios de comunicación, como la radio de la Universidad de San Luis y Perfil, y publica regularmente reflexiones sobre inteligencia artificial en LinkedIn.",
   ];
 
   return (
@@ -148,7 +147,7 @@ const Index = () => {
 
                 <div className="space-y-8 lg:pt-2">
                   <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
-                  <YouTubePreview href="https://www.youtube.com/watch?v=JucRmxVSRV4" title="filosofiaIA - Video 01" />
+                  <a href="https://www.linkedin.com/posts/leandrocuellar_c%C3%B3mo-sabemos-qui%C3%A9nes-somos-con-un-dibujo-ugcPost-7517760616326180864--FCi/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Publicaciones sobre IA en LinkedIn</a>
                 </div>
               </div>
             </div>
