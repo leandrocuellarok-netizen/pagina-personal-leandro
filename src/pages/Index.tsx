@@ -42,7 +42,7 @@ const YouTubePreview = ({ href, title }: { href: string; title: string }) => {
 
   return (
     <div className="overflow-hidden border border-black/12 bg-white">
-      <div className="aspect-video bg-[#f4f1ea]">
+      <div className="aspect-video bg-white">
         <iframe
           className="h-full w-full"
           src={embedSrc}
@@ -58,7 +58,7 @@ const YouTubePreview = ({ href, title }: { href: string; title: string }) => {
 
 const EditorialImage = ({ src, alt, caption, wide = false }: { src: string; alt: string; caption: string; wide?: boolean }) => (
   <figure className={wide ? "md:col-span-2" : ""}>
-    <img src={src} alt={alt} className="w-full border border-black/10 bg-[#f4f1ea]" loading="lazy" />
+    <img src={src} alt={alt} className="w-full border border-black/10 bg-white" loading="lazy" />
     <figcaption className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">{caption}</figcaption>
   </figure>
 );
@@ -130,7 +130,7 @@ const Index = () => {
   return (
     <>
       <SEO title="Leandro A. Cuellar" description="Página biográfica editorial de Leandro A. Cuellar, en torno a la filósofía de la imagen, el poder y la inteligencia artificial." />
-      <div className="min-h-screen bg-[#fcfbf7] text-black">
+      <div className="min-h-screen bg-white text-black">
         <Header />
         <Hero />
 
@@ -278,7 +278,7 @@ const Index = () => {
                 <div>
                   <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Libro</h2>
                   <br />
-                  <figure className="overflow-hidden border border-black/10 bg-[#f4f1ea]">
+                  <figure className="overflow-hidden border border-black/10 bg-white">
                     <img src={bookCover} alt="Portada del libro El cine en tiempos de angustia" className="w-full" loading="lazy" />
                   </figure>
                   <br />
@@ -286,7 +286,7 @@ const Index = () => {
                     href={`https://wa.me/5491130538404?text=${encodeURIComponent("Hola, quiero adquirir El cine en tiempos de angustia.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex border border-black bg-black px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
+                    className="inline-flex border border-black bg-[#5f050f] px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
                   >
                     Adquiérelo
                   </a>
