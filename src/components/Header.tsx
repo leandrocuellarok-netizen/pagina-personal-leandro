@@ -6,7 +6,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#fcfbf7]/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10 lg:px-14">
         <a href="#inicio" className="text-[11px] uppercase tracking-[0.35em] text-black">
           Leandro A. Cuellar
@@ -34,7 +34,7 @@ const Header = () => {
       </div>
 
       {open && (
-        <nav className="border-t border-black/10 bg-[#fcfbf7] px-6 py-3 md:hidden">
+        <nav className="border-t border-black/10 bg-white px-6 py-3 md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.href}
