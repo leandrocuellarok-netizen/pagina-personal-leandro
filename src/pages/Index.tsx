@@ -135,6 +135,25 @@ const Index = () => {
         <Hero />
 
         <main>
+          <section id="filosofiaIA" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía de la Inteligencia Artificial</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía de la Inteligencia Artificial</h2>
+                  <div className="mt-8">
+                    <Paragraphs items={FilosofiaIAParagraphs.slice(0,2)} />
+                  </div>
+                </div>
+
+                <div className="space-y-8 lg:pt-2">
+                  <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
+                  <YouTubePreview href="https://www.youtube.com/watch?v=JucRmxVSRV4" title="filosofiaIA - Video 01" />
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section id="filosofiaImagen" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -192,24 +211,7 @@ const Index = () => {
             </div>
           </section>
           
-          <section id="filosofiaIA" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía de la Inteligencia Artificial</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía de la Inteligencia Artificial</h2>
-                  <div className="mt-8">
-                    <Paragraphs items={FilosofiaIAParagraphs.slice(0,2)} />
-                  </div>
-                </div>
 
-                <div className="space-y-8 lg:pt-2">
-                  <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
-                  <YouTubePreview href="https://www.youtube.com/watch?v=JucRmxVSRV4" title="filosofiaIA - Video 01" />
-                </div>
-              </div>
-            </div>
-          </section>
 
           <section id="profesor" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
