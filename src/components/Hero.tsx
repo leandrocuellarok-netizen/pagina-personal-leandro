@@ -22,7 +22,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <figure className="border border-black/10 bg-[#f4f1ea] p-4 sm:p-6">
+        <figure className="border border-black/10 bg-white p-4 sm:p-6">
           <img
             src="/photos/hero.webp"
             alt="Leandro A. Cuellar"
