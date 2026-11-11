@@ -10,7 +10,7 @@ const Hero = () => {
             {siteConfig.name}
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-8 text-black/70">
-            Página biográfica organizada en torno a cuatro dimensiones: escritor, consultor, profesor, y comunicador.
+            Página biográfica organizada en torno a cinco dimensiones: divulgador de la inteligencia artificial, capacitador para pymes en comunicación estratégica e IA desde su ecosistema Vilanova Group, profesor de Filosofía, escritor y comunicador con proyectos propios como Amour du cinéma y Comunicadores Libres.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.3em] text-black/60">
