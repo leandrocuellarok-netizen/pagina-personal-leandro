@@ -111,7 +111,7 @@ const Index = () => {
   const comunicadorParagraphs = [
     "La comunicación constituye una de las herramientas fundamentales mediante las cuales Leandro Cuellar busca trasladar sus ideas al espacio público. Su propuesta parte de una concepción pluralista del diálogo, entendiendo que una sociedad democrática se fortalece cuando diferentes perspectivas pueden encontrarse, debatir y confrontar argumentos en un marco de respeto intelectual.",
     "Con ese propósito impulsa FOCO LATAM, un espacio de análisis político que reúne a dirigentes, candidatos y referentes de distintos partidos y corrientes ideológicas. El proyecto busca contribuir a una conversación pública más amplia, privilegiando el intercambio de ideas por encima de la confrontación partidaria y promoviendo el acceso de la ciudadanía a una diversidad de voces y perspectivas.",
-    "En paralelo, creó Mujeres del Siglo XXI, un podcast dedicado a conversar con mujeres provenientes de ámbitos como la política, el empresariado, la academia y la sociedad civil. El proyecto propone un espacio para reflexionar sobre liderazgo, identidad, trabajo, participación pública y los desafíos contemporáneos, fomentando además una comunidad abierta donde hombres y mujeres puedan escuchar, dialogar y comprender distintas experiencias y formas de pensar.",
+    "En paralelo, creó su proyecto máximo -a su forma de ver- Comunicadores Libres. Una comunidad que sirve como herramienta de trabajo a comunicadores argentinos y latinoamericanos. Con un enfoque puesto en el pluralismo y la posibilidad de que todos participen brindando contactos, compartiendo notas o links para seguimiento en redes sociales.",
     "Su actividad como comunicador también incluye la participación habitual como presidente de Vilanova Group y analista político y cultural en medios de comunicación y espacios de debate. Ha sido invitado a programas de televisión, señales informativas y plataformas de streaming, entre ellas Canal 26, así como distintos espacios digitales de análisis político y actualidad como RealPolitik. Del mismo modo, sus artículos, entrevistas y opiniones han sido publicados por diversos portales periodísticos y medios especializados.",
     "Para Leandro Cuellar, comunicar no consiste únicamente en transmitir información, sino en generar espacios de encuentro donde las ideas puedan circular libremente. Su objetivo es contribuir a una esfera pública más plural, crítica y abierta al diálogo, entendiendo que la comunicación adquiere su mayor valor cuando fortalece la comprensión mutua y la calidad del debate democrático.",
     "Como parte de sus investigaciones sobre comunicación política y construcción de identidad, desarrolló el personaje Nano Vilanova, un asesor político ficticio inspirado en la figura del consultor estadounidense Roger Stone. Concebido como un ejercicio de experimentación narrativa y performática, el personaje encarna una personalidad fría, calculadora y cínica, permitiéndole explorar los mecanismos de la persuasión, el poder, la propaganda y la construcción de liderazgo en la política contemporánea.",
@@ -157,8 +157,8 @@ const Index = () => {
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía de la Imagen</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía de la Imagen</h2>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Amour du cinéma</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Amour du cinéma</h2>
                   <div className="mt-8 max-w-xl">
                     <Paragraphs items={FilosofiaImagenParagraphs.slice(0)} />
                   </div>
@@ -194,8 +194,8 @@ const Index = () => {
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía del Poder</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía del Poder</h2>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Vilanova Group</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Vilanova Group</h2>
                   <div className="mt-8">
                     <Paragraphs items={filosofiaPoderParagraphs.slice(0, 3)} />
                   </div>
@@ -247,8 +247,8 @@ const Index = () => {
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Comunicador</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Comunicador</h2>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Comunicadores Libres</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Comunicadores Libres</h2>
                   <div className="mt-8">
                     <Paragraphs items={comunicadorParagraphs.slice(0, 5)} />
                   </div>
@@ -265,8 +265,9 @@ const Index = () => {
                     ))}
                   </div>
 
-                  <YouTubePreview href="https://www.youtube.com/watch?v=HKyg4wg_R-A" title="Comunicador - Video 01" />
-                  <YouTubePreview href="https://www.youtube.com/watch?v=Zos5RhTT0OA" title="Comunicador - Video 02" />
+                  <a href="https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Unirse a la comunidad de Comunicadores Libres</a>
+                  <YouTubePreview href="https://www.youtube.com/watch?v=HKyg4wg_R-A" title="Comunicadores Libres - Video 01" />
+                  <YouTubePreview href="https://www.youtube.com/watch?v=Zos5RhTT0OA" title="Comunicadores Libres - Video 02" />
                 </div>
               </div>
             </div>
