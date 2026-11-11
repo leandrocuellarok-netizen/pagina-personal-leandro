@@ -34,7 +34,7 @@ const authorLinks = [
 ] as const;
 
 const communicatorLinks = [
-  { label: "Instagram reel", href: "https://www.instagram.com/reel/DZyEahzvtsZ/?igsh=MTQ4OHBvZzA4Mmd1dw==" },
+  { label: "Instagram", href: "https://www.instagram.com/leandrocuellar.online/" },
 ] as const;
 
 const YouTubePreview = ({ href, title }: { href: string; title: string }) => {
