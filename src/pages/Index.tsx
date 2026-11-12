@@ -148,6 +148,7 @@ const Index = () => {
                 <div className="space-y-8 lg:pt-2">
                   <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
                   <a href="https://www.linkedin.com/posts/leandrocuellar_c%C3%B3mo-sabemos-qui%C3%A9nes-somos-con-un-dibujo-ugcPost-7517760616326180864--FCi/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Publicaciones sobre IA en LinkedIn</a>
+                  <a href="https://quepasaamerica.com.ar/ia-redes-y-vacio-legal-que-dice-la-filosofia-del-derecho-sobre-el-caso-nahir-galarza/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">IA, redes y vacío legal: filosofía del derecho</a>
                 </div>
               </div>
             </div>
