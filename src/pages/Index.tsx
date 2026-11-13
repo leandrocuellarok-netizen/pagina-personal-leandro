@@ -277,7 +277,29 @@ const Index = () => {
             </div>
           </section>
 
-          <section id="libro" className="border-y border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+          
+          <section id="movimientoVecinal" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Movimiento Vecinal Escobar</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Movimiento Vecinal Escobar</h2>
+                </div>
+                <div className="space-y-8 lg:pt-2">
+                  <Paragraphs items={[
+                    'La propuesta se aleja de las estructuras partidarias tradicionales y adopta como lema la frase «ser vecino es un deber diplomático». Impulsa una identidad política basada en la convivencia barrial, la transparencia y el contacto directo con la comunidad.',
+                    'Promueve iniciativas para conectar a jóvenes con oportunidades de formación, servicios y nuevos mercados. Considera que Escobar debe superar una mirada localista y apostar a la exportación de empleo mediante el uso de inteligencia artificial, conectando capacidades locales con oportunidades en otros países frente a la actual crisis de desempleo.',
+                    'En redes sociales se ha interpretado equivocadamente que una fotografía de Leandro Cuellar con el intendente Ariel Sujarchuk implicaría una alineación política. Nada más lejos de la intención: ese encuentro se inscribe en la convicción de que son necesarios los diálogos institucionales.',
+                    'Tal como expresó en sus redes: «La política se construye dialogando. El disenso es democracia. Y, si hay consenso, que sea en favor de los vecinos». La frase expresa la posibilidad de convivir y dialogar con distintos actores políticos en beneficio de los vecinos y las vecinas de Escobar.',
+                    'El movimiento impulsó iniciativas por un Escobar más limpio, que reunieron más de 150 firmas y promovieron la declaración del 3 de marzo como «Día por un Escobar más limpio». También reunió más de 350 firmas en apoyo a la declaración de interés municipal de la Semana de la Emprendedora y el Emprendedor Escobarense.'
+                  ]} />
+                  <a href="https://escobaradiario.com.ar/interes-general/movimiento-vecinal-escobar/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Movimiento Vecinal Escobar - Escobar a Diario</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+<section id="libro" className="border-y border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
 
