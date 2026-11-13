@@ -267,6 +267,7 @@ const Index = () => {
                   </div>
 
                   <a href="https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Unirse a la comunidad de Comunicadores Libres</a>
+                  <a href="https://freemedia.com.ar/comunicadores-libres-comunidad-etica-libertad-expresion/?fma_fid=uqgvyhhmu0kfskumjjilhuuwlqcn6q3x" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Comunicadores Libres en Free Media</a>
                   <YouTubePreview href="https://www.youtube.com/watch?v=HKyg4wg_R-A" title="Comunicadores Libres - Video 01" />
                   <YouTubePreview href="https://www.youtube.com/watch?v=Zos5RhTT0OA" title="Comunicadores Libres - Video 02" />
                 </div>
