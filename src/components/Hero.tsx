@@ -9,8 +9,8 @@ const Hero = () => {
           <h1 className="mt-4 max-w-4xl text-4xl font-light leading-[0.9] sm:text-6xl lg:text-7xl">
             {siteConfig.name}
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-black/70">
-            Página biográfica de una persona inquieta y con diferentes proyectos.
+          <p className="mt-8 max-w-2xl text-[11px] uppercase tracking-[0.3em] text-black/60">
+            Biografía · Portfolio · CV
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.3em] text-black/60">
