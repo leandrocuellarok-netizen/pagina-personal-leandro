@@ -206,7 +206,7 @@ const Index = () => {
                 <div className="space-y-8 lg:pt-2">
                   <Paragraphs items={filosofiaPoderParagraphs.slice(3)} />
 
-                  <YouTubePreview href="https://www.youtube.com/watch?v=1as7rDoh4RM" title="FilosofiaPoder - Video 01" />
+                  <a href="https://www.academia.edu/180201632/C%C3%B3digo_de_%C3%89tica_para_el_Uso_de_la_Inteligencia_Artificial_en_Campa%C3%B1as_Pol%C3%ADticas_en_Argentina" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Código de ética IA para campañas políticas</a>
                   <a href="https://realpolitik.com.ar/nota/75068/deepfakes-en-dos-minutos-podes-arruinar-la-imagen-de-un-candidato-antes-de-votar/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Deepfakes y la imagen de un candidato - RealPolitik</a>
                 </div>
               </div>
@@ -289,12 +289,12 @@ const Index = () => {
                   </figure>
                   <br />
                   <a
-                    href={`https://wa.me/5491130538404?text=${encodeURIComponent("Hola, quiero adquirir El cine en tiempos de angustia.")}`}
+                    href="https://www.academia.edu/175471821/MIENTRAS_TODAV%C3%8DA_HAYA_IM%C3%81GENES_El_diario_privado_de_un_espectador_2023_2025_Versi%C3%B3n_e_book_completa_Leandro_A_Cuellar"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex border border-black bg-[#5f050f] px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
                   >
-                    Adquiérelo
+                    Acceso libre
                   </a>
                 </div>
                 <div className="space-y-6 lg:pt-2">
