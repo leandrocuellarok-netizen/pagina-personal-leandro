@@ -300,6 +300,9 @@ const Index = () => {
                     'El movimiento impulsó iniciativas por un Escobar más limpio, que reunieron más de 150 firmas y promovieron la declaración del 3 de marzo como «Día por un Escobar más limpio». También reunió más de 350 firmas en apoyo a la declaración de interés municipal de la Semana de la Emprendedora y el Emprendedor Escobarense.'
                   ]} />
                   <a href="https://escobaradiario.com.ar/interes-general/movimiento-vecinal-escobar/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Movimiento Vecinal Escobar - Escobar a Diario</a>
+                  <a href="https://escobaradiario.com.ar/interes-general/ia-y-comunicacion-estrategica-para-posicionar-tu-negocio/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">IA y comunicación estratégica para posicionar tu negocio - Escobar a Diario</a>
+                  <a href="https://www.agencianova.com/opinion/2026/10/22/174271/por-que-propongo-institucionalizar-la-semana-del-emprendedor-escobarense/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Por qué propongo institucionalizar la Semana del Emprendedor Escobarense - Agencia NOVA</a>
+                  <YouTubePreview href="https://www.youtube.com/watch?v=wW0uneOAngA" title="Movimiento Vecinal Escobar - Video" />
                 </div>
               </div>
             </div>
