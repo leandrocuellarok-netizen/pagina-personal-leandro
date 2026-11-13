@@ -30,7 +30,7 @@ const libro2Links = [
 ] as const;
 
 const authorLinks = [
-  { label: "Artículo académico", href: "https://www.academia.edu/143381434/Cuellar_Leandro_Abel_Cap%C3%ADtulo_Una_mirada_al_documental_El_Bot%C3%B3n_de_N%C3%A1car_En_El_cine_en_tiempos_de_angustia_2023_" },
+  { label: "Una mirada al documental: El Botón de Nácar", href: "https://www.academia.edu/143381434/Cuellar_Leandro_Abel_Cap%C3%ADtulo_Una_mirada_al_documental_El_Bot%C3%B3n_de_N%C3%A1car_En_El_cine_en_tiempos_de_angustia_2023_" },
 ] as const;
 
 const communicatorLinks = [
