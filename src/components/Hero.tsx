@@ -13,13 +13,7 @@ const Hero = () => {
             Biografía · Portfolio · CV
           </p>
 
-          <div className="mt-12 flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.3em] text-black/60">
-            <span>Filosofía Imagen</span>
-            <span>Filosofía Poder</span>
-            <span>Filosofía IA</span>
-            <span>Profesor</span>
-            <span>Comunicador</span>
-          </div>
+
 
           <div className="mt-7 flex flex-col items-start gap-4">
             <a href="https://www.linkedin.com/in/leandrocuellar" target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium uppercase tracking-[0.2em] text-[#0A66C2] transition-opacity hover:opacity-70">
