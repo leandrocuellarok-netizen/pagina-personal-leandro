@@ -306,9 +306,11 @@ const Index = () => {
                 <div>
                   <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Libro</h2>
                   <br />
-                  <figure className="overflow-hidden border border-black/10 bg-white">
-                    <img src={bookCover} alt="Portada del libro El cine en tiempos de angustia" className="w-full" loading="lazy" />
-                  </figure>
+                  <a href="https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" target="_blank" rel="noopener noreferrer" aria-label="Abrir El cine en tiempos de angustia en Academia.edu">
+                    <figure className="overflow-hidden border border-black/10 bg-white transition-opacity hover:opacity-80">
+                      <img src={bookCover} alt="Portada del libro El cine en tiempos de angustia" className="w-full" loading="lazy" />
+                    </figure>
+                  </a>
                   <br />
                   <a
                     href="https://www.academia.edu/175471821/MIENTRAS_TODAV%C3%8DA_HAYA_IM%C3%81GENES_El_diario_privado_de_un_espectador_2023_2025_Versi%C3%B3n_e_book_completa_Leandro_A_Cuellar"
