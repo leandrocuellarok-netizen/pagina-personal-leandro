@@ -15,10 +15,10 @@ const authorImages = [
 
 const intelectualImages = [
   { src: `${sectionImageBase}/intec_1.webp`, alt: "Leandro A. Cuellar - Autor - Libro", caption: "ACCESO LIBRE A 72 PÁGINAS", wide: true },
-  { src: `${sectionImageBase}/intec_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Intelectual / marca" },
-  { src: `${sectionImageBase}/intec_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Intelectual / Cine" },
-  { src: `${sectionImageBase}/intec_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Intelectual / libro 02" },
-  { src: `${sectionImageBase}/intec_5.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 4", caption: "Intelectual / fotografía" },
+  { src: `${sectionImageBase}/intec_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Marca" },
+  { src: `${sectionImageBase}/intec_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Cine" },
+  { src: `${sectionImageBase}/intec_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Libro 02" },
+  { src: `${sectionImageBase}/intec_5.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 4", caption: "Fotografía" },
 ] as const;
 
 const bookCover = `${sectionImageBase}/portada_libro.webp`;
@@ -219,8 +219,8 @@ const Index = () => {
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div className="mt-8">
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Profesor</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Profesor</h2>
+                  <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-black/50">Profesor</p>
+                  <h2 className="mt-0 text-3xl sm:text-4xl md:text-5xl">Profesor</h2>
                   <Paragraphs items={intelectualParagraphs.slice(0, 4)} />
                   <div className="mt-8 space-y-6">
                   <Paragraphs items={intelectualParagraphs.slice(4, 6)} />
