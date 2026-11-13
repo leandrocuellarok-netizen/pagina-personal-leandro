@@ -307,6 +307,10 @@ const Index = () => {
                     </div>
                     <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
                     <a href="https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Mientras todavía haya imágenes - El Pensador</a>
+                    <blockquote className="mt-8 border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
+                      “En un ecosistema cultural dominado por la inmediatez algorítmica, las plataformas de streaming y lo que el propio autor ironiza como la «ideología Netflix» -un flujo incesante de estímulos anestésicos y provocaciones vacías-, el ejercicio crítico que propone Cuellar adquiere un valor de trinchera intelectual”.
+                      <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-black/50">Miguel Mendoza Jorquera</footer>
+                    </blockquote>
                 </div>
               </div>
             </div>
