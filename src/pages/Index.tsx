@@ -14,7 +14,7 @@ const authorImages = [
 ] as const;
 
 const intelectualImages = [
-  { src: `${sectionImageBase}/intec_1.webp`, alt: "Leandro A. Cuellar - Autor - Libro", caption: "libro 01 / Agotado", wide: true },
+  { src: `${sectionImageBase}/intec_1.webp`, alt: "Leandro A. Cuellar - Autor - Libro", caption: "ACCESO LIBRE A 72 PÁGINAS", wide: true },
   { src: `${sectionImageBase}/intec_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Intelectual / marca" },
   { src: `${sectionImageBase}/intec_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Intelectual / Cine" },
   { src: `${sectionImageBase}/intec_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Intelectual / libro 02" },
