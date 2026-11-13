@@ -20,6 +20,15 @@ const Hero = () => {
             <span>Profesor</span>
             <span>Comunicador</span>
           </div>
+
+          <div className="mt-7 flex flex-col items-start gap-4">
+            <a href="https://www.linkedin.com/in/leandrocuellar" target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium uppercase tracking-[0.2em] text-[#0A66C2] transition-opacity hover:opacity-70">
+              LinkedIn +18K
+            </a>
+            <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7306694018501910528" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#0A66C2] px-5 py-2 text-center text-[11px] font-medium uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-85">
+              Newsletter en LinkedIn: Versículos de Judas
+            </a>
+          </div>
         </div>
 
         <figure className="border border-black/10 bg-white p-4 sm:p-6">
