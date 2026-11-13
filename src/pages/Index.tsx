@@ -184,6 +184,7 @@ const Index = () => {
 
                   <div className="space-y-4">
                     <YouTubePreview href="https://www.youtube.com/watch?v=Dx8oXMBTo_8" title="filosofiaImagen - Video 01" />
+                    <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">El cine en tiempos de angustia - Nota al Pie</a>
                     <YouTubePreview href="https://www.youtube.com/watch?v=NRBDfdrw8L0" title="filosofiaImagen - Video 02" />
                   </div>
                 </div>
@@ -206,6 +207,7 @@ const Index = () => {
                   <Paragraphs items={filosofiaPoderParagraphs.slice(3)} />
 
                   <YouTubePreview href="https://www.youtube.com/watch?v=1as7rDoh4RM" title="FilosofiaPoder - Video 01" />
+                  <a href="https://realpolitik.com.ar/nota/75068/deepfakes-en-dos-minutos-podes-arruinar-la-imagen-de-un-candidato-antes-de-votar/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Deepfakes y la imagen de un candidato - RealPolitik</a>
                 </div>
               </div>
             </div>
@@ -304,6 +306,7 @@ const Index = () => {
                     ))}
                     </div>
                     <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
+                    <a href="https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Mientras todavía haya imágenes - El Pensador</a>
                 </div>
               </div>
             </div>
