@@ -14,7 +14,7 @@ const authorImages = [
 ] as const;
 
 const intelectualImages = [
-  { src: `${sectionImageBase}/intec_1.webp`, alt: "Leandro A. Cuellar - Autor - Libro", caption: "ACCESO LIBRE A 72 PÁGINAS", wide: true },
+  { src: `${sectionImageBase}/intec_1.webp`, alt: "Portada de El cine en tiempos de angustia", caption: "ACCESO LIBRE A 72 PÁGINAS", wide: true, href: "https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" },
   { src: `${sectionImageBase}/intec_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Marca" },
   { src: `${sectionImageBase}/intec_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Cine" },
   { src: `${sectionImageBase}/intec_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Libro 02" },
@@ -56,9 +56,15 @@ const YouTubePreview = ({ href, title }: { href: string; title: string }) => {
   );
 };
 
-const EditorialImage = ({ src, alt, caption, wide = false }: { src: string; alt: string; caption: string; wide?: boolean }) => (
+const EditorialImage = ({ src, alt, caption, wide = false, href }: { src: string; alt: string; caption: string; wide?: boolean; href?: string }) => (
   <figure className={wide ? "md:col-span-2" : ""}>
-    <img src={src} alt={alt} className="w-full border border-black/10 bg-white" loading="lazy" />
+    {href ? (
+      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${alt} en Academia.edu`} className="block transition-opacity hover:opacity-80">
+        <img src={src} alt={alt} className="w-full border border-black/10 bg-white" loading="lazy" />
+      </a>
+    ) : (
+      <img src={src} alt={alt} className="w-full border border-black/10 bg-white" loading="lazy" />
+    )}
     <figcaption className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">{caption}</figcaption>
   </figure>
 );
@@ -306,11 +312,9 @@ const Index = () => {
                 <div>
                   <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Libro</h2>
                   <br />
-                  <a href="https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" target="_blank" rel="noopener noreferrer" aria-label="Abrir El cine en tiempos de angustia en Academia.edu">
-                    <figure className="overflow-hidden border border-black/10 bg-white transition-opacity hover:opacity-80">
-                      <img src={bookCover} alt="Portada del libro El cine en tiempos de angustia" className="w-full" loading="lazy" />
-                    </figure>
-                  </a>
+                  <figure className="overflow-hidden border border-black/10 bg-white">
+                    <img src={bookCover} alt="Portada del libro" className="w-full" loading="lazy" />
+                  </figure>
                   <br />
                   <a
                     href="https://www.academia.edu/175471821/MIENTRAS_TODAV%C3%8DA_HAYA_IM%C3%81GENES_El_diario_privado_de_un_espectador_2023_2025_Versi%C3%B3n_e_book_completa_Leandro_A_Cuellar"
