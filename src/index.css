@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 7%;
+    --background: 342 48% 13%;
+    --foreground: 38 35% 91%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
+    --card: 340 42% 17%;
+    --card-foreground: 38 35% 91%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 340 42% 17%;
+    --popover-foreground: 38 35% 91%;
 
-    --primary: 355 90% 20%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 345 55% 34%;
+    --primary-foreground: 38 35% 94%;
 
-    --secondary: 40 20% 92%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 340 30% 23%;
+    --secondary-foreground: 38 35% 91%;
 
-    --muted: 40 20% 95%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 340 25% 21%;
+    --muted-foreground: 35 18% 72%;
 
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 345 42% 40%;
+    --accent-foreground: 38 35% 94%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62% 42%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 7%;
+    --border: 340 22% 35%;
+    --input: 340 22% 35%;
+    --ring: 345 45% 62%;
 
     --radius: 0rem;
   }
@@ -43,6 +43,8 @@
     @apply bg-background text-foreground antialiased;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.6;
+    background: #35101f;
+    color: #f1e8df;
   }
 
   html {
@@ -58,7 +60,49 @@
   }
 
   ::selection {
-    background: #111111;
-    color: #ffffff;
+    background: #f1e8df;
+    color: #35101f;
   }
+}
+
+/* Identidad editorial borgoña */
+#root,
+#root .bg-white {
+  background-color: #35101f !important;
+}
+
+#root header,
+#root header.bg-white\/90,
+#root nav.bg-white {
+  background-color: rgba(53, 16, 31, 0.96) !important;
+  color: #f1e8df !important;
+}
+
+#root [class~="text-black"],
+#root [class~="text-black/70"],
+#root [class~="text-black/75"],
+#root [class~="text-black/60"],
+#root [class~="text-black/55"],
+#root [class~="text-black/50"],
+#root [class~="text-black/45"] {
+  color: #f1e8df !important;
+}
+
+#root [class~="border-black/10"],
+#root [class~="border-black/12"],
+#root [class~="border-black/20"] {
+  border-color: rgba(241, 232, 223, 0.24) !important;
+}
+
+#root figure,
+#root .bg-white\/90 {
+  background-color: #451729 !important;
+}
+
+#root iframe {
+  background-color: #451729;
+}
+
+#root figcaption {
+  color: #cbb8bd !important;
 }
