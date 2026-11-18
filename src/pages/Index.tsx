@@ -135,6 +135,9 @@ const Index = () => {
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Vilanova Group</p>
                   <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Vilanova Group</h2>
+                  <figure className="mt-8 overflow-hidden border border-black/10 bg-white">
+                    <img src={`${sectionImageBase}/intec_2.webp`} alt="Identidad visual de Vilanova Group" className="w-full" loading="lazy" />
+                  </figure>
                   <div className="mt-8">
                     <Paragraphs items={filosofiaPoderParagraphs.slice(0, 3)} />
                   </div>
@@ -176,40 +179,7 @@ const Index = () => {
                 <div className="space-y-8 lg:pt-2">
                   <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
                   <a href="https://www.linkedin.com/posts/leandrocuellar_c%C3%B3mo-sabemos-qui%C3%A9nes-somos-con-un-dibujo-ugcPost-7517760616326180864--FCi/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Publicaciones sobre IA en LinkedIn</a>
-                  <a href="https://quepasaamerica.com.ar/ia-redes-y-vacio-legal-que-dice-la-filosofia-del-derecho-sobre-el-caso-nahir-galarza/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">IA, redes y vacío legal: filosofía del derecho</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-
-          
-
-          
-
-
-          <section id="profesor" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div className="mt-8">
-                  <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-black/50">Profesor</p>
-                  <h2 className="mt-0 text-3xl sm:text-4xl md:text-5xl">Profesor</h2>
-                  <Paragraphs items={intelectualParagraphs.slice(0, 4)} />
-                  <div className="mt-8 space-y-6">
-                  <Paragraphs items={intelectualParagraphs.slice(4, 6)} />
-
-                  <blockquote className="border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
-                    “La educación no consiste en acumular información, sino en aprender a pensar y crear. Una persona verdaderamente educada no es la que repite conocimientos, sino la que ha desarrollado una mirada propia sobre el mundo de forma autónoma. Enseñar es ofrecer herramientas para esa búsqueda, no imponer conclusiones doctrinarias. El pensamiento incomoda“. Leandro Cuellar.
-                  </blockquote>
-
-                  <Paragraphs items={intelectualParagraphs.slice(6, 9)} />
-                  </div>
-                </div>
-                
-                <div className="space-y-8 lg:pt-2">
-                  <Paragraphs items={intelectualParagraphs.slice(9)} />  
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {intelectualImages.map((image) => (
+                  <a href="https://quepasaamerica.com.ar/ia-redes-y-vacio-legal-que-dice-la-filosofia-del-derecho-sobre-el-caso-nahir-galarza/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-           {intelectualImages.map((image) => (
                       <EditorialImage key={image.src} {...image} />
                     ))}
                   </div>
