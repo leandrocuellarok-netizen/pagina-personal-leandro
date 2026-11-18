@@ -9,6 +9,9 @@ const Hero = () => {
           <h1 className="mt-4 max-w-4xl text-4xl font-light leading-[0.9] sm:text-6xl lg:text-7xl">
             {siteConfig.name}
           </h1>
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-black/65">
+            Página del fundador y presidente de Vilanova Group® e impulsor del Movimiento Vecinal Escobar, entre otras cosas.
+          </p>
           <p className="mt-8 max-w-2xl text-[11px] uppercase tracking-[0.3em] text-black/60">
             Biografía · Portfolio · CV
           </p>
