@@ -262,10 +262,6 @@ const Index = () => {
                   <div className="mt-10 border-t border-black/10 pt-7">
                     <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-black/50">RECEPCIÓN DE LA PRENSA</p>
                     <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noopener noreferrer" className="mb-5 inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Nota al Pie · Leer artículo</a>
-                    <blockquote className="border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
-                      “El libro es un fiel reflejo que presenta al cine como una forma de consuelo y redentora frente a los acontecimientos dolorosos que puede traer el transcurso de la vida. Se explora el abordaje de diferentes directores como <strong>Pasolini</strong>, <strong>Truffaut</strong>, <strong>Douglas Sirk</strong> y <strong>Kieślowski</strong>, entre otros... <strong>Nietzsche</strong> y <strong>Foucault</strong> ocupan un lugar fundamental en el libro. A un día de su lanzamiento oficial, <a href="https://instagram.com/leandroacuellar?igshid=MzRlODBiNWFlZA" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Leandro Cuellar</a> reveló a <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Nota al Pie</a> que el libro será sin costo para los amantes del cine que sufren ansiedad y ataques de pánico”.
-                      <footer className="mt-4 text-[11px] uppercase tracking-[0.2em] text-black/50">Mayra Palavecino · Nota al Pie</footer>
-                    </blockquote>
                   </div>
                                     <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
                   <a href="https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Mientras todavía haya imágenes - El Pensador</a>
@@ -273,6 +269,11 @@ const Index = () => {
                     “En un ecosistema cultural dominado por la inmediatez algorítmica, las plataformas de streaming y lo que el propio autor ironiza como la «ideología Netflix» -un flujo incesante de estímulos anestésicos y provocaciones vacías-, el ejercicio crítico que propone Cuellar adquiere un valor de trinchera intelectual”.
                     <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-black/50">Miguel Mendoza Jorquera</footer>
                   </blockquote>
+                    <blockquote className="border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
+                      “El libro es un fiel reflejo que presenta al cine como una forma de consuelo y redentora frente a los acontecimientos dolorosos que puede traer el transcurso de la vida. Se explora el abordaje de diferentes directores como <strong>Pasolini</strong>, <strong>Truffaut</strong>, <strong>Douglas Sirk</strong> y <strong>Kieślowski</strong>, entre otros... <strong>Nietzsche</strong> y <strong>Foucault</strong> ocupan un lugar fundamental en el libro. A un día de su lanzamiento oficial, <a href="https://instagram.com/leandroacuellar?igshid=MzRlODBiNWFlZA" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Leandro Cuellar</a> reveló a <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Nota al Pie</a> que el libro será sin costo para los amantes del cine que sufren ansiedad y ataques de pánico”.
+                      <footer className="mt-4 text-[11px] uppercase tracking-[0.2em] text-black/50">Mayra Palavecino · Nota al Pie</footer>
+                    </blockquote>
+
                 </div>
               </div>
             </div>

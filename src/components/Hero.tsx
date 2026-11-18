@@ -5,14 +5,14 @@ const Hero = () => {
     <section id="inicio" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14 lg:py-28">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.35em] text-black/55">ANALISTA CULTURAL, POLÍTICO Y TECNOLÓGICO</p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-light leading-[0.9] sm:text-6xl lg:text-7xl">
+          <p className="text-[10px] font-medium uppercase tracking-[0.38em] text-[#d8b978]">ANALISTA CULTURAL, POLÍTICO Y TECNOLÓGICO</p>
+          <h1 className="mt-5 max-w-4xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] text-[#f1e8df] sm:text-6xl lg:text-7xl">
             {siteConfig.name}
           </h1>
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-black/65">
+          <p className="mt-7 max-w-2xl text-base leading-8 text-[#f1e8df]/95 sm:text-lg sm:leading-9">
             Página del fundador y presidente de Vilanova Group® e impulsor del Movimiento Vecinal Escobar, entre otras cosas.
           </p>
-          <p className="mt-8 max-w-2xl text-[11px] uppercase tracking-[0.3em] text-black/60">
+          <p className="mt-8 max-w-2xl border-l-2 border-[#d8b978] pl-4 text-[10px] font-medium uppercase tracking-[0.32em] text-[#f1e8df]/65">
             Biografía · Portfolio · CV
           </p>
 
