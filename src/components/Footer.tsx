@@ -24,6 +24,14 @@ const Footer = () => {
         <div className="border-t border-black/10 pt-6 text-sm text-black/50">
           © {new Date().getFullYear()} {siteConfig.name}
         </div>
+
+        <div className="border-t border-black/10 pt-8">
+          <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7306694018501910528" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-3 rounded-full bg-[#0A66C2] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#004182]">
+            <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-white text-[15px] font-bold leading-none text-[#0A66C2]">in</span>
+            Newsletter en LinkedIn: Versículos de Judas
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
     </footer>
   );
