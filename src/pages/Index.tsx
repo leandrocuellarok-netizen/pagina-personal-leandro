@@ -233,18 +233,23 @@ const Index = () => {
                 <div className="space-y-8 lg:pt-2">
                   <Paragraphs items={comunicadorParagraphs.slice(5)} />
 
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {communicatorLinks.map((link) => (
-                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
-                        {link.label}
-                      </a>
-                    ))}
+                  <a href="https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Unirse a la comunidad de Comunicadores Libres</a>
+
+                  <div className="border-t border-black/10 pt-8">
+                    <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-black/50">Audiovisual</p>
+                    <div className="grid gap-5 md:grid-cols-2">
+                      <YouTubePreview href="https://www.youtube.com/watch?v=HKyg4wg_R-A" title="Comunicadores Libres - Presentación audiovisual" />
+                      <YouTubePreview href="https://www.youtube.com/watch?v=Zos5RhTT0OA" title="Comunicadores Libres - Registro audiovisual" />
+                    </div>
                   </div>
 
-                  <a href="https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Unirse a la comunidad de Comunicadores Libres</a>
-                  <a href="https://freemedia.com.ar/comunicadores-libres-comunidad-etica-libertad-expresion/?fma_fid=uqgvyhhmu0kfskumjjilhuuwlqcn6q3x" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Comunicadores Libres en Free Media</a>
-                  <YouTubePreview href="https://www.youtube.com/watch?v=HKyg4wg_R-A" title="Comunicadores Libres - Video 01" />
-                  <YouTubePreview href="https://www.youtube.com/watch?v=Zos5RhTT0OA" title="Comunicadores Libres - Video 02" />
+                  <div className="border-t border-black/10 pt-8">
+                    <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-black/50">Notas y entrevistas</p>
+                    <div className="grid gap-3">
+                      <a href="https://freemedia.com.ar/comunicadores-libres-comunidad-etica-libertad-expresion/?fma_fid=uqgvyhhmu0kfskumjjilhuuwlqcn6q3x" target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-4 text-sm text-black/75 transition-colors hover:bg-black/5">Comunicadores Libres: una comunidad autogestiva que promueve la libertad y la ética - Free Media</a>
+                      <a href="https://realpolitik.fm/nota/22351/leandro_cuellar_la_politica_se_volvio_parte_del_espectaculo/" target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-4 text-sm text-black/75 transition-colors hover:bg-black/5">Leandro Cuellar: “La política se volvió parte del espectáculo” - Radio Realpolitik</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
