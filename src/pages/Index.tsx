@@ -215,9 +215,9 @@ const Index = () => {
                 </div>
 
               <div className="mt-14 border-t border-[#d8c5b7]/25 pt-8">
-                <p className="mb-6 text-[10px] uppercase tracking-[0.35em] text-black/50">Conocé los proyectos del ecosistema</p>
+                <p className="mb-6 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]/80">Conocé los proyectos del ecosistema</p>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <a href="/proyectos/comunicadores-libres" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Comunicadores Libres <span aria-hidden="true">↗</span></a>
+                  <a href="/proyectos/comunicadores-libres" className="flex items-center justify-between border border-[#f1e8df]/25 px-5 py-4 text-sm tracking-wide text-[#f1e8df] transition-colors hover:border-[#d8b978]/70 hover:bg-white/5">Comunicadores Libres <span aria-hidden="true">↗</span></a>
                   <a href="/proyectos/amour-du-cinema" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Amour du cinéma <span aria-hidden="true">↗</span></a>
                   <a href="/proyectos/archivos-atenea" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Archivos ATENEA <span aria-hidden="true">↗</span></a>
                   <a href="/proyectos/vilanova-ai" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Vilanova AI Solutions <span aria-hidden="true">↗</span></a>
