@@ -213,6 +213,35 @@ const Index = () => {
                   <a href="https://www.academia.edu/180201632/C%C3%B3digo_de_%C3%89tica_para_el_Uso_de_la_Inteligencia_Artificial_en_Campa%C3%B1as_Pol%C3%ADticas_en_Argentina" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Código de ética IA para campañas políticas</a>
                   <a href="https://realpolitik.com.ar/nota/75068/deepfakes-en-dos-minutos-podes-arruinar-la-imagen-de-un-candidato-antes-de-votar/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Deepfakes y la imagen de un candidato - RealPolitik</a>
                 </div>
+
+              <div className="mt-16 border-t border-[#d8c5b7]/25 pt-10">
+                <p className="mb-7 text-[10px] uppercase tracking-[0.35em] text-[#f1e8df]/60">Proyectos del ecosistema</p>
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+                  <a href="#comunicador" className="group flex min-h-40 flex-col items-center justify-center border border-[#f1e8df]/20 bg-[#451729]/50 p-5 text-center transition-colors hover:bg-[#5a2035]">
+                    <span className="font-serif text-xl tracking-[0.12em] text-[#f1e8df]">COMUNICADORES</span>
+                    <span className="font-serif text-xl tracking-[0.2em] text-[#d8b978]">LIBRES</span>
+                    <span className="mt-3 text-[9px] leading-4 text-[#f1e8df]/70">Comunidad y desarrollo profesional para comunicadores</span>
+                  </a>
+                  <a href="#filosofiaImagen" className="group flex min-h-40 flex-col items-center justify-center border border-[#f1e8df]/20 bg-[#451729]/50 p-5 text-center transition-colors hover:bg-[#5a2035]">
+                    <span className="font-serif text-2xl tracking-[0.08em] text-[#f1e8df]">AMOUR</span>
+                    <span className="font-serif text-lg tracking-[0.12em] text-[#d8b978]">DU CINÉMA</span>
+                    <span className="mt-3 text-[9px] leading-4 text-[#f1e8df]/70">Escuela de cine y filosofía · productora audiovisual under</span>
+                  </a>
+                  <a href="https://archivosatenea.sbs/" target="_blank" rel="noreferrer" className="group flex min-h-40 flex-col items-center justify-center border border-[#f1e8df]/20 bg-[#451729]/50 p-5 text-center transition-colors hover:bg-[#5a2035]">
+                    <span className="font-serif text-3xl tracking-[0.12em] text-[#c5a0e8]">ATENEA</span>
+                    <span className="mt-3 text-[9px] leading-4 text-[#f1e8df]/70">Repositorio digital sobre la representación audiovisual de la mujer</span>
+                  </a>
+                  <a href="#filosofiaIA" className="group flex min-h-40 flex-col items-center justify-center border border-[#f1e8df]/20 bg-[#451729]/50 p-5 text-center transition-colors hover:bg-[#5a2035]">
+                    <span className="font-serif text-2xl tracking-[0.08em] text-[#f1e8df]">VILANOVA</span>
+                    <span className="font-serif text-xl tracking-[0.18em] text-[#a78bfa]">AI</span>
+                    <span className="mt-3 text-[9px] leading-4 text-[#f1e8df]/70">Capacitaciones en IA in company y para profesionales</span>
+                  </a>
+                  <div className="flex min-h-40 flex-col items-center justify-center border border-[#d8b978]/50 bg-[#451729]/50 p-4 text-center">
+                    <img src="/logos/vilanova-partners.svg" alt="Vilanova Partners" className="mb-2 h-20 w-20 object-contain" />
+                    <span className="text-[9px] leading-4 text-[#f1e8df]/70">Análisis y asesoramiento en comunicación política</span>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </section>
