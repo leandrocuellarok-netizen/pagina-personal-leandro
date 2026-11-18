@@ -246,37 +246,52 @@ const Index = () => {
 <section id="libro" className="border-y border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-
-                <div>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Libro</h2>
-                  <br />
-                  <figure className="overflow-hidden border border-black/10 bg-white">
-                    <img src={bookCover} alt="Portada del libro" className="w-full" loading="lazy" />
-                  </figure>
-                  <br />
-                  <a
-                    href="https://www.academia.edu/175471821/MIENTRAS_TODAV%C3%8DA_HAYA_IM%C3%81GENES_El_diario_privado_de_un_espectador_2023_2025_Versi%C3%B3n_e_book_completa_Leandro_A_Cuellar"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex border border-black bg-[#5f050f] px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
-                  >
-                    Acceso libre
-                  </a>
+                <div className="space-y-14">
+                  <div>
+                    <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-black/50">2026</p>
+                    <h2 className="mb-5 text-2xl sm:text-3xl">Mientras todavía haya imágenes</h2>
+                    <figure className="overflow-hidden border border-black/10 bg-white">
+                      <img src={bookCover} alt="Portada de Mientras todavía haya imágenes" className="w-full" loading="lazy" />
+                    </figure>
+                    <a
+                      href="https://www.academia.edu/175471821/MIENTRAS_TODAV%C3%8DA_HAYA_IM%C3%81GENES_El_diario_privado_de_un_espectador_2023_2025_Versi%C3%B3n_e_book_completa_Leandro_A_Cuellar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex border border-black bg-[#5f050f] px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
+                    >
+                      Leer el libro · Acceso libre
+                    </a>
+                  </div>
+                  <div>
+                    <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-black/50">Primera edición · 2022 / Segunda edición · 2023</p>
+                    <h2 className="mb-5 text-2xl sm:text-3xl">El cine en tiempos de angustia</h2>
+                    <a href="https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" target="_blank" rel="noopener noreferrer" aria-label="Abrir El cine en tiempos de angustia en Academia.edu" className="block transition-opacity hover:opacity-80">
+                      <img src={`${sectionImageBase}/intec_1.webp`} alt="Portada de El cine en tiempos de angustia" className="w-full border border-black/10 bg-white" loading="lazy" />
+                    </a>
+                    <a
+                      href="https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex border border-black bg-[#5f050f] px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
+                    >
+                      Leer el libro · Acceso libre
+                    </a>
+                  </div>
                 </div>
                 <div className="space-y-6 lg:pt-2">
-                    <div className="grid gap-4 md:grid-cols-2">
+                  <div className="grid gap-4 md:grid-cols-2">
                     {libro2Links.map((link) => (
                       <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
                         {link.label}
                       </a>
                     ))}
-                    </div>
-                    <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
-                    <a href="https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Mientras todavía haya imágenes - El Pensador</a>
-                    <blockquote className="mt-8 border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
-                      “En un ecosistema cultural dominado por la inmediatez algorítmica, las plataformas de streaming y lo que el propio autor ironiza como la «ideología Netflix» -un flujo incesante de estímulos anestésicos y provocaciones vacías-, el ejercicio crítico que propone Cuellar adquiere un valor de trinchera intelectual”.
-                      <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-black/50">Miguel Mendoza Jorquera</footer>
-                    </blockquote>
+                  </div>
+                  <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
+                  <a href="https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Mientras todavía haya imágenes - El Pensador</a>
+                  <blockquote className="mt-8 border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
+                    “En un ecosistema cultural dominado por la inmediatez algorítmica, las plataformas de streaming y lo que el propio autor ironiza como la «ideología Netflix» -un flujo incesante de estímulos anestésicos y provocaciones vacías-, el ejercicio crítico que propone Cuellar adquiere un valor de trinchera intelectual”.
+                    <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-black/50">Miguel Mendoza Jorquera</footer>
+                  </blockquote>
                 </div>
               </div>
             </div>
