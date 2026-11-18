@@ -219,51 +219,6 @@ const Index = () => {
             </div>
           </section>
 
-          <section id="comunicador" className="px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Comunicadores Libres</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Comunicadores Libres</h2>
-                  <div className="mt-8">
-                    <Paragraphs items={comunicadorParagraphs.slice(0, 5)} />
-                  </div>
-                </div>
-
-                <div className="space-y-8 lg:pt-2">
-                  <Paragraphs items={comunicadorParagraphs.slice(5)} />
-
-                  <a href="https://www.youtube.com/@comunicadoreslibres" target="_blank" rel="noreferrer" className="group flex w-full items-center justify-between gap-6 bg-[#b91c1c] px-6 py-6 text-white shadow-sm transition-colors hover:bg-[#991b1b] md:px-8">
-                    <span>
-                      <span className="block text-[10px] font-semibold uppercase tracking-[0.35em] text-white/80">Canal oficial en YouTube</span>
-                      <span className="mt-2 block text-2xl font-semibold tracking-tight md:text-3xl">youtube.com/@comunicadoreslibres</span>
-                    </span>
-                    <span aria-hidden="true" className="shrink-0 text-3xl">▶</span>
-                  </a>
-
-                  <a href="https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Unirse a la comunidad de Comunicadores Libres</a>
-
-                  <div className="border-t border-black/10 pt-8">
-                    <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-black/50">Audiovisual</p>
-                    <div className="grid gap-5 md:grid-cols-2">
-                      <YouTubePreview href="https://www.youtube.com/watch?v=HKyg4wg_R-A" title="Comunicadores Libres - Presentación audiovisual" />
-                      <YouTubePreview href="https://www.youtube.com/watch?v=Zos5RhTT0OA" title="Comunicadores Libres - Registro audiovisual" />
-                    </div>
-                  </div>
-
-                  <div className="border-t border-black/10 pt-8">
-                    <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-black/50">Notas y entrevistas</p>
-                    <div className="grid gap-3">
-                      <a href="https://freemedia.com.ar/comunicadores-libres-comunidad-etica-libertad-expresion/?fma_fid=uqgvyhhmu0kfskumjjilhuuwlqcn6q3x" target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-4 text-sm text-black/75 transition-colors hover:bg-black/5">Comunicadores Libres: una comunidad autogestiva que promueve la libertad y la ética - Free Media</a>
-                      <a href="https://realpolitik.fm/nota/22351/leandro_cuellar_la_politica_se_volvio_parte_del_espectaculo/" target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-4 text-sm text-black/75 transition-colors hover:bg-black/5">Leandro Cuellar: “La política se volvió parte del espectáculo” - Radio Realpolitik</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          
           <section id="movimientoVecinal" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
