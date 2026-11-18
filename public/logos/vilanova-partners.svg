@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+<defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#f7e9c8"/><stop offset="1" stop-color="#c89b4a"/></linearGradient></defs>
+<rect width="800" height="800" fill="#4a071c"/>
+<circle cx="400" cy="400" r="365" fill="none" stroke="url(#g)" stroke-width="3"/>
+<circle cx="400" cy="400" r="345" fill="none" stroke="#d7b36b" stroke-width="1.5"/>
+<path d="M235 410 Q400 110 565 410 Q400 650 235 410Z" fill="none" stroke="url(#g)" stroke-width="4"/>
+<text x="400" y="390" text-anchor="middle" font-family="Georgia,serif" font-size="270" letter-spacing="-24" fill="#f4e8d0">VP</text>
+<path d="M190 540 H610" stroke="#d7b36b" stroke-width="2"/>
+<text x="400" y="610" text-anchor="middle" font-family="Georgia,serif" font-size="56" letter-spacing="8" fill="#f4e8d0">VILANOVA</text>
+<text x="400" y="675" text-anchor="middle" font-family="Georgia,serif" font-size="56" letter-spacing="8" fill="#f4e8d0">PARTNERS</text>
+</svg>
