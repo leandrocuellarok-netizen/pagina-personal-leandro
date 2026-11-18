@@ -38,7 +38,7 @@ const projects: Record<string, { title: string; eyebrow: string; paragraphs: str
     eyebrow: "Comunidad y desarrollo profesional para comunicadores",
     paragraphs: [
       "Cuellar entiende la comunicación como una práctica plural que permite poner ideas en circulación y fortalecer el diálogo democrático.",
-      "Impulsa FOCO LATAM, un espacio de análisis político que reúne a dirigentes y referentes de distintas corrientes para promover el intercambio de perspectivas.",
+      "Impulsa FOCO LATAM, un espacio de análisis político que reúne a dirigentes y referentes de distintas corrientes para promover el intercambio de perspectivas a partir de una idea de la periodista chilena Cintia Otey de realizarlo para políticos argentinos. En la edición del 2026, se incluyó las diferentes opiniones políticas: trotskismo, libertarismo, cordobesismo, radicalismo, kirchnerismo, democrático cristiano, y un emergente. La segunda temporada reanuda el día 3 de enero de 2027.",
       "También creó Comunicadores Libres, una comunidad de trabajo para comunicadores argentinos y latinoamericanos, orientada a compartir contactos, notas y oportunidades.",
       "Su actividad incluye participación como analista político y cultural en medios y espacios de debate, entre ellos Canal 26 y RealPolitik.",
       "Considera que comunicar no es solo transmitir información: también es crear espacios de encuentro y ampliar la conversación pública.",
@@ -83,8 +83,19 @@ const ProjectPage = () => {
           <h1 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">{project.title}</h1>
           <p className="mt-5 text-xs uppercase tracking-[0.2em] text-[#f1e8df]/60">{project.eyebrow}</p>
           <div className="mt-14 max-w-3xl space-y-7 text-base leading-8 text-[#f1e8df]/85 md:text-lg md:leading-9">
-            {project.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {project.paragraphs.map((paragraph) => (
+              <p key={paragraph}>
+                {slug === "comunicadores-libres" && paragraph.startsWith("Impulsa FOCO LATAM")
+                  ? <>{paragraph.split("FOCO LATAM")[0]}<a href="https://open.spotify.com/show/7kZsXyMhcoUVxi2MpxhfGE?si=Q6cheK7OSLeYMsv5mPkfIw" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">FOCO LATAM</a>{paragraph.split("FOCO LATAM").slice(1).join("FOCO LATAM")}</>
+                  : paragraph}
+              </p>
+            ))}
           </div>
+          {slug === "comunicadores-libres" && (
+            <a href="https://open.spotify.com/show/7kZsXyMhcoUVxi2MpxhfGE?si=Q6cheK7OSLeYMsv5mPkfIw" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex border border-[#d8b978]/60 px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-[#f1e8df] transition-colors hover:bg-[#d8b978]/10">
+              Escuchar FOCO LATAM en Spotify
+            </a>
+          )}
           {isAmour && (
             <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
               <p className="mb-8 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Archivo visual · Amour du cinéma</p>
