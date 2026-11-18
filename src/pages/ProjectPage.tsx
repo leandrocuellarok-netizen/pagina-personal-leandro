@@ -37,14 +37,11 @@ const projects: Record<string, { title: string; eyebrow: string; paragraphs: str
     title: "Comunicadores Libres",
     eyebrow: "Comunidad y desarrollo profesional para comunicadores",
     paragraphs: [
-      "Cuellar entiende la comunicación como una práctica plural que permite poner ideas en circulación y fortalecer el diálogo democrático.",
-      "Impulsa FOCO LATAM, un espacio de análisis político que reúne a dirigentes y referentes de distintas corrientes para promover el intercambio de perspectivas a partir de una idea de la periodista chilena Cintia Otey de realizarlo para políticos argentinos. En la edición del 2026, se incluyó las diferentes opiniones políticas: trotskismo, libertarismo, cordobesismo, radicalismo, kirchnerismo, democrático cristiano, y un emergente. La segunda temporada reanuda el día 3 de enero de 2027.",
-      "También creó Comunicadores Libres, una comunidad de trabajo para comunicadores argentinos y latinoamericanos, orientada a compartir contactos, notas y oportunidades.",
-      "Su actividad incluye participación como analista político y cultural en medios y espacios de debate, entre ellos Canal 26 y RealPolitik.",
-      "Considera que comunicar no es solo transmitir información: también es crear espacios de encuentro y ampliar la conversación pública.",
-      "Como experimento narrativo desarrolló Nano Vilanova, un personaje ficticio para investigar la persuasión, la propaganda y la construcción de liderazgos.",
-      "El proyecto incorporó recursos de performance, estética y actuación para explorar cómo se construye una identidad pública.",
-      "Esta experiencia forma parte de su interés por los vínculos entre representación, comunicación estratégica e identidad."
+      "Leandro Cuellar entiende la comunicación como una práctica plural que permite poner ideas en circulación y fortalecer el diálogo en una democracia deliberativa. Por eso, ha creado la plataforma de Comunicadores Libres, que se complementa con una herramienta útil en WhatsApp para cualquier persona que tenga algo para comunicar.",
+      "Desde esta plataforma de Vilanova Group, impulsa FOCO LATAM, un espacio de análisis político que reúne a dirigentes y referentes de distintas corrientes para promover el intercambio de perspectivas. El proyecto nació a partir de una idea de la periodista chilena Cintia Otey: realizar un espacio de estas características con políticos argentinos. En la edición de 2026 se incluyeron distintas expresiones políticas: trotskismo, libertarismo, cordobesismo, radicalismo, kirchnerismo, democracia cristiana y un espacio emergente. La segunda temporada reanuda el 3 de enero de 2027.",
+      "También creó la web de Comunicadores Libres y busca articulaciones con universidades vinculadas a la comunicación y al periodismo para contribuir a una comunicación más responsable. Desde Vilanova Group, se lanzó el Código de Ética para regular el uso de la inteligencia artificial en campañas electorales en Argentina, y se apoyan proyectos de ley orientados a ese objetivo, sin importar su ideología.",
+      "Su actividad incluye la participación como analista político y cultural en medios y espacios de debate, especialmente en Agencia NOVA y RealPolitik. También participó en Canal 26 y en distintos streams a través del experimento narrativo de Nano Vilanova, un personaje ficticio inspirado en Roger Stone, creado para investigar la persuasión, la propaganda y la construcción de liderazgos.",
+      "Asimismo, ha participado durante años en medios como crítico de cine, entre ellos Bendito Spoiler, Edición Sunset y Peliplat. También se desempeñó como entrevistador en Revista Común, de México, para dar a conocer el arte y sus diversas expresiones en Argentina."
     ],
     external: { label: "Acceder a la comunidad de WhatsApp", href: "https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" }
   },
@@ -85,9 +82,13 @@ const ProjectPage = () => {
           <div className="mt-14 max-w-3xl space-y-7 text-base leading-8 text-[#f1e8df]/85 md:text-lg md:leading-9">
             {project.paragraphs.map((paragraph) => (
               <p key={paragraph}>
-                {slug === "comunicadores-libres" && paragraph.startsWith("Impulsa FOCO LATAM")
-                  ? <>{paragraph.split("FOCO LATAM")[0]}<a href="https://open.spotify.com/show/7kZsXyMhcoUVxi2MpxhfGE?si=Q6cheK7OSLeYMsv5mPkfIw" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">FOCO LATAM</a>{paragraph.split("FOCO LATAM").slice(1).join("FOCO LATAM")}</>
-                  : paragraph}
+                {slug === "comunicadores-libres" && paragraph.startsWith("Leandro Cuellar entiende")
+                  ? <>{paragraph.split("herramienta útil en WhatsApp")[0]}<a href="https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">herramienta útil en WhatsApp</a>{paragraph.split("herramienta útil en WhatsApp").slice(1).join("herramienta útil en WhatsApp")}</>
+                  : slug === "comunicadores-libres" && paragraph.startsWith("Desde esta plataforma")
+                    ? <>{paragraph.split("FOCO LATAM")[0]}<a href="https://open.spotify.com/show/7kZsXyMhcoUVxi2MpxhfGE?si=Q6cheK7OSLeYMsv5mPkfIw" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">FOCO LATAM</a>{paragraph.split("FOCO LATAM").slice(1).join("FOCO LATAM")}</>
+                    : slug === "comunicadores-libres" && paragraph.startsWith("También creó la web")
+                      ? <>{paragraph.split("Código de Ética")[0]}<a href="https://www.academia.edu/180201632/C%C3%B3digo_de_%C3%89tica_para_el_Uso_de_la_Inteligencia_Artificial_en_Campa%C3%B1as_Pol%C3%ADticas_en_Argentina" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">Código de Ética</a>{paragraph.split("Código de Ética").slice(1).join("Código de Ética")}</>
+                      : paragraph}
               </p>
             ))}
           </div>
