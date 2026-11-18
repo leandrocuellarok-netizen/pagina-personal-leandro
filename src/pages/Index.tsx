@@ -233,6 +233,14 @@ const Index = () => {
                 <div className="space-y-8 lg:pt-2">
                   <Paragraphs items={comunicadorParagraphs.slice(5)} />
 
+                  <a href="https://www.youtube.com/@comunicadoreslibres" target="_blank" rel="noreferrer" className="group flex w-full items-center justify-between gap-6 bg-[#b91c1c] px-6 py-6 text-white shadow-sm transition-colors hover:bg-[#991b1b] md:px-8">
+                    <span>
+                      <span className="block text-[10px] font-semibold uppercase tracking-[0.35em] text-white/80">Canal oficial en YouTube</span>
+                      <span className="mt-2 block text-2xl font-semibold tracking-tight md:text-3xl">youtube.com/@comunicadoreslibres</span>
+                    </span>
+                    <span aria-hidden="true" className="shrink-0 text-3xl">▶</span>
+                  </a>
+
                   <a href="https://chat.whatsapp.com/HqboLKpOskI5M2HhZnaOPM" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Unirse a la comunidad de Comunicadores Libres</a>
 
                   <div className="border-t border-black/10 pt-8">
