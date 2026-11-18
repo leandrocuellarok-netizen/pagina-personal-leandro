@@ -223,7 +223,7 @@ const Index = () => {
                   <a href="/proyectos/vilanova-ai" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Vilanova AI Solutions <span aria-hidden="true">↗</span></a>
                   <a href="/proyectos/vilanova-partners" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Vilanova Partners <span aria-hidden="true">↗</span></a>
                 </div>
-              </div>/div>
+              </div>
               </div>
             </div>
           </section>
