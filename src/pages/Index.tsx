@@ -105,7 +105,7 @@ const Index = () => {
   ];
 
   const filosofiaPoderParagraphs = [
-    "Leandro Cuellar fundó Vilanova Group, un holding dedicado a estrategia, comunicación e innovación, con áreas vinculadas al marketing, la inteligencia artificial y el análisis de la opinión pública.",
+    "Vilanova Group® es un ecosistema a favor del pensamiento, la cultura, la libertad de expresión, la innovación y la comunicación política con responsabilidad ética. Fundado por Leandro Cuellar, articula proyectos de comunicación, cultura, formación e inteligencia artificial.",
     "El ecosistema articula comunicación estratégica, branding, consultoría institucional, formación, investigación social e IA aplicada a la toma de decisiones.",
     "Su enfoque integra tecnología, datos y comportamiento humano para ayudar a organizaciones a comprender escenarios y desarrollar estrategias de largo plazo.",
     "Cuellar considera que la inteligencia artificial es una de las transformaciones centrales del siglo XXI y que debe desarrollarse con criterios éticos, transparencia y responsabilidad.",
