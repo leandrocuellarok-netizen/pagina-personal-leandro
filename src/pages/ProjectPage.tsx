@@ -118,6 +118,49 @@ const ProjectPage = () => {
               </div>
             </section>
           )}
+          {slug === "comunicadores-libres" && (
+            <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
+              <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Prensa y participaciones</p>
+              <h2 className="mb-8 font-serif text-2xl md:text-3xl">Cuellar en medios</h2>
+              <div className="grid gap-4 md:grid-cols-3">
+                <a href="https://revistacomun.com/blog/category/leandro-a-cuellar/" target="_blank" rel="noopener noreferrer" className="group border border-[#f1e8df]/20 p-6 transition-colors hover:border-[#d8b978]/70 hover:bg-white/5">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#d8b978]">México · Revista Común</p>
+                  <h3 className="mt-3 font-serif text-xl">Participación de Cuellar</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#f1e8df]/65">Artículos y colaboraciones publicados en Revista Común.</p>
+                  <span className="mt-6 inline-block text-[10px] uppercase tracking-[0.2em] underline underline-offset-4">Consultar publicaciones ↗</span>
+                </a>
+                <a href="https://www.agencianova.com/resultados/leandro-cuellar/" target="_blank" rel="noopener noreferrer" className="group border border-[#f1e8df]/20 p-6 transition-colors hover:border-[#d8b978]/70 hover:bg-white/5">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#d8b978]">Argentina · Agencia NOVA</p>
+                  <h3 className="mt-3 font-serif text-xl">Análisis políticos</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#f1e8df]/65">Notas de opinión y análisis político de Leandro A. Cuellar.</p>
+                  <span className="mt-6 inline-block text-[10px] uppercase tracking-[0.2em] underline underline-offset-4">Ver análisis ↗</span>
+                </a>
+                <a href="https://realpolitik.fm/nota/22351/leandro_cuellar_la_politica_se_volvio_parte_del_espectaculo/" target="_blank" rel="noopener noreferrer" className="group border border-[#f1e8df]/20 p-6 transition-colors hover:border-[#d8b978]/70 hover:bg-white/5">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#d8b978]">Radio · RealPolitik FM</p>
+                  <h3 className="mt-3 font-serif text-xl">Colaboraciones y entrevistas</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#f1e8df]/65">La política se volvió parte del espectáculo.</p>
+                  <span className="mt-6 inline-block text-[10px] uppercase tracking-[0.2em] underline underline-offset-4">Leer entrevista ↗</span>
+                </a>
+              </div>
+            </section>
+          )}
+          {slug === "comunicadores-libres" && (
+            <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
+              <p className="mb-6 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">En redes y medios</p>
+              <h2 className="mb-6 font-serif text-2xl md:text-3xl">Radio 2 Rosario</h2>
+              <div className="max-w-2xl overflow-hidden border border-[#f1e8df]/15 bg-white">
+                <iframe
+                  className="w-full"
+                  src="https://platform.twitter.com/embed/Tweet.html?id=2117614586325000412&theme=light&dnt=true&lang=es"
+                  title="Publicación de Radio 2 Rosario en X"
+                  height="600"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
+              <a href="https://x.com/radio2rosario/status/2117614586325000412" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-[10px] uppercase tracking-[0.2em] underline underline-offset-4">Abrir publicación en X ↗</a>
+            </section>
+          )}
           {isAmour && (
             <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
               <p className="mb-8 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Archivo visual · Amour du cinéma</p>
