@@ -176,8 +176,8 @@ const Index = () => {
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Cultura digital, inteligencia artificial y filosofía política</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Cultura digital, inteligencia artificial y filosofía política</h2>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Analista</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Cultura digital, IA y filosofía política</h2>
                   <div className="mt-8">
                     <Paragraphs items={FilosofiaIAParagraphs.slice(0,2)} />
                   </div>
