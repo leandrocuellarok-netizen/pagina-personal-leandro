@@ -4,13 +4,7 @@ import { SEO } from "@/components/SEO";
 
 const sectionImageBase = "/photos";
 
-const authorImages = [
-  { src: `${sectionImageBase}/autor_libro_1.webp`, alt: "Leandro A. Cuellar - Autor - Libro", caption: "Autor / libro 01", wide: true },
-  { src: `${sectionImageBase}/autor_foto_1.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Autor / fotografía 01" },
-  { src: `${sectionImageBase}/autor_foto_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Autor / fotografía 02" },
-  { src: `${sectionImageBase}/autor_foto_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Autor / fotografía 03" },
-  { src: `${sectionImageBase}/autor_foto_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 4", caption: "Autor / fotografía 04" },
-] as const;
+
 
 const intelectualImages = [
   { src: `${sectionImageBase}/intec_1.webp`, alt: "Portada de El cine en tiempos de angustia", caption: "ACCESO LIBRE A 72 PÁGINAS", wide: true, href: "https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" },
@@ -28,9 +22,7 @@ const libro2Links = [
   { label: "Nota: Pehuenche Digital", href: "https://www.pehuenchedigital.com.ar/articulo/17753/leandro-cuellar-presenta----mientras-todav--a-haya-im--genes--el-diario-privado-de-un-espectador-" },
 ] as const;
 
-const authorLinks = [
-  { label: "Una mirada al documental: El Botón de Nácar", href: "https://www.academia.edu/143381434/Cuellar_Leandro_Abel_Cap%C3%ADtulo_Una_mirada_al_documental_El_Bot%C3%B3n_de_N%C3%A1car_En_El_cine_en_tiempos_de_angustia_2023_" },
-] as const;
+
 
 const communicatorLinks = [
   { label: "Instagram", href: "https://www.instagram.com/leandrocuellar.online/" },
@@ -137,65 +129,6 @@ const Index = () => {
       <div className="min-h-screen bg-white text-black">
         <Hero />
 
-        <main>
-          <section id="filosofiaIA" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía de la Inteligencia Artificial</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía de la Inteligencia Artificial</h2>
-                  <div className="mt-8">
-                    <Paragraphs items={FilosofiaIAParagraphs.slice(0,2)} />
-                  </div>
-                </div>
-
-                <div className="space-y-8 lg:pt-2">
-                  <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
-                  <a href="https://www.linkedin.com/posts/leandrocuellar_c%C3%B3mo-sabemos-qui%C3%A9nes-somos-con-un-dibujo-ugcPost-7517760616326180864--FCi/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Publicaciones sobre IA en LinkedIn</a>
-                  <a href="https://quepasaamerica.com.ar/ia-redes-y-vacio-legal-que-dice-la-filosofia-del-derecho-sobre-el-caso-nahir-galarza/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">IA, redes y vacío legal: filosofía del derecho</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="filosofiaImagen" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Amour du cinéma</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Amour du cinéma</h2>
-                  <div className="mt-8 max-w-xl">
-                    <Paragraphs items={FilosofiaImagenParagraphs.slice(0)} />
-                  </div>
-                </div>
-
-                <div className="space-y-10 lg:pt-2">
-
-
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {authorImages.map((image) => (
-                      <EditorialImage key={image.src} {...image} />
-                    ))}
-                  </div>
-
-                  <div className="grid gap-4 md:grid-cols-3">
-                    {authorLinks.map((link) => (
-                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-
-                  <div className="space-y-4">
-                    <YouTubePreview href="https://www.youtube.com/watch?v=Dx8oXMBTo_8" title="filosofiaImagen - Video 01" />
-                    <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">El cine en tiempos de angustia - Nota al Pie</a>
-                    <YouTubePreview href="https://www.youtube.com/watch?v=NRBDfdrw8L0" title="filosofiaImagen - Video 02" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          
           <section id="filosofiaPoder" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -227,6 +160,31 @@ const Index = () => {
               </div>
             </div>
           </section>
+
+        <main>
+          <section id="filosofiaIA" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Filosofía de la Inteligencia Artificial</p>
+                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Filosofía de la Inteligencia Artificial</h2>
+                  <div className="mt-8">
+                    <Paragraphs items={FilosofiaIAParagraphs.slice(0,2)} />
+                  </div>
+                </div>
+
+                <div className="space-y-8 lg:pt-2">
+                  <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
+                  <a href="https://www.linkedin.com/posts/leandrocuellar_c%C3%B3mo-sabemos-qui%C3%A9nes-somos-con-un-dibujo-ugcPost-7517760616326180864--FCi/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Publicaciones sobre IA en LinkedIn</a>
+                  <a href="https://quepasaamerica.com.ar/ia-redes-y-vacio-legal-que-dice-la-filosofia-del-derecho-sobre-el-caso-nahir-galarza/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">IA, redes y vacío legal: filosofía del derecho</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          
+
           
 
 
