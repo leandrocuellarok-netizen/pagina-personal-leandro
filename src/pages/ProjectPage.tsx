@@ -147,19 +147,20 @@ const ProjectPage = () => {
           )}
           {slug === "comunicadores-libres" && (
             <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
-              <p className="mb-6 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">En redes y medios</p>
-              <h2 className="mb-6 font-serif text-2xl md:text-3xl">Radio 2 Rosario</h2>
-              <div className="max-w-2xl overflow-hidden border border-[#f1e8df]/15 bg-white">
-                <iframe
-                  className="w-full"
-                  src="https://platform.twitter.com/embed/Tweet.html?id=2117614586325000412&theme=light&dnt=true&lang=es"
-                  title="Publicación de Radio 2 Rosario en X"
-                  height="600"
-                  loading="lazy"
-                  allowFullScreen
-                />
+              <p className="mb-6 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Video destacado</p>
+              <h2 className="mb-6 font-serif text-2xl md:text-3xl">Entrevista en YouTube</h2>
+              <div className="max-w-3xl overflow-hidden border border-[#f1e8df]/15">
+                <div className="aspect-video">
+                  <iframe
+                    className="h-full w-full"
+                    src="https://www.youtube-nocookie.com/embed/1fuhsxHt9sE?start=503"
+                    title="Entrevista en YouTube"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
               </div>
-              <a href="https://x.com/radio2rosario/status/2117614586325000412" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-[10px] uppercase tracking-[0.2em] underline underline-offset-4">Abrir publicación en X ↗</a>
             </section>
           )}
           {isAmour && (
