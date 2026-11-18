@@ -92,9 +92,14 @@ const ProjectPage = () => {
             ))}
           </div>
           {slug === "comunicadores-libres" && (
-            <a href="https://open.spotify.com/show/7kZsXyMhcoUVxi2MpxhfGE?si=Q6cheK7OSLeYMsv5mPkfIw" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex border border-[#d8b978]/60 px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-[#f1e8df] transition-colors hover:bg-[#d8b978]/10">
-              Escuchar FOCO LATAM en Spotify
-            </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="https://open.spotify.com/show/7kZsXyMhcoUVxi2MpxhfGE?si=Q6cheK7OSLeYMsv5mPkfIw" target="_blank" rel="noopener noreferrer" className="inline-flex border border-[#d8b978]/60 px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-[#f1e8df] transition-colors hover:bg-[#d8b978]/10">
+                Escuchar FOCO LATAM en Spotify
+              </a>
+              <a href="https://freemedia.com.ar/comunicadores-libres-comunidad-etica-libertad-expresion/?fma_fid=uqgvyhhmu0kfskumjjilhuuwlqcn6q3x" target="_blank" rel="noopener noreferrer" className="inline-flex border border-[#d8b978]/60 px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-[#f1e8df] transition-colors hover:bg-[#d8b978]/10">
+                Leer publicación en Free Media
+              </a>
+            </div>
           )}
           {isAmour && (
             <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
