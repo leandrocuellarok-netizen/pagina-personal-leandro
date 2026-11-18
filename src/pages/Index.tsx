@@ -196,7 +196,7 @@ const Index = () => {
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Movimiento Vecinal Escobar</p>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">IMPULSOR</p>
                   <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Movimiento Vecinal Escobar</h2>
                 </div>
                 <div className="space-y-8 lg:pt-2">
