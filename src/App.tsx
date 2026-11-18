@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ProjectPage from "./pages/ProjectPage";
 
 const queryClient = new QueryClient();
 const basename = import.meta.env.BASE_URL || "/";
@@ -20,6 +21,7 @@ const App = () => (
           <BrowserRouter basename={basename}>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/proyectos/:slug" element={<ProjectPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
