@@ -101,6 +101,23 @@ const ProjectPage = () => {
               </a>
             </div>
           )}
+          {slug === "comunicadores-libres" && (
+            <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
+              <p className="mb-6 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Video destacado</p>
+              <div className="max-w-3xl overflow-hidden border border-[#f1e8df]/15">
+                <div className="aspect-video">
+                  <iframe
+                    className="h-full w-full"
+                    src="https://www.youtube-nocookie.com/embed/5IiHe5q2Y0c"
+                    title="Video de Comunicadores Libres"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </section>
+          )}
           {isAmour && (
             <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
               <p className="mb-8 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Archivo visual · Amour du cinéma</p>
