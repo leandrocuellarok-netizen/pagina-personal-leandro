@@ -252,19 +252,21 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="space-y-6 lg:pt-2">
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.3em] text-[#d8b978]">Notas y reseñas · Mientras todavía haya imágenes (2026)</p>
+                    <div className="grid gap-4 md:grid-cols-2">
                     {libro2Links.map((link) => (
                       <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
                         {link.label}
                       </a>
                     ))}
+                    </div>
                   </div>
                   <div className="mt-10 border-t border-black/10 pt-7">
                     <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-black/50">RECEPCIÓN DE LA PRENSA</p>
                     <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noopener noreferrer" className="mb-5 inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Nota al Pie · Leer artículo</a>
                   </div>
                                     <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
-                  <a href="https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Mientras todavía haya imágenes - El Pensador</a>
                   <blockquote className="mt-8 border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
                     “En un ecosistema cultural dominado por la inmediatez algorítmica, las plataformas de streaming y lo que el propio autor ironiza como la «ideología Netflix» -un flujo incesante de estímulos anestésicos y provocaciones vacías-, el ejercicio crítico que propone Cuellar adquiere un valor de trinchera intelectual”.
                     <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-black/50">Miguel Mendoza Jorquera · Intelectual chileno — sobre «Mientras todavía haya imágenes» (2026)</footer>
