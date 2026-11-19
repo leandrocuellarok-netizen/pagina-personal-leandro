@@ -5,7 +5,6 @@ const Hero = () => {
     <section id="inicio" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14 lg:py-28">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
         <div>
-          <p className="text-[10px] font-medium uppercase tracking-[0.38em] text-[#d8b978]">ANALISTA CULTURAL, POLÍTICO Y TECNOLÓGICO</p>
           <h1 className="mt-5 max-w-4xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] text-[#f1e8df] sm:text-6xl lg:text-7xl">
             {siteConfig.name}
           </h1>
