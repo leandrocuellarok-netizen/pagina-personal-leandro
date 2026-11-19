@@ -263,7 +263,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="mt-10 border-t border-black/10 pt-7">
-                    <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-black/50">RECEPCIÓN DE LA PRENSA</p>
+                    <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-black/50">RECEPCIÓN DE LA PRENSA · EL CINE EN TIEMPOS DE ANGUSTIA</p>
                     <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noopener noreferrer" className="mb-5 inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Nota al Pie · Leer artículo</a>
                   </div>
                                     <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
