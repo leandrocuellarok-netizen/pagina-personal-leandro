@@ -12,12 +12,12 @@ const Header = () => {
           Leandro A. Cuellar
         </a>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden max-w-4xl flex-wrap justify-end gap-x-5 gap-y-3 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70"
+              className="text-[10px] uppercase tracking-[0.16em] text-black/70 transition-opacity hover:opacity-70"
             >
               {link.label}
             </a>
@@ -40,7 +40,7 @@ const Header = () => {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block py-2 text-[11px] uppercase tracking-[0.3em] text-black/70"
+              className="block border-b border-black/5 py-3 text-[11px] uppercase tracking-[0.18em] text-black/70"
             >
               {link.label}
             </a>
