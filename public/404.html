@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Redirigiendo…</title>
+    <script>
+      var path = location.pathname + location.search + location.hash;
+      sessionStorage.setItem("gh-pages-redirect", path);
+      location.replace("/");
+    </script>
+  </head>
+  <body></body>
+</html>
