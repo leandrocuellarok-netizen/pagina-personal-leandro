@@ -218,7 +218,7 @@ const Index = () => {
               <div className="space-y-6 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
                 <p>Capacitaciones para equipos y profesionales que necesitan incorporar inteligencia artificial a su trabajo cotidiano, con criterio, seguridad y objetivos concretos.</p>
                 <p>La propuesta combina alfabetización en IA, diseño de prompts, automatización de tareas, comunicación y análisis de procesos. No se trata de sumar herramientas por moda, sino de identificar dónde la IA puede ahorrar tiempo, mejorar decisiones y generar valor.</p>
-                <a href="mailto:contacto@leandrocuellar.online?subject=Capacitaci%C3%B3n%20en%20inteligencia%20artificial" className="inline-flex border border-black bg-black px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-75">Consultar por capacitaciones</a>
+                <a href="mailto:leandrocuellarok@gmail.com?subject=Capacitaci%C3%B3n%20en%20inteligencia%20artificial" className="inline-flex border border-black bg-black px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-75">Consultar por capacitaciones</a>
               </div>
             </div>
           </section>
