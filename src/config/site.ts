@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Leandro A. Cuellar",
-  description: "Autor, intelectual, estratega y comunicador.",
-  url: "https://tu-dominio.com",
+  description: "Filósofo, comunicador y analista de la transformación tecnológica y cultural.",
+  url: "https://leandrocuellar.online",
   contact: {
     email: "leandrocuellarok@gmail.com",
     phone: "+54 9 1130538404",
