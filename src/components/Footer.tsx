@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Contacto</p>
             <p className="mt-4 text-sm leading-7 text-black/70">{siteConfig.contact.email}</p>
-            <p className="text-sm leading-7 text-black/70">{siteConfig.contact.phone}</p>
+            <p id="telefono" className="text-sm leading-7 text-black/70">{siteConfig.contact.phone}</p>
           </div>
 
           <div className="flex flex-col gap-4 text-[11px] uppercase tracking-[0.3em] text-black/70 md:items-end">
