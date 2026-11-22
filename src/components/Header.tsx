@@ -1,49 +1,35 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "@/lib/icons";
 import { navLinks } from "@/data/navigation";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10 lg:px-14">
-        <a href="#inicio" className="text-[11px] uppercase tracking-[0.35em] text-black">
+    <header className="sticky top-0 z-50 border-b border-white/15 bg-[#35101f]/95 text-[#f1e8df] backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-6 py-4 md:px-10 lg:px-14">
+        <Link to="/" onClick={() => setOpen(false)} className="shrink-0 text-[11px] uppercase tracking-[0.25em] text-[#f1e8df]">
           Leandro A. Cuellar
-        </a>
-
-        <nav className="hidden max-w-4xl flex-wrap justify-end gap-x-5 gap-y-3 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[10px] uppercase tracking-[0.16em] text-black/70 transition-opacity hover:opacity-70"
-            >
+        </Link>
+        <nav className="hidden flex-wrap justify-end gap-x-5 gap-y-3 lg:flex">
+          {navLinks.filter((link) => link.href !== "/").map((link) => (
+            <Link key={link.href} to={link.href} className={`text-[10px] uppercase tracking-[0.12em] transition-colors hover:text-[#d8b978] ${location.pathname === link.href ? "text-[#d8b978]" : "text-[#f1e8df]/75"}`}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
-
-        <button
-          className="text-black md:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Menú"
-        >
+        <button className="text-[#f1e8df] lg:hidden" onClick={() => setOpen(!open)} aria-label="Menú">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {open && (
-        <nav className="border-t border-black/10 bg-white px-6 py-3 md:hidden">
+        <nav className="border-t border-white/15 bg-[#35101f] px-6 py-3 lg:hidden">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="block border-b border-black/5 py-3 text-[11px] uppercase tracking-[0.18em] text-black/70"
-            >
+            <Link key={link.href} to={link.href} onClick={() => setOpen(false)} className="block border-b border-white/10 py-3 text-[11px] uppercase tracking-[0.15em] text-[#f1e8df]/85">
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       )}
