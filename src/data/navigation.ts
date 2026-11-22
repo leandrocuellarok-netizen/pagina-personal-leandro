@@ -1,9 +1,8 @@
 export const navLinks = [
-  { label: "I'm not only this", href: "#inicio" },
-  { label: "Ecosistema Vilanova Group", href: "#ecosistema" },
-  { label: "Divulgación de IA en medios", href: "#divulgacion-ia" },
-  { label: "Creo creer en lo que escribo creer", href: "#escritura" },
-  { label: "Voy a los medios sin ser Moria", href: "#medios" },
-  { label: "Enseño IA a empresas o así dicen", href: "#ensenanza-ia" },
-  { label: "Teléfono de línea fija", href: "#telefono" },
+  { label: "Inicio", href: "/" },
+  { label: "Ecosistema Vilanova Group", href: "/ecosistema-vilanova-group" },
+  { label: "Yo soy el comunicador libre", href: "/yo-soy-el-comunicador-libre" },
+  { label: "Servicios profesionales", href: "/servicios-profesionales" },
+  { label: "Prensa y medios", href: "/prensa-y-medios" },
+  { label: "Investigación y pensamiento", href: "/investigacion-y-pensamiento" },
 ] as const;
