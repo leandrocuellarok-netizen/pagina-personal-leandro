@@ -7,12 +7,12 @@ const Footer = () => (
       <div className="mt-5 flex flex-col justify-between gap-8 md:flex-row md:items-end">
         <div>
           <h2 className="font-serif text-3xl">Hablemos de proyectos.</h2>
-          <a className="mt-4 inline-block text-sm text-[#f1e8df]/80 underline decoration-[#d8b978]/60 underline-offset-4" href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+          <p className="mt-4 text-sm text-[#f1e8df]/80">{siteConfig.contact.email}</p>
+          <p className="mt-2 text-sm text-[#f1e8df]/80">WhatsApp: +5491130538404</p>
         </div>
         <div className="flex flex-wrap gap-5 text-[11px] uppercase tracking-[0.2em] text-[#f1e8df]/75">
           <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer">Instagram ↗</a>
           <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a href="https://wa.me/5491130538404" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
         </div>
       </div>
       <div className="mt-10 border-t border-white/15 pt-5 text-xs text-[#f1e8df]/45">© {new Date().getFullYear()} {siteConfig.name}</div>
