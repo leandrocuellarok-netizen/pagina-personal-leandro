@@ -92,15 +92,15 @@ export const ServiciosPage = () => (
     <Block title="Inteligencia artificial para empresas">
       <p>Capacitaciones para equipos y profesionales que necesitan incorporar inteligencia artificial a su trabajo cotidiano, con criterio, seguridad y objetivos concretos.</p>
       <p>La propuesta combina alfabetización en IA, diseño de prompts, automatización de tareas, comunicación y análisis de procesos. El punto de partida es identificar dónde la IA puede ahorrar tiempo, mejorar decisiones y generar valor.</p>
-      <a href="mailto:leandrocuellarok@gmail.com?subject=Capacitaci%C3%B3n%20en%20inteligencia%20artificial" className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Solicitar capacitación ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20la%20capacitaci%C3%B3n%20en%20inteligencia%20artificial." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Me interesa la capacitación en inteligencia artificial ↗</a>
     </Block>
     <Block title="Comunicación estratégica">
       <p>Asesoramiento en comunicación institucional, prensa, posicionamiento digital, narrativa de marca y desarrollo de contenidos. Trabajo orientado a ordenar mensajes, construir reputación y conectar organizaciones con sus públicos.</p>
-      <a href="mailto:leandrocuellarok@gmail.com?subject=Consultor%C3%ADa%20en%20comunicaci%C3%B3n" className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Consultar por comunicación ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20comunicaci%C3%B3n%20estrat%C3%A9gica." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Me interesa la comunicación estratégica ↗</a>
     </Block>
     <Block title="Conferencias y formación ejecutiva">
       <p>Charlas, talleres y seminarios sobre inteligencia artificial, cultura digital, filosofía de la tecnología, comunicación y transformaciones sociales. Formatos presenciales y virtuales para empresas, universidades e instituciones.</p>
-      <a href="mailto:leandrocuellarok@gmail.com?subject=Conferencias%20y%20capacitaciones" className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Solicitar propuesta ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesan%20las%20conferencias%20y%20la%20formaci%C3%B3n%20ejecutiva." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Me interesan las conferencias y la formación ejecutiva ↗</a>
     </Block>
   </PageShell>
 );
