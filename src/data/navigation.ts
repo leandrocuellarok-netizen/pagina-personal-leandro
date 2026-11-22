@@ -6,5 +6,4 @@ export const navLinks = [
   { label: "Voy a los medios sin ser Moria", href: "#medios" },
   { label: "Enseño IA a empresas o así dicen", href: "#ensenanza-ia" },
   { label: "Teléfono de línea fija", href: "#telefono" },
-  { label: "Contacto", href: "#contacto" },
 ] as const;
