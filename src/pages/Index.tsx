@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
@@ -127,9 +128,10 @@ const Index = () => {
     <>
       <SEO title="Leandro A. Cuellar" description="Página biográfica editorial de Leandro A. Cuellar, en torno a la filósofía de la imagen, el poder y la inteligencia artificial." />
       <div className="min-h-screen bg-white text-black">
+        <Header />
         <Hero />
 
-          <section id="filosofiaPoder" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+          <section id="ecosistema" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div>
@@ -172,7 +174,7 @@ const Index = () => {
           </section>
 
         <main>
-          <section id="culturaDigital" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+          <section id="divulgacion-ia" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div>
@@ -192,6 +194,34 @@ const Index = () => {
             </div>
           </section>
 
+
+          <section id="medios" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Prensa y conversación pública</p>
+              <h2 className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl md:text-5xl">Voy a los medios sin ser Moria</h2>
+              <p className="mt-8 max-w-3xl text-[15px] leading-8 text-black/75 md:text-base md:leading-9">Participaciones, entrevistas y artículos en los que comparto análisis sobre política, cultura, comunicación e inteligencia artificial. Una conversación pública que también se construye escuchando, preguntando y discutiendo.</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="https://realpolitik.com.ar/nota/75068/deepfakes-en-dos-minutos-podes-arruinar-la-imagen-de-un-candidato-antes-de-votar/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">RealPolitik · IA y política</a>
+                <a href="https://escobaradiario.com.ar/interes-general/ia-y-comunicacion-estrategica-para-posicionar-tu-negocio/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">Escobar a Diario · Comunicación e IA</a>
+                <a href="https://www.agencianova.com/opinion/2026/10/22/174271/por-que-propongo-institucionalizar-la-semana-del-emprendedor-escobarense/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">Agencia NOVA · Opinión</a>
+                <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">Nota al Pie · Libros y cultura</a>
+              </div>
+            </div>
+          </section>
+
+          <section id="ensenanza-ia" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+            <div className="mx-auto max-w-6xl grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Formación y consultoría</p>
+                <h2 className="mt-3 font-serif text-3xl sm:text-4xl md:text-5xl">Enseño IA a empresas o así dicen</h2>
+              </div>
+              <div className="space-y-6 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
+                <p>Capacitaciones para equipos y profesionales que necesitan incorporar inteligencia artificial a su trabajo cotidiano, con criterio, seguridad y objetivos concretos.</p>
+                <p>La propuesta combina alfabetización en IA, diseño de prompts, automatización de tareas, comunicación y análisis de procesos. No se trata de sumar herramientas por moda, sino de identificar dónde la IA puede ahorrar tiempo, mejorar decisiones y generar valor.</p>
+                <a href="mailto:contacto@leandrocuellar.online?subject=Capacitaci%C3%B3n%20en%20inteligencia%20artificial" className="inline-flex border border-black bg-black px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-75">Consultar por capacitaciones</a>
+              </div>
+            </div>
+          </section>
           <section id="movimientoVecinal" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -216,7 +246,7 @@ const Index = () => {
             </div>
           </section>
 
-<section id="libro" className="border-y border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
+<section id="escritura" className="border-y border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                 <div className="space-y-14">
