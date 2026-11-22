@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Index = () => (
   <>
-    <SEO title="Leandro A. Cuellar" description="Filósofo, comunicador y divulgador de inteligencia artificial. Cultura digital, comunicación y pensamiento político." />
+    <SEO title="Leandro A. Cuellar" description="Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar." />
     <div className="min-h-screen bg-[#35101f] text-[#f1e8df]">
       <Header />
       <main>
@@ -13,7 +13,7 @@ const Index = () => (
           <div className="mx-auto max-w-6xl">
             <p className="text-[10px] uppercase tracking-[0.4em] text-[#d8b978]">Filosofía · Comunicación · Inteligencia artificial</p>
             <h1 className="mt-6 max-w-5xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">Leandro A. Cuellar</h1>
-            <p className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9">Filósofo, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública.</p>
+            <p className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9">Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar.</p>
           </div>
         </section>
 
