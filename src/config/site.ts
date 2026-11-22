@@ -3,7 +3,7 @@ export const siteConfig = {
   description: "Filósofo, comunicador y analista de la transformación tecnológica y cultural.",
   url: "https://leandrocuellar.online",
   contact: {
-    email: "leandrocuellarok@gmail.com",
+    email: "strategy@vilanovagroup.site",
     phone: "+54 9 1130538404",
     whatsapp: "5491130538404"
   },
