@@ -9,9 +9,10 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/15 bg-[#35101f]/95 text-[#f1e8df] backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-6 py-4 md:px-10 lg:px-14">
-        <Link to="/" onClick={() => setOpen(false)} className="shrink-0 text-[11px] uppercase tracking-[0.25em] text-[#f1e8df]">
-          Leandro A. Cuellar
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-6 py-3 md:px-10 lg:px-14">
+        <Link to="/" onClick={() => setOpen(false)} className="flex shrink-0 items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-[#f1e8df]">
+          <img src="/photos/leandro-cuellar.webp" alt="Leandro A. Cuellar" className="h-11 w-11 rounded-sm border border-[#d8b978]/70 object-cover object-center" />
+          <span>Leandro A. Cuellar</span>
         </Link>
         <nav className="hidden flex-wrap justify-end gap-x-5 gap-y-3 lg:flex">
           {navLinks.filter((link) => link.href !== "/").map((link) => (
