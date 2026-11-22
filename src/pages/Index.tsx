@@ -1,321 +1,70 @@
-import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { Link } from "react-router-dom";
 
-const sectionImageBase = "/photos";
+const Index = () => (
+  <>
+    <SEO title="Leandro A. Cuellar" description="Filósofo, comunicador y divulgador de inteligencia artificial. Cultura digital, comunicación y pensamiento político." />
+    <div className="min-h-screen bg-[#35101f] text-[#f1e8df]">
+      <Header />
+      <main>
+        <section className="px-6 pb-12 pt-20 md:px-10 md:pb-16 md:pt-28 lg:px-14">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-[#d8b978]">Filosofía · Comunicación · Inteligencia artificial</p>
+            <h1 className="mt-6 max-w-5xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">Leandro A. Cuellar</h1>
+            <p className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9">Filósofo, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública.</p>
+          </div>
+        </section>
 
+        <section aria-label="Video de presentación" className="border-y border-white/15 px-6 py-8 md:px-10 lg:px-14">
+          <div className="mx-auto max-w-5xl">
+            <div className="mx-auto aspect-[9/16] max-h-[720px] overflow-hidden border border-white/15 bg-black">
+              <iframe className="h-full w-full" src="https://www.youtube-nocookie.com/embed/DzLUr_J_xZc" title="Leandro A. Cuellar - presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            </div>
+            <a href="https://www.youtube.com/shorts/DzLUr_J_xZc" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] text-[#d8b978]">Ver Short en YouTube ↗</a>
+          </div>
+        </section>
 
+        <section className="px-6 py-16 md:px-10 md:py-20 lg:px-14">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Identidad y trabajo público</p>
+            <h2 className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">Yo soy el comunicador libre</h2>
+            <p className="mt-6 max-w-3xl text-base leading-8 text-[#f1e8df]/80">Un espacio donde convergen cultura digital, inteligencia artificial, filosofía política y participación en los medios. Investigo cómo se transforma la conversación pública y cómo comunicar con autonomía, criterio y responsabilidad.</p>
+            <Link to="/yo-soy-el-comunicador-libre" className="mt-7 inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em] text-[#f1e8df] hover:bg-white/5">Entrar a esta sección ↗</Link>
+          </div>
+        </section>
 
-const intelectualImages = [
-  { src: `${sectionImageBase}/intec_1.webp`, alt: "Portada de El cine en tiempos de angustia", caption: "ACCESO LIBRE A 72 PÁGINAS", wide: true, href: "https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" },
-  { src: `${sectionImageBase}/intec_2.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 1", caption: "Marca" },
-  { src: `${sectionImageBase}/intec_3.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 2", caption: "Cine" },
-  { src: `${sectionImageBase}/intec_4.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 3", caption: "Libro 02" },
-  { src: `${sectionImageBase}/intec_5.webp`, alt: "Leandro A. Cuellar - Autor - Fotografía 4", caption: "Fotografía" },
-] as const;
-
-const bookCover = `${sectionImageBase}/portada_libro.webp`;
-
-const libro2Links = [
-  { label: "Nota: El Pensador", href: "https://elpensador.io/mientras-aun-haya-imagenes-diario-privado-espectador/" },
-  { label: "Nota: Voces de la Comuna 15", href: "https://vocesdelacomuna15.com.ar/press/leandro-a-cuellar-presenta-su-segundo-libro-mientras-todavia-hayaimagenes/" },
-  { label: "Nota: Pehuenche Digital", href: "https://www.pehuenchedigital.com.ar/articulo/17753/leandro-cuellar-presenta----mientras-todav--a-haya-im--genes--el-diario-privado-de-un-espectador-" },
-] as const;
-
-
-
-const communicatorLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/leandrocuellar.online/" },
-] as const;
-
-const YouTubePreview = ({ href, title }: { href: string; title: string }) => {
-  const embedSrc = href.replace("watch?v=", "embed/");
-
-  return (
-    <div className="overflow-hidden border border-black/12 bg-white">
-      <div className="aspect-video bg-white">
-        <iframe
-          className="h-full w-full"
-          src={embedSrc}
-          title={title}
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
-      </div>
+        <section id="libros" className="border-y border-white/15 bg-[#2b0c19] px-6 py-16 md:px-10 md:py-20 lg:px-14">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Obra publicada</p>
+            <h2 className="mt-3 font-serif text-4xl sm:text-5xl">Libros</h2>
+            <div className="mt-10 grid gap-12 md:grid-cols-2">
+              <article className="grid gap-6 sm:grid-cols-[0.8fr_1.2fr] sm:items-start">
+                <img src="/photos/portada_libro.webp" alt="Portada de Mientras todavía haya imágenes" className="w-full border border-white/15" loading="lazy" />
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#d8b978]">2026</p>
+                  <h3 className="mt-2 font-serif text-2xl">Mientras todavía haya imágenes</h3>
+                  <p className="mt-4 text-sm leading-7 text-[#f1e8df]/70">El diario privado de un espectador. Una exploración de la imagen, la memoria y la experiencia contemporánea.</p>
+                  <a href="https://www.academia.edu/175471821/MIENTRAS_TODAV%C3%8DA_HAYA_IM%C3%81GENES_El_diario_privado_de_un_espectador_2023_2025_Versi%C3%B3n_e_book_completa_Leandro_A_Cuellar" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex border border-[#d8b978]/60 px-4 py-3 text-[10px] uppercase tracking-[0.18em]">Leer el libro · Acceso libre ↗</a>
+                </div>
+              </article>
+              <article className="grid gap-6 sm:grid-cols-[0.8fr_1.2fr] sm:items-start">
+                <img src="/photos/intec_1.webp" alt="Portada de El cine en tiempos de angustia" className="w-full border border-white/15" loading="lazy" />
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#d8b978]">Primera edición 2022 · Segunda edición 2023</p>
+                  <h3 className="mt-2 font-serif text-2xl">El cine en tiempos de angustia</h3>
+                  <p className="mt-4 text-sm leading-7 text-[#f1e8df]/70">Ensayos, reflexiones y críticas sobre cine, filosofía y experiencia humana.</p>
+                  <a href="https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex border border-[#d8b978]/60 px-4 py-3 text-[10px] uppercase tracking-[0.18em]">Leer el libro · Acceso libre ↗</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
     </div>
-  );
-};
-
-const EditorialImage = ({ src, alt, caption, wide = false, href }: { src: string; alt: string; caption: string; wide?: boolean; href?: string }) => (
-  <figure className={wide ? "md:col-span-2" : ""}>
-    {href ? (
-      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${alt} en Academia.edu`} className="block transition-opacity hover:opacity-80">
-        <img src={src} alt={alt} className="w-full border border-black/10 bg-white" loading="lazy" />
-      </a>
-    ) : (
-      <img src={src} alt={alt} className="w-full border border-black/10 bg-white" loading="lazy" />
-    )}
-    <figcaption className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">{caption}</figcaption>
-  </figure>
+  </>
 );
-
-const Paragraphs = ({ items }: { items: string[] }) => (
-  <div className="space-y-6 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
-    {items.map((item) => (
-      <p key={item}>{item}</p>
-    ))}
-  </div>
-);
-
-const Index = () => {
-  const FilosofiaImagenParagraphs = [
-    "Su trabajo explora la identidad, la memoria, el tiempo y las relaciones humanas a través del cine, la escritura y la fotografía.",
-    "Estos lenguajes dialogan entre sí y conforman una búsqueda autoral que entiende la imagen como una forma de conocimiento y reflexión.",
-    "Su propósito es construir una obra que permanezca, abra preguntas y proponga una mirada propia sobre el mundo.",
-    "En 2020 fundó Amour du cinéma, una escuela dedicada a pensar el cine y su relación con la filosofía y el pensamiento contemporáneo.",
-    "El proyecto privilegia la reflexión estética y cultural antes que la formación técnica, y promueve el intercambio entre personas de distintos países.",
-    "Con el tiempo, Amour du cinéma amplió su actividad y también impulsó proyectos de producción audiovisual.",
-    "En 2022 publicó El cine en tiempos de angustia, obra reeditada en 2023.",
-    "Actualmente desarrolla Ensayos sobre la identidad, un proyecto multidisciplinario que reúne fotografía, audiovisual y escritura.",
-    "Organizado en capítulos, explora la angustia, la intimidad, la sensualidad y otras dimensiones de la experiencia contemporánea.",
-    "Su búsqueda reúne pensamiento y creación para interrogar la identidad, el tiempo y la experiencia humana.",
-  ];
-
-  const intelectualParagraphs = [
-    "El pensamiento atraviesa la trayectoria de Leandro Cuellar. Su interés por la filosofía, el psicoanálisis, la teoría política y las ciencias sociales se expresa en la docencia, la investigación y la creación.",
-    "Su enfoque es interdisciplinario: pone en diálogo tradiciones y autores como Nietzsche, Freud, Lacan, Maquiavelo y Carl Schmitt para pensar la cultura, el poder y la subjetividad.",
-    "Como docente, impulsa seminarios privados para estudiantes y profesionales de distintas áreas, con énfasis en el diálogo y el pensamiento crítico.",
-    "Investiga sobre cine, filosofía, comunicación, inteligencia artificial, marketing político y transformaciones culturales.",
-    "Para Cuellar, pensar, crear y actuar forman parte de un mismo proceso: producir conocimiento para comprender el mundo.",
-    "Durante su trayectoria académica mantuvo diferencias con el investigador Javier Flax sobre la docencia universitaria y la libertad de pensamiento.",
-    "Cuellar cuestionó la presentación de posiciones políticas como verdades incuestionables y defendió el pluralismo en el aula.",
-    "Sostiene que las convicciones personales de un docente no deben imponerse ni convertirse en criterios de evaluación.",
-    "También afirma haber recibido amenazas y haber atravesado situaciones que, según su interpretación, afectaron su trayectoria universitaria.",
-    "A partir de esas experiencias orientó parte de su actividad hacia espacios independientes de formación, basados en el pluralismo y el respeto por la diversidad de ideas.",
-    "En sus seminarios propone contrastar autores y corrientes diferentes. Considera que aprender implica revisar las propias creencias y construir un juicio autónomo.",
-  ];
-
-  const filosofiaPoderParagraphs = [
-    "Vilanova Group® es un ecosistema a favor del pensamiento, la cultura, la libertad de expresión, la innovación y la comunicación política con responsabilidad ética. Fundado por Leandro Cuellar, articula proyectos de comunicación, cultura, formación e inteligencia artificial.",
-    "El ecosistema articula comunicación estratégica, branding, consultoría institucional, formación, investigación social e IA aplicada a la toma de decisiones.",
-    "Su enfoque integra tecnología, datos y comportamiento humano para ayudar a organizaciones a comprender escenarios y desarrollar estrategias de largo plazo.",
-    "Cuellar considera que la inteligencia artificial es una de las transformaciones centrales del siglo XXI y que debe desarrollarse con criterios éticos, transparencia y responsabilidad.",
-    "Cuestiona el uso de tecnologías para manipular, polarizar o desinformar. La IA debe ampliar las capacidades humanas, no sustituir el juicio.",
-    "Defiende una comunicación pública que fortalezca el debate, el acceso a información verificable y la autonomía de la ciudadanía.",
-  ];
-
-  const comunicadorParagraphs = [
-    "Cuellar entiende la comunicación como una práctica plural que permite poner ideas en circulación y fortalecer el diálogo democrático.",
-    "Impulsa FOCO LATAM, un espacio de análisis político que reúne a dirigentes y referentes de distintas corrientes para promover el intercambio de perspectivas.",
-    "También creó Comunicadores Libres, una comunidad de trabajo para comunicadores argentinos y latinoamericanos, orientada a compartir contactos, notas y oportunidades.",
-    "Su actividad incluye participación como analista político y cultural en medios y espacios de debate, entre ellos Canal 26 y RealPolitik.",
-    "Considera que comunicar no es solo transmitir información: también es crear espacios de encuentro y ampliar la conversación pública.",
-    "Como experimento narrativo desarrolló Nano Vilanova, un personaje ficticio para investigar la persuasión, la propaganda y la construcción de liderazgos.",
-    "El proyecto incorporó recursos de performance, estética y actuación para explorar cómo se construye una identidad pública.",
-    "Esta experiencia forma parte de su interés por los vínculos entre representación, comunicación estratégica e identidad.",
-  ];
-
-  const FilosofiaIAParagraphs = [
-    "Su reflexión sobre inteligencia artificial parte de una pregunta: qué significa ser humano cuando el lenguaje, las imágenes y la memoria pueden ser producidos y procesados por máquinas.",
-    "El mind uploading plantea un problema central: si pudiéramos trasladar recuerdos y pensamientos a un sistema artificial, ¿seguiríamos siendo nosotros mismos? ¿La conciencia es información o existe algo irreductible en la experiencia de vivir?",
-    "Cuellar entiende la IA como un acontecimiento filosófico que transforma nuestra relación con el cuerpo, la identidad, la memoria y el deseo. La pregunta no es solo qué puede hacer una máquina, sino qué cambia en nosotros cuando delegamos en ella capacidades humanas.",
-    "También publica y comparte reflexiones sobre inteligencia artificial en medios y plataformas como Perfil, la radio de la Universidad de San Luis y LinkedIn.",
-  ];
-
-  return (
-    <>
-      <SEO title="Leandro A. Cuellar" description="Página biográfica editorial de Leandro A. Cuellar, en torno a la filósofía de la imagen, el poder y la inteligencia artificial." />
-      <div className="min-h-screen bg-white text-black">
-        <Header />
-        <Hero />
-
-          <section id="ecosistema" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Vilanova Group</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Vilanova Group</h2>
-                  <figure className="mt-8 overflow-hidden border border-black/10 bg-white">
-                    <img src={`${sectionImageBase}/intec_2.webp`} alt="Identidad visual de Vilanova Group" className="w-full" loading="lazy" />
-                  </figure>
-                  <div className="mt-8">
-                    <Paragraphs items={filosofiaPoderParagraphs.slice(0, 3)} />
-                  </div>
-                </div>
-
-                <div className="space-y-8 lg:pt-2">
-                  <Paragraphs items={filosofiaPoderParagraphs.slice(3)} />
-
-                  <a href="https://www.academia.edu/180201632/C%C3%B3digo_de_%C3%89tica_para_el_Uso_de_la_Inteligencia_Artificial_en_Campa%C3%B1as_Pol%C3%ADticas_en_Argentina" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Código de ética IA para campañas políticas</a>
-                  <a href="https://realpolitik.com.ar/nota/75068/deepfakes-en-dos-minutos-podes-arruinar-la-imagen-de-un-candidato-antes-de-votar/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Deepfakes y la imagen de un candidato - RealPolitik</a>
-                </div>
-
-              <div className="mt-14 border-t border-[#d8c5b7]/25 pt-8">
-                <p className="mb-6 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]/80">Conocé los proyectos del ecosistema</p>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <a href="/proyectos/comunicadores-libres" className="flex items-center justify-between border border-[#f1e8df]/25 px-5 py-4 text-sm tracking-wide text-[#f1e8df] transition-colors hover:border-[#d8b978]/70 hover:bg-white/5">Comunicadores Libres <span aria-hidden="true">↗</span></a>
-                  <a href="/proyectos/amour-du-cinema" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Amour du cinéma <span aria-hidden="true">↗</span></a>
-                  <a href="/proyectos/archivos-atenea" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Archivos ATENEA <span aria-hidden="true">↗</span></a>
-                  <a href="/proyectos/vilanova-ai" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Vilanova AI Solutions <span aria-hidden="true">↗</span></a>
-                  <a href="/proyectos/vilanova-partners" className="flex items-center justify-between border border-black/15 px-5 py-4 text-sm tracking-wide transition-colors hover:bg-black/5">Vilanova Partners <span aria-hidden="true">↗</span></a>
-                </div>
-                <div className="mt-8">
-                  <a href="https://www.linkedin.com/company/vilanovagroupai" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-3 rounded-md bg-[#0A66C2] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-sm transition-colors hover:bg-[#004182] focus:outline-none focus:ring-2 focus:ring-[#0A66C2] focus:ring-offset-2">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-white text-[15px] font-bold leading-none text-[#0A66C2]">in</span>
-                    Vilanova Group en LinkedIn
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
-              </div>
-              </div>
-            </div>
-          </section>
-
-        <main>
-          <section id="divulgacion-ia" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Analista</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Cultura digital, IA y filosofía política</h2>
-                  <div className="mt-8">
-                    <Paragraphs items={FilosofiaIAParagraphs.slice(0,2)} />
-                  </div>
-                </div>
-
-                <div className="space-y-8 lg:pt-2">
-                  <Paragraphs items={FilosofiaIAParagraphs.slice(2)} />
-                  <a href="https://www.linkedin.com/posts/leandrocuellar_c%C3%B3mo-sabemos-qui%C3%A9nes-somos-con-un-dibujo-ugcPost-7517760616326180864--FCi/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Publicaciones sobre IA en LinkedIn</a>
-                  <a href="https://quepasaamerica.com.ar/ia-redes-y-vacio-legal-que-dice-la-filosofia-del-derecho-sobre-el-caso-nahir-galarza/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">IA, redes y vacío legal: filosofía del derecho</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-
-          <section id="medios" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Prensa y conversación pública</p>
-              <h2 className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl md:text-5xl">Voy a los medios sin ser Moria</h2>
-              <p className="mt-8 max-w-3xl text-[15px] leading-8 text-black/75 md:text-base md:leading-9">Participaciones, entrevistas y artículos en los que comparto análisis sobre política, cultura, comunicación e inteligencia artificial. Una conversación pública que también se construye escuchando, preguntando y discutiendo.</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="https://realpolitik.com.ar/nota/75068/deepfakes-en-dos-minutos-podes-arruinar-la-imagen-de-un-candidato-antes-de-votar/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">RealPolitik · IA y política</a>
-                <a href="https://escobaradiario.com.ar/interes-general/ia-y-comunicacion-estrategica-para-posicionar-tu-negocio/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">Escobar a Diario · Comunicación e IA</a>
-                <a href="https://www.agencianova.com/opinion/2026/10/22/174271/por-que-propongo-institucionalizar-la-semana-del-emprendedor-escobarense/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">Agencia NOVA · Opinión</a>
-                <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noreferrer" className="border border-black/15 px-4 py-3 text-[11px] uppercase tracking-[0.2em] text-black/70 hover:bg-black/5">Nota al Pie · Libros y cultura</a>
-              </div>
-            </div>
-          </section>
-
-          <section id="ensenanza-ia" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">Formación y consultoría</p>
-                <h2 className="mt-3 font-serif text-3xl sm:text-4xl md:text-5xl">Enseño IA a empresas o así dicen</h2>
-              </div>
-              <div className="space-y-6 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
-                <p>Capacitaciones para equipos y profesionales que necesitan incorporar inteligencia artificial a su trabajo cotidiano, con criterio, seguridad y objetivos concretos.</p>
-                <p>La propuesta combina alfabetización en IA, diseño de prompts, automatización de tareas, comunicación y análisis de procesos. No se trata de sumar herramientas por moda, sino de identificar dónde la IA puede ahorrar tiempo, mejorar decisiones y generar valor.</p>
-                <a href="mailto:leandrocuellarok@gmail.com?subject=Capacitaci%C3%B3n%20en%20inteligencia%20artificial" className="inline-flex border border-black bg-black px-5 py-3 text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-75">Consultar por capacitaciones</a>
-              </div>
-            </div>
-          </section>
-          <section id="movimientoVecinal" className="border-b border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-black/50">IMPULSOR</p>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Movimiento Vecinal Escobar</h2>
-                </div>
-                <div className="space-y-8 lg:pt-2">
-                  <Paragraphs items={[
-                    'La propuesta se aleja de las estructuras partidarias tradicionales y adopta como lema la frase «ser vecino es un deber diplomático». Impulsa una identidad política basada en la convivencia barrial, la transparencia y el contacto directo con la comunidad.',
-                    'Promueve iniciativas para conectar a jóvenes con oportunidades de formación, servicios y nuevos mercados. Considera que Escobar debe superar una mirada localista y apostar a la exportación de empleo mediante el uso de inteligencia artificial, conectando capacidades locales con oportunidades en otros países frente a la actual crisis de desempleo.',
-                    'En redes sociales se ha interpretado equivocadamente que una fotografía de Leandro Cuellar con el intendente Ariel Sujarchuk implicaría una alineación política. Nada más lejos de la intención: ese encuentro se inscribe en la convicción de que son necesarios los diálogos institucionales.',
-                    'Tal como expresó en sus redes: «La política se construye dialogando. El disenso es democracia. Y, si hay consenso, que sea en favor de los vecinos». La frase expresa la posibilidad de convivir y dialogar con distintos actores políticos en beneficio de los vecinos y las vecinas de Escobar.',
-                    'El movimiento impulsó iniciativas por un Escobar más limpio, que reunieron más de 150 firmas y promovieron la declaración del 3 de marzo como «Día por un Escobar más limpio». También reunió más de 350 firmas para solicitar que la Semana de la Emprendedora y el Emprendedor Escobarense fuera declarada de interés municipal, pero ese reconocimiento no se concedió. Este año, el municipio presentó en Escobar la Semana Global del Emprendimiento. Como dice Leandro Cuellar: «Lo importante es continuar invirtiendo recursos de forma independiente en la economía del conocimiento y en lograr la autonomía y dignidad de cada persona. Mi inspiración es kantiana y contextualizada en lo cotidiano de nuestra ciudad».',
-                  ]} />
-                  <a href="https://escobaradiario.com.ar/interes-general/movimiento-vecinal-escobar/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Movimiento Vecinal Escobar - Escobar a Diario</a>
-                  <a href="https://escobaradiario.com.ar/interes-general/ia-y-comunicacion-estrategica-para-posicionar-tu-negocio/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">IA y comunicación estratégica para posicionar tu negocio - Escobar a Diario</a>
-                  <a href="https://www.agencianova.com/opinion/2026/10/22/174271/por-que-propongo-institucionalizar-la-semana-del-emprendedor-escobarense/" target="_blank" rel="noreferrer" className="inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Por qué propongo institucionalizar la Semana del Emprendedor Escobarense - Agencia NOVA</a>
-                  <YouTubePreview href="https://www.youtube.com/watch?v=wW0uneOAngA" title="Movimiento Vecinal Escobar - Video" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-<section id="escritura" className="border-y border-black/10 px-6 py-16 md:px-10 md:py-24 lg:px-14">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div className="space-y-14">
-                  <div>
-                    <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-black/50">2026</p>
-                    <h2 className="mb-5 text-2xl sm:text-3xl">Mientras todavía haya imágenes</h2>
-                    <figure className="overflow-hidden border border-black/10 bg-white">
-                      <img src={bookCover} alt="Portada de Mientras todavía haya imágenes" className="w-full" loading="lazy" />
-                    </figure>
-                    <a
-                      href="https://www.academia.edu/175471821/MIENTRAS_TODAV%C3%8DA_HAYA_IM%C3%81GENES_El_diario_privado_de_un_espectador_2023_2025_Versi%C3%B3n_e_book_completa_Leandro_A_Cuellar"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex border border-black bg-[#5f050f] px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
-                    >
-                      Leer el libro · Acceso libre
-                    </a>
-                  </div>
-                  <div>
-                    <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-black/50">Primera edición · 2022 / Segunda edición · 2023</p>
-                    <h2 className="mb-5 text-2xl sm:text-3xl">El cine en tiempos de angustia</h2>
-                    <a href="https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas" target="_blank" rel="noopener noreferrer" aria-label="Abrir El cine en tiempos de angustia en Academia.edu" className="block transition-opacity hover:opacity-80">
-                      <img src={`${sectionImageBase}/intec_1.webp`} alt="Portada de El cine en tiempos de angustia" className="w-full border border-black/10 bg-white" loading="lazy" />
-                    </a>
-                    <a
-                      href="https://www.academia.edu/144239998/Cuellar_Leandro_Abel_Comp_El_cine_en_tiempos_de_angustia_ensayos_reflexiones_y_cr%C3%ADticas_Segunda_ed_Selecci%C3%B3n_78_p%C3%A1ginas"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex border border-black bg-[#5f050f] px-6 py-3 text-[11px] uppercase tracking-[0.3em] text-white transition-opacity hover:opacity-80"
-                    >
-                      Leer el libro · Acceso libre
-                    </a>
-                  </div>
-                </div>
-                <div className="space-y-6 lg:pt-2">
-                  <div>
-                    <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.3em] text-[#d8b978]">Notas y reseñas · Mientras todavía haya imágenes (2026)</p>
-                    <div className="grid gap-4 md:grid-cols-2">
-                    {libro2Links.map((link) => (
-                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">
-                        {link.label}
-                      </a>
-                    ))}
-                    </div>
-                  </div>
-                  <div className="mt-10 border-t border-black/10 pt-7">
-                    <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-black/50">RECEPCIÓN DE LA PRENSA · EL CINE EN TIEMPOS DE ANGUSTIA</p>
-                    <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noopener noreferrer" className="mb-5 inline-flex border border-black/10 px-4 py-3 text-[11px] uppercase tracking-[0.3em] text-black/70 transition-opacity hover:opacity-70">Nota al Pie · Leer artículo</a>
-                  </div>
-                                    <YouTubePreview href="https://www.youtube.com/watch?v=tiyjrNutQbQ" title="Entrevista - Libro" />
-                  <blockquote className="mt-8 border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
-                    “En un ecosistema cultural dominado por la inmediatez algorítmica, las plataformas de streaming y lo que el propio autor ironiza como la «ideología Netflix» -un flujo incesante de estímulos anestésicos y provocaciones vacías-, el ejercicio crítico que propone Cuellar adquiere un valor de trinchera intelectual”.
-                    <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-black/50">Miguel Mendoza Jorquera · Intelectual chileno — sobre «Mientras todavía haya imágenes» (2026)</footer>
-                  </blockquote>
-                    <blockquote className="border-l border-black/20 pl-5 text-[15px] leading-8 text-black/75 md:text-base md:leading-9">
-                      “El libro es un fiel reflejo que presenta al cine como una forma de consuelo y redentora frente a los acontecimientos dolorosos que puede traer el transcurso de la vida. Se explora el abordaje de diferentes directores como <strong>Pasolini</strong>, <strong>Truffaut</strong>, <strong>Douglas Sirk</strong> y <strong>Kieślowski</strong>, entre otros... <strong>Nietzsche</strong> y <strong>Foucault</strong> ocupan un lugar fundamental en el libro. A un día de su lanzamiento oficial, <a href="https://instagram.com/leandroacuellar?igshid=MzRlODBiNWFlZA" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Leandro Cuellar</a> reveló a <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Nota al Pie</a> que el libro será sin costo para los amantes del cine que sufren ansiedad y ataques de pánico”.
-                      <footer className="mt-4 text-[11px] uppercase tracking-[0.2em] text-black/50">Mayra Palavecino · Periodista cultural de Nota al Pie — sobre «El cine en tiempos de angustia» (2022, 2023)</footer>
-                    </blockquote>
-
-                </div>
-              </div>
-            </div>
-          </section>
-        </main>
-
-        <Footer />
-      </div>
-    </>
-  );
-};
 
 export default Index;
