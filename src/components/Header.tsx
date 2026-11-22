@@ -13,6 +13,7 @@ const Header = () => {
         <Link to="/" onClick={() => setOpen(false)} className="flex shrink-0 items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-[#f1e8df]">
           <img src="/photos/leandro-cuellar.webp" alt="Leandro A. Cuellar" className="h-11 w-11 rounded-sm border border-[#d8b978]/70 object-cover object-center" />
           <span>Leandro A. Cuellar</span>
+          <img src="/photos/leandro-cuellar.webp" alt="" aria-hidden="true" className="h-11 w-11 rounded-sm border border-[#d8b978]/70 object-cover object-center" />
         </Link>
         <nav className="hidden flex-wrap justify-end gap-x-5 gap-y-3 lg:flex">
           {navLinks.filter((link) => link.href !== "/").map((link) => (
