@@ -12,7 +12,8 @@ const Index = () => (
         <section className="px-6 pb-12 pt-20 md:px-10 md:pb-16 md:pt-28 lg:px-14">
           <div className="mx-auto max-w-6xl">
             <p className="text-[10px] uppercase tracking-[0.4em] text-[#d8b978]">Filosofía · Comunicación · Inteligencia artificial</p>
-            <h1 className="mt-6 max-w-5xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">Leandro A. Cuellar</h1>\n            <img src="/photos/leandro-cuellar.webp" alt="Leandro A. Cuellar" className="mt-8 h-48 w-48 rounded-sm border border-[#d8b978]/70 object-cover object-center sm:h-56 sm:w-56" />
+            <h1 className="mt-6 max-w-5xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">Leandro A. Cuellar</h1>
+            <img src="/photos/leandro-cuellar.webp" alt="Leandro A. Cuellar" className="mt-8 h-48 w-48 rounded-sm border border-[#d8b978]/70 object-cover object-center sm:h-56 sm:w-56" />
             <p className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9">Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar.</p>
           </div>
         </section>
