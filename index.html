@@ -12,6 +12,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     
+    <script>
+      (function () {
+        var redirectPath = sessionStorage.getItem("gh-pages-redirect");
+        if (redirectPath) {
+          sessionStorage.removeItem("gh-pages-redirect");
+          history.replaceState(null, "", redirectPath);
+        }
+      })();
+    </script>
     <!-- Script para manejar redirecciones de GitHub Pages -->
     <script type="application/ld+json">
       {
