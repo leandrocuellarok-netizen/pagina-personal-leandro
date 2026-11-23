@@ -1,108 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 342 48% 13%;
-    --foreground: 38 35% 91%;
-
-    --card: 340 42% 17%;
-    --card-foreground: 38 35% 91%;
-
-    --popover: 340 42% 17%;
-    --popover-foreground: 38 35% 91%;
-
-    --primary: 345 55% 34%;
-    --primary-foreground: 38 35% 94%;
-
-    --secondary: 340 30% 23%;
-    --secondary-foreground: 38 35% 91%;
-
-    --muted: 340 25% 21%;
-    --muted-foreground: 35 18% 72%;
-
-    --accent: 345 42% 40%;
-    --accent-foreground: 38 35% 94%;
-
-    --destructive: 0 62% 42%;
+    --background: 46 100% 56%;
+    --foreground: 30 35% 9%;
+    --card: 44 100% 61%;
+    --card-foreground: 30 35% 9%;
+    --popover: 44 100% 61%;
+    --popover-foreground: 30 35% 9%;
+    --primary: 345 66% 27%;
+    --primary-foreground: 46 100% 94%;
+    --secondary: 43 90% 48%;
+    --secondary-foreground: 30 35% 9%;
+    --muted: 44 65% 48%;
+    --muted-foreground: 30 22% 25%;
+    --accent: 345 66% 27%;
+    --accent-foreground: 46 100% 94%;
+    --destructive: 0 72% 40%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 340 22% 35%;
-    --input: 340 22% 35%;
-    --ring: 345 45% 62%;
-
-    --radius: 0rem;
+    --border: 30 40% 18%;
+    --input: 30 40% 18%;
+    --ring: 345 66% 27%;
+    --radius: 0.15rem;
   }
-
-  * {
-    @apply border-border;
-  }
-
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    background: #35101f;
-    color: #f1e8df;
+    @apply antialiased;
+    margin: 0;
+    font-family: 'DM Sans', Arial, sans-serif;
+    line-height: 1.7;
+    color: #21190b;
+    background-color: #f5bd20;
+    background-image:
+      radial-gradient(circle, rgba(30,22,8,.13) 1px, transparent 1.35px),
+      linear-gradient(115deg, rgba(255,226,111,.55), transparent 45%, rgba(160,91,0,.08));
+    background-size: 9px 9px, 100% 100%;
+    background-attachment: fixed;
   }
-
-  html {
-    scroll-behavior: smooth;
+  h1,h2,h3,h4,h5,h6,.font-serif {
+    font-family: 'Roboto Slab', Georgia, serif !important;
+    letter-spacing: -0.035em;
+    font-weight: 700;
   }
-
-  a {
-    @apply transition-opacity duration-200;
-  }
-
-  a:hover {
-    @apply opacity-80;
-  }
-
-  ::selection {
-    background: #f1e8df;
-    color: #35101f;
-  }
+  a { transition: color .2s ease, background-color .2s ease, opacity .2s ease; }
+  a:hover { opacity: .82; }
+  ::selection { background: #6e1730; color: #fff0bd; }
 }
 
-/* Identidad editorial borgoña */
-#root,
-#root .bg-white {
-  background-color: #35101f !important;
+#root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  text-align: left;
+  color: #21190b;
+  background: transparent !important;
 }
 
+/* Kodak-inspired print language: warm yellow, ink-black halftone and burgundy. */
+#root [class*="bg-[#35101f]"],
+#root [class*="bg-[#2b0c19]"],
+#root [class*="bg-[#451729]"],
+#root [class*="bg-background"] {
+  background-color: #f5bd20 !important;
+  background-image: radial-gradient(circle, rgba(35,25,8,.12) .8px, transparent 1.2px) !important;
+  background-size: 8px 8px !important;
+}
 #root header,
-#root header.bg-white\/90,
-#root nav.bg-white {
-  background-color: rgba(53, 16, 31, 0.96) !important;
-  color: #f1e8df !important;
+#root header[class*="bg-"] {
+  background: #65172d !important;
+  color: #fff0c2 !important;
+  border-color: rgba(255,220,105,.45) !important;
+  box-shadow: 0 4px 0 rgba(33,20,8,.13);
 }
-
-#root [class~="text-black"],
-#root [class~="text-black/70"],
-#root [class~="text-black/75"],
-#root [class~="text-black/60"],
-#root [class~="text-black/55"],
-#root [class~="text-black/50"],
-#root [class~="text-black/45"] {
-  color: #f1e8df !important;
+#root header a,
+#root header button { color: #fff0c2 !important; }
+#root header a:hover { color: #ffd33d !important; }
+#root footer {
+  background: #65172d !important;
+  color: #fff0c2 !important;
+  border-color: rgba(255,220,105,.45) !important;
+  background-image: radial-gradient(circle, rgba(255,224,126,.11) .8px, transparent 1.2px) !important;
+  background-size: 9px 9px !important;
 }
-
-#root [class~="border-black/10"],
-#root [class~="border-black/12"],
-#root [class~="border-black/20"] {
-  border-color: rgba(241, 232, 223, 0.24) !important;
+#root footer * { color: #fff0c2 !important; }
+#root footer a { text-decoration-color: #f5bd20; }
+#root [class*="text-[#f1e8df]"],
+#root [class*="text-[#f1e8df]/"] {
+  color: #241a0b !important;
 }
-
+#root [class*="text-[#d8b978]"] {
+  color: #72172e !important;
+}
+#root [class*="text-[#0A66C2]"] { color: #72172e !important; }
+#root [class*="border-white/"],
+#root [class*="border-[#f1e8df]"],
+#root [class*="border-[#d8b978]"],
+#root [class*="border-black/"] {
+  border-color: rgba(47,31,9,.38) !important;
+}
+#root main > section {
+  border-color: rgba(47,31,9,.35) !important;
+}
+#root main > section:nth-of-type(even) {
+  background-color: rgba(255,220,91,.54);
+}
+#root main > section[id="libros"],
+#root main > section[aria-label="Video de presentación"] {
+  background-color: #6a1930 !important;
+  color: #fff0c2 !important;
+  background-image: radial-gradient(circle, rgba(255,224,126,.13) .8px, transparent 1.2px) !important;
+  background-size: 9px 9px !important;
+}
+#root main > section[id="libros"] *,
+#root main > section[aria-label="Video de presentación"] * {
+  color: #fff0c2 !important;
+}
 #root figure,
-#root .bg-white\/90 {
-  background-color: #451729 !important;
+#root figure[class*="bg-white"] {
+  background: #fff0c2 !important;
+  border: 1px solid rgba(35,25,8,.55) !important;
+  box-shadow: 7px 7px 0 rgba(73,37,9,.16);
+  padding: 12px;
 }
-
-#root iframe {
-  background-color: #451729;
+#root img { border-color: rgba(35,25,8,.4) !important; }
+#root iframe { background: #2b1b12; }
+#root figcaption { color: #6a1930 !important; }
+#root main a[class*="border"] {
+  border: 1px solid #6a1930 !important;
+  color: #5d1429 !important;
+  background: rgba(255,241,190,.35);
 }
+#root main a[class*="border"]:hover {
+  background: #6a1930 !important;
+  color: #fff0c2 !important;
+}
+#root main a[class*="underline"] { text-decoration-color: #6a1930; }
+#root .aspect-video,
+#root .aspect-\[9\/16\] { background: #21190b; }
+#root .text-black,
+#root [class*="text-black/"] { color: #241a0b !important; }
 
-#root figcaption {
-  color: #cbb8bd !important;
+/* Editorial hierarchy and responsive spacing. */
+#root h1 { text-wrap: balance; text-shadow: 1px 1px 0 rgba(255,240,190,.65); }
+#root h2 { color: #35101c; }
+#root p { text-wrap: pretty; }
+#root main section { position: relative; }
+#root main section > div,
+#root main > div { position: relative; }
+#root main section h1,
+#root main section h2,
+#root main section h3 { line-height: 1.08; }
+#root main section p { max-width: 72ch; }
+#root main article,
+#root main [class*="grid"] > a {
+  border-color: rgba(47,31,9,.35);
+}
+@media (max-width: 640px) {
+  body { background-size: 7px 7px, 100% 100%; }
+  #root h1 { letter-spacing: -0.045em; }
+  #root figure { padding: 8px; }
 }
