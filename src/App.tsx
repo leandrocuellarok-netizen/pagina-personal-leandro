@@ -8,7 +8,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Analytics } from "@/components/Analytics";
 import Index from "./pages/Index";
-import AudiencePage from "./pages/AudiencePage";
 import NotFound from "./pages/NotFound";
 import ProjectPage from "./pages/ProjectPage";
 import { EcosistemaPage, ComunicadorPage, ServiciosPage } from "./pages/ContentPages";
@@ -36,7 +35,6 @@ const App = () => (
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/audiencia" element={<AudiencePage />} />
               <Route path="/ecosistema-vilanova-group" element={<EcosistemaPage />} />
               <Route path="/yo-soy-el-comunicador-libre" element={<ComunicadorPage />} />
               <Route path="/servicios-profesionales" element={<ServiciosPage />} />
