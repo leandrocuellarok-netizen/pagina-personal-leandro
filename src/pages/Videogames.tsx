@@ -87,6 +87,101 @@ function ArcadeGame({ game, onClose }: { game: Game; onClose: () => void }) {
   </div>;
 }
 
+
+function GardenDefense() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [sun, setSun] = useState(100);
+  const [points, setPoints] = useState(0);
+  const [plantType, setPlantType] = useState<"sunflower" | "shooter">("sunflower");
+  const [ended, setEnded] = useState(false);
+  const gameRef = useRef({ sun: 100, points: 0, ended: false, frame: 0, plants: [] as any[], enemies: [] as any[], shots: [] as any[], suns: [] as any[] });
+  const selectedRef = useRef(plantType);
+  useEffect(() => { selectedRef.current = plantType; }, [plantType]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+    const CELL = 90, ROWS = 5, COLS = 9, W = CELL * COLS, H = CELL * ROWS;
+    const g = gameRef.current;
+    let active = true;
+    const sync = () => { setSun(g.sun); setPoints(g.points); };
+    const click = (event: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = (event.clientX - rect.left) * W / rect.width;
+      const y = (event.clientY - rect.top) * H / rect.height;
+      if (g.ended) {
+        g.sun = 100; g.points = 0; g.frame = 0; g.plants = []; g.enemies = []; g.shots = []; g.suns = []; g.ended = false; setEnded(false); sync(); return;
+      }
+      for (let i = g.suns.length - 1; i >= 0; i--) {
+        if (Math.hypot(x - g.suns[i].x, y - g.suns[i].y) < 30) { g.sun += 25; g.suns.splice(i, 1); sync(); return; }
+      }
+      const col = Math.floor(x / CELL), row = Math.floor(y / CELL);
+      const cost = selectedRef.current === "sunflower" ? 50 : 100;
+      if (col >= 0 && col < COLS && row >= 0 && row < ROWS && g.sun >= cost && !g.plants.some(p => p.col === col && p.row === row)) {
+        g.sun -= cost; g.plants.push({ col, row, x: col * CELL + CELL / 2, y: row * CELL + CELL / 2, type: selectedRef.current, life: 100, timer: 0 }); sync();
+      }
+    };
+    canvas.addEventListener("click", click);
+    const draw = () => {
+      if (!active) return;
+      if (!g.ended) {
+        g.frame++;
+        if (g.frame % 350 === 0) g.suns.push({ x: Math.random() * (W - 100) + 50, y: Math.random() * (H - 100) + 50, life: 400 });
+        const frequency = Math.max(110, 260 - Math.floor(g.points / 50) * 15);
+        if (g.frame % frequency === 0) { const row = Math.floor(Math.random() * ROWS); g.enemies.push({ row, x: W + 20, y: row * CELL + CELL / 2, life: 100 + Math.floor(g.points / 100) * 20, speed: 0.45 + Math.random() * 0.25 }); }
+        for (const p of g.plants) {
+          p.timer++;
+          if (p.type === "sunflower" && p.timer % 400 === 0) g.suns.push({ x: p.x + 15, y: p.y - 15, life: 400 });
+          if (p.type === "shooter" && p.timer % 95 === 0 && g.enemies.some(e => e.row === p.row && e.x > p.x)) g.shots.push({ x: p.x + 25, y: p.y, row: p.row });
+        }
+        g.plants = g.plants.filter(p => p.life > 0);
+        for (let i = g.shots.length - 1; i >= 0; i--) {
+          const b = g.shots[i]; b.x += 5;
+          if (b.x > W) { g.shots.splice(i, 1); continue; }
+          const j = g.enemies.findIndex(e => e.row === b.row && Math.abs(b.x - e.x) < 25);
+          if (j >= 0) { g.enemies[j].life -= 25; g.shots.splice(i, 1); if (g.enemies[j].life <= 0) { g.enemies.splice(j, 1); g.points += 10; sync(); } }
+        }
+        for (const e of g.enemies) {
+          const plant = g.plants.find(p => p.row === e.row && Math.abs(e.x - p.x) < 35);
+          if (plant) plant.life -= 0.4; else e.x -= e.speed;
+          if (e.x < 10) { g.ended = true; setEnded(true); }
+        }
+        for (let i = g.suns.length - 1; i >= 0; i--) { if (--g.suns[i].life <= 0) g.suns.splice(i, 1); }
+      }
+      ctx.clearRect(0, 0, W, H);
+      for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) { ctx.fillStyle = (r + c) % 2 === 0 ? "#4cd137" : "#44bd32"; ctx.fillRect(c * CELL, r * CELL, CELL, CELL); }
+      ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.font = "44px Arial";
+      g.plants.forEach(p => ctx.fillText(p.type === "sunflower" ? "🌻" : "🌱", p.x, p.y));
+      g.enemies.forEach(e => ctx.fillText("🧟", e.x, e.y));
+      ctx.fillStyle = "#0097e6"; g.shots.forEach(b => { ctx.beginPath(); ctx.arc(b.x, b.y, 8, 0, Math.PI * 2); ctx.fill(); });
+      ctx.font = "34px Arial"; g.suns.forEach(s => ctx.fillText("☀️", s.x, s.y));
+      if (g.ended) { ctx.fillStyle = "rgba(0,0,0,.75)"; ctx.fillRect(0, 0, W, H); ctx.fillStyle = "#fff"; ctx.font = "bold 40px Arial"; ctx.fillText("¡FIN DEL JUEGO!", W / 2, H / 2 - 20); ctx.font = "20px Arial"; ctx.fillText("Hacé clic para volver a jugar", W / 2, H / 2 + 25); }
+      requestAnimationFrame(draw);
+    };
+    const animation = requestAnimationFrame(draw);
+    return () => { active = false; cancelAnimationFrame(animation); canvas.removeEventListener("click", click); };
+  }, []);
+  const reset = () => { const g = gameRef.current; g.sun = 100; g.points = 0; g.frame = 0; g.plants = []; g.enemies = []; g.shots = []; g.suns = []; g.ended = false; setEnded(false); setSun(100); setPoints(0); };
+  return <section className="border-t-2 border-[#72172e] bg-[#1e272e] px-5 py-14 text-white md:px-10">
+    <div className="mx-auto max-w-5xl">
+      <p className="text-[10px] uppercase tracking-[0.3em] text-[#f5bd20]">Experiencia jugable · 02</p>
+      <h2 className="mt-2 font-serif text-3xl text-[#fff0c2] sm:text-4xl">Defensa del Jardín</h2>
+      <p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">Plantá girasoles para producir energía y lanzadores para detener a los zombis. Protegé el jardín el mayor tiempo posible.</p>
+      <div className="mt-6 flex flex-wrap items-center gap-3 rounded-lg bg-[#2f3640] p-3 sm:p-4">
+        <span className="font-bold text-[#ffe078]">☀️ Energía: {sun}</span><span className="font-bold text-white">🏆 Puntos: {points}</span>
+        <button onClick={() => setPlantType("sunflower")} className={`rounded-md bg-[#44bd32] px-3 py-2 text-sm font-bold ${plantType === "sunflower" ? "outline outline-3 outline-[#fbc531]" : ""}`}>🌻 Productor (50)</button>
+        <button onClick={() => setPlantType("shooter")} className={`rounded-md bg-[#44bd32] px-3 py-2 text-sm font-bold ${plantType === "shooter" ? "outline outline-3 outline-[#fbc531]" : ""}`}>🌱 Tirador (100)</button>
+        {ended && <button onClick={reset} className="rounded-md border border-[#fbc531] px-3 py-2 text-sm">Volver a jugar</button>}
+      </div>
+      <div className="mt-4 overflow-hidden rounded-lg border-4 border-[#2f3640] shadow-2xl">
+        <canvas ref={canvasRef} width={810} height={450} className="block h-auto w-full cursor-crosshair" />
+      </div>
+      <p className="mt-3 text-xs leading-5 text-white/65">Hacé clic en el césped para plantar. Recolectá los soles haciendo clic sobre ellos. Si un zombi llega al extremo izquierdo, termina la partida.</p>
+    </div>
+  </section>;
+}
+
 const CategoryCard = ({ item }: { item: typeof categories[number] }) => {
   const count = games.filter((game) => game.genre === item.name).length;
   return <Link to={`/videogames/${item.slug}`} className="group overflow-hidden border border-black/30 bg-[#fff0c2]/70 transition-all hover:-translate-y-1 hover:border-[#72172e]">
