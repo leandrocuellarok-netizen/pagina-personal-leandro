@@ -7,13 +7,13 @@ import MonthlyVisits from "@/components/MonthlyVisits";
 
 const Index = () => (
   <>
-    <SEO title="Leandro A. Cuellar" description="Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar. Más de 18.000 contactos profesionales en LinkedIn." />
+    <SEO title="Inteligencia artificial, filosofía y comunicación" description="Capacitación en inteligencia artificial para empresas, comunicación estratégica y formación profesional. Conocé los proyectos, servicios y publicaciones de Leandro A. Cuellar." />
     <div className="min-h-screen bg-[#35101f] text-[#f1e8df]">
       <Header />
       <main>
         <section className="px-6 pb-12 pt-20 md:px-10 md:pb-16 md:pt-28 lg:px-14">
           <div className="mx-auto max-w-6xl">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-[#d8b978]">Filosofía · Comunicación · Inteligencia artificial</p>
+            <p className="text-[10px] uppercase tracking-[0.4em] text-[#d8b978]">Filosofía · Inteligencia artificial · Transformación de organizaciones</p>
             <h1 className="mt-6 max-w-5xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">Leandro A. Cuellar</h1>
             <img src="/photos/leandro-cuellar.webp" alt="Leandro A. Cuellar" className="mt-8 h-48 w-48 rounded-sm border border-[#d8b978]/70 object-cover object-center sm:h-56 sm:w-56" />
             <div className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9"><p>Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar.</p><p className="mt-3 text-sm sm:text-base"><a href="https://linkedin.com/in/leandrocuellar" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">+18.000 contactos profesionales en LinkedIn ↗</a></p></div>
