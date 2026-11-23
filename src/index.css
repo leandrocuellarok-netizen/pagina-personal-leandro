@@ -166,3 +166,81 @@
   #root h1 { letter-spacing: -0.045em; }
   #root figure { padding: 8px; }
 }
+
+
+/* Vintage arcade cabinet */
+.arcade-cabinet {
+  padding: 16px;
+  border: 5px solid #291b16;
+  border-radius: 18px 18px 10px 10px;
+  background: linear-gradient(135deg, #f4c52c 0%, #d99a16 48%, #f7d34c 100%);
+  box-shadow: inset 0 0 0 2px rgba(255,244,170,.65), 0 12px 0 #4a1427, 0 20px 28px rgba(28,12,9,.35);
+}
+.arcade-marquee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 4px 12px;
+  padding: 5px 14px;
+  color: #ffdc32;
+  background: #68182f;
+  border: 3px solid #281711;
+  font: 900 13px/1 monospace;
+  letter-spacing: .3em;
+  text-shadow: 0 0 8px #ffcf22;
+}
+.arcade-screen {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  background: #100d18;
+  border: 5px solid #261811;
+  border-radius: 8px;
+  box-shadow: inset 0 0 16px #000;
+}
+.arcade-canvas {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  image-rendering: pixelated;
+}
+.arcade-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 8px 8px;
+}
+.arcade-controls > button,
+.arcade-controls div button {
+  width: 42px;
+  height: 38px;
+  border: 2px solid #281711;
+  border-radius: 7px;
+  background: linear-gradient(#741d37, #431020);
+  color: #ffdf58 !important;
+  font: 900 16px/1 monospace;
+  box-shadow: 0 3px 0 #281711;
+  touch-action: manipulation;
+}
+.arcade-controls div { display: flex; gap: 8px; }
+.arcade-controls button:active { transform: translateY(2px); box-shadow: 0 1px 0 #281711; }
+.arcade-speaker {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 0 2px;
+}
+.arcade-speaker i {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #321d15;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.25);
+}
+@media (max-width: 640px) {
+  .arcade-cabinet { padding: 10px; }
+  .arcade-controls > button, .arcade-controls div button { width: 38px; height: 36px; }
+}
