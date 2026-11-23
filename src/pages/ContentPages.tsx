@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -89,6 +89,28 @@ export const ComunicadorPage = () => (
   </PageShell>
 );
 
+function ServicesSnake() {
+  const canvasRef=useRef<HTMLCanvasElement>(null);
+  const [score,setScore]=useState(0),[round,setRound]=useState(0),[status,setStatus]=useState("ready");
+  const direction=useRef({x:1,y:0}),next=useRef({x:1,y:0});
+  useEffect(()=>{
+    const canvas=canvasRef.current,ctx=canvas?.getContext("2d");if(!canvas||!ctx)return;
+    const cell=20,cols=24,rows=16,W=480,H=320;
+    let body=[{x:6,y:8},{x:5,y:8},{x:4,y:8}],food={x:16,y:8},points=0,started=false,alive=true;
+    direction.current={x:1,y:0};next.current={x:1,y:0};setScore(0);setStatus("ready");
+    const spawn=()=>{let p;do{p={x:Math.floor(Math.random()*cols),y:Math.floor(Math.random()*rows)}}while(body.some(b=>b.x===p.x&&b.y===p.y));food=p};
+    const turn=(x:number,y:number)=>{if(x!==-direction.current.x||y!==-direction.current.y){next.current={x,y};started=true;setStatus("playing")}};
+    const key=(e:KeyboardEvent)=>{const m:Record<string,[number,number]>={ArrowUp:[0,-1],w:[0,-1],ArrowDown:[0,1],s:[0,1],ArrowLeft:[-1,0],a:[-1,0],ArrowRight:[1,0],d:[1,0]};const d=m[e.key];if(d){e.preventDefault();turn(d[0],d[1])}};
+    window.addEventListener("keydown",key);
+    const paint=()=>{ctx.fillStyle="#080b16";ctx.fillRect(0,0,W,H);ctx.strokeStyle="rgba(245,189,32,.08)";for(let x=0;x<=W;x+=cell){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}for(let y=0;y<=H;y+=cell){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}ctx.fillStyle="#ff5964";ctx.beginPath();ctx.arc(food.x*cell+10,food.y*cell+10,7,0,Math.PI*2);ctx.fill();body.forEach((p,i)=>{ctx.fillStyle=i===0?"#ffe078":"#65f58b";ctx.fillRect(p.x*cell+2,p.y*cell+2,16,16)});ctx.fillStyle="#fff0c2";ctx.font="12px monospace";ctx.fillText("SNAKE  /  "+points+" PTS",12,18);if(!started&&alive){ctx.textAlign="center";ctx.font="13px monospace";ctx.fillText("PRESIONÁ UNA FLECHA PARA EMPEZAR",W/2,H/2);ctx.textAlign="left"}if(!alive){ctx.fillStyle="rgba(0,0,0,.7)";ctx.fillRect(0,0,W,H);ctx.textAlign="center";ctx.fillStyle="#ffe078";ctx.font="bold 26px monospace";ctx.fillText("GAME OVER",W/2,H/2);ctx.font="13px monospace";ctx.fillStyle="#fff0c2";ctx.fillText("PUNTOS: "+points,W/2,H/2+25);ctx.textAlign="left"}};
+    paint();
+    const timer=window.setInterval(()=>{if(!started||!alive)return;direction.current=next.current;const head={x:body[0].x+direction.current.x,y:body[0].y+direction.current.y},eat=head.x===food.x&&head.y===food.y,check=eat?body:body.slice(0,-1);if(head.x<0||head.x>=cols||head.y<0||head.y>=rows||check.some(p=>p.x===head.x&&p.y===head.y)){alive=false;setStatus("over");paint();return}body=[head,...body];if(eat){points+=10;setScore(points);spawn()}else body.pop();paint()},125);
+    return()=>{alive=false;clearInterval(timer);window.removeEventListener("keydown",key)};
+  },[round]);
+  const move=(x:number,y:number)=>{if(x!==-direction.current.x||y!==-direction.current.y){next.current={x,y};setStatus("playing")}};
+  return <section className="overflow-hidden border-[3px] border-[#211b17] bg-[#f3e8d2] text-[#211b17] shadow-[8px_8px_0_#e6a900]"><div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#211b17] bg-[#65172d] px-5 py-4 text-[#fff0c2]"><div><p className="text-[9px] font-black uppercase tracking-[.3em] text-[#f5bd20]">Bonus stage · Vilanova arcade</p><h2 className="mt-1 font-mono text-2xl font-black">SNAKE</h2></div><div className="text-right font-mono text-xs"><p>PUNTOS: {score}</p><p className="mt-1 text-[#f5bd20]">{status==="over"?"GAME OVER":status==="playing"?"EN JUEGO":"INSERT COIN"}</p></div></div><div className="bg-[#080b16]"><canvas ref={canvasRef} width={480} height={320} className="block w-full touch-pan-y"/></div><div className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"><p className="text-[10px] font-bold uppercase tracking-wider text-[#342b25]/70">Flechas o W A S D. Comé los puntos rojos y evitá chocar.</p><button onClick={()=>setRound(v=>v+1)} className="border-2 border-[#211b17] bg-[#e6a900] px-5 py-3 font-mono text-[10px] font-black tracking-widest shadow-[3px_3px_0_#211b17]">JUGAR / REINICIAR ↻</button></div><div className="grid grid-cols-3 gap-2 px-5 pb-5 sm:hidden"><span/><button onClick={()=>move(0,-1)} className="bg-[#65172d] py-3 text-xl text-white">↑</button><span/><button onClick={()=>move(-1,0)} className="bg-[#65172d] py-3 text-xl text-white">←</button><button onClick={()=>move(0,1)} className="bg-[#65172d] py-3 text-xl text-white">↓</button><button onClick={()=>move(1,0)} className="bg-[#65172d] py-3 text-xl text-white">→</button></div></section>;
+}
+
 export const ServiciosPage = () => (
   <PageShell title="Servicios profesionales" eyebrow="Vilanova AI Solutions · Comunicación que mueve" description="Ideas bien pensadas. Imágenes que dejan huella. Tecnología puesta a trabajar. Soluciones para profesionales, marcas y organizaciones que quieren comunicar mejor y crecer.">
     <section className="relative overflow-hidden border-[3px] border-[#211b17] bg-[#f3e8d2] text-[#211b17] shadow-[9px_9px_0_#e6a900]">
@@ -156,6 +178,7 @@ export const ServiciosPage = () => (
       </div>
       <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20capacitaciones%20y%20servicios%20para%20mi%20organizaci%C3%B3n." className="mt-8 inline-flex border-2 border-[#e6a900] bg-[#e6a900] px-6 py-4 text-[10px] font-black uppercase tracking-[0.18em] text-[#211b17] hover:bg-transparent hover:text-[#f1e8df]">Contame qué necesitás ↗</a>
     </section>
+    <ServicesSnake/>
   </PageShell>
 );
 export const PrensaPage = () => (
