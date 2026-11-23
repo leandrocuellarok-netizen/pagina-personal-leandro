@@ -1,212 +1,165 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Gamepad2, Play, X, RotateCcw } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
-type Game = { title: string; year: string; platform: string; genre: string; note: string; mark: string; color: string };
-const categories = [
-  { name: "Plataformas", slug: "plataformas", subtitle: "Saltos, mundos y aventuras", description: "Clásicos de plataformas que definieron generaciones.", range: "1985 - 1994", mark: "JUMP", color: "from-red-800 to-orange-500" },
-  { name: "Arcade y acción", slug: "arcade-accion", subtitle: "Récords, reflejos y adrenalina", description: "La esencia de las salas arcade: partidas rápidas y desafíos memorables.", range: "1978 - 1996", mark: "ARCADE", color: "from-emerald-800 to-lime-500" },
-  { name: "Aventuras y RPG", slug: "aventuras-rpg", subtitle: "Exploración e historias", description: "Mundos para recorrer, personajes para conocer y grandes historias.", range: "1986 - 1996", mark: "QUEST", color: "from-violet-900 to-indigo-500" },
-  { name: "Pelea y deportes", slug: "pelea-deportes", subtitle: "Combate y competencia", description: "Duelos legendarios y fútbol para jugar con amigos.", range: "1991 - 1995", mark: "VS", color: "from-rose-900 to-orange-500" },
-  { name: "Estrategia y PC", slug: "estrategia-pc", subtitle: "Ingenio y planificación", description: "Pensar cada movimiento, construir y superar desafíos.", range: "1984 - 1997", mark: "TACTIC", color: "from-slate-800 to-sky-500" },
-];
-const games: Game[] = [
-  { title: "Super Mario Bros.", year: "1985", platform: "NES", genre: "Plataformas", note: "El clásico que convirtió a Mario en un icono mundial.", mark: "M", color: "from-red-600 to-orange-500" },
-  { title: "Sonic the Hedgehog", year: "1991", platform: "Sega Mega Drive", genre: "Plataformas", note: "Velocidad, loops y una identidad visual inolvidable.", mark: "S", color: "from-blue-600 to-cyan-400" },
-  { title: "Donkey Kong Country", year: "1994", platform: "Super Nintendo", genre: "Plataformas", note: "Aventura de plataformas con una estética revolucionaria.", mark: "DK", color: "from-amber-700 to-yellow-500" },
-  { title: "Pac-Man", year: "1980", platform: "Arcade", genre: "Arcade y acción", note: "Laberintos, fantasmas y una mecánica perfecta.", mark: "●", color: "from-yellow-500 to-amber-300" },
-  { title: "Space Invaders", year: "1978", platform: "Arcade", genre: "Arcade y acción", note: "Uno de los grandes pioneros de los videojuegos.", mark: "INV", color: "from-emerald-700 to-lime-400" },
-  { title: "Metal Slug", year: "1996", platform: "Neo Geo", genre: "Arcade y acción", note: "Acción lateral, humor y animación artesanal.", mark: "MS", color: "from-orange-700 to-red-500" },
-  { title: "The Legend of Zelda", year: "1986", platform: "NES", genre: "Aventuras y RPG", note: "Exploración, secretos y el comienzo de una saga histórica.", mark: "Z", color: "from-green-700 to-lime-500" },
-  { title: "Pokémon Red / Blue", year: "1996", platform: "Game Boy", genre: "Aventuras y RPG", note: "Coleccionar, entrenar y explorar un mundo por descubrir.", mark: "PK", color: "from-red-700 to-blue-500" },
-  { title: "Final Fantasy VI", year: "1994", platform: "Super Nintendo", genre: "Aventuras y RPG", note: "Un RPG coral reconocido por su historia y música.", mark: "FF", color: "from-violet-800 to-indigo-500" },
-  { title: "Street Fighter II", year: "1991", platform: "Arcade / SNES", genre: "Pelea y deportes", note: "El juego que definió el combate competitivo moderno.", mark: "SF", color: "from-rose-700 to-orange-500" },
-  { title: "Mortal Kombat", year: "1992", platform: "Arcade / Mega Drive", genre: "Pelea y deportes", note: "Combates intensos y una estética que marcó los noventa.", mark: "MK", color: "from-stone-800 to-red-700" },
-  { title: "International Superstar Soccer Deluxe", year: "1995", platform: "Super Nintendo", genre: "Pelea y deportes", note: "Fútbol clásico, ritmo rápido y tardes interminables.", mark: "ISS", color: "from-green-800 to-emerald-500" },
-  { title: "Age of Empires", year: "1997", platform: "PC", genre: "Estrategia y PC", note: "Construcción, expansión y estrategia en tiempo real.", mark: "AOE", color: "from-amber-800 to-yellow-600" },
-  { title: "Prince of Persia", year: "1989", platform: "PC / Apple II", genre: "Estrategia y PC", note: "Plataformas cinematográficas y animación pionera.", mark: "POP", color: "from-slate-700 to-sky-500" },
-  { title: "Tetris", year: "1984", platform: "Arcade / Game Boy", genre: "Estrategia y PC", note: "Un desafío de lógica simple, elegante y eterno.", mark: "T", color: "from-fuchsia-700 to-violet-500" },
-];
-
-function ArcadeGame({ game, onClose }: { game: Game; onClose: () => void }) {
+function Arkanoid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [score, setScore] = useState(0);
-  const [finished, setFinished] = useState(false);
-  const [run, setRun] = useState(0);
-  const [direction, setDirection] = useState({ x: 0, y: 0 });
+  const [lives, setLives] = useState(3);
+  const [status, setStatus] = useState("ready");
+  const restartRef = useRef(0);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
-    const W = 480, H = 300;
-    let player = { x: 42, y: 150 };
-    let coins = Array.from({ length: 7 }, (_, i) => ({ x: 105 + i * 52, y: 45 + ((i * 67) % 210), taken: false }));
-    let hazards = Array.from({ length: 4 }, (_, i) => ({ x: 150 + i * 92, y: 65 + i * 43, vx: i % 2 ? -1.7 : 1.5, vy: i % 2 ? 1.1 : -1.2 }));
-    let active = true, points = 0, frame = 0;
+    const W = 480, H = 360;
+    let paddle = { x: W / 2 - 42, y: H - 28, w: 84, h: 10 };
+    let ball = { x: W / 2, y: H - 45, vx: 3.1, vy: -3.5, r: 7 };
+    let bricks = Array.from({ length: 35 }, (_, i) => ({ x: 22 + (i % 7) * 63, y: 42 + Math.floor(i / 7) * 23, alive: true, color: ["#ff5252", "#ffad32", "#ffe04a", "#4edc89", "#42a5f5"][Math.floor(i / 7)] }));
+    let points = 0, remaining = 3, running = true, launched = false;
     const keys = new Set<string>();
-    const down = (e: KeyboardEvent) => { if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) e.preventDefault(); keys.add(e.key); };
-    const up = (e: KeyboardEvent) => keys.delete(e.key);
-    window.addEventListener("keydown", down); window.addEventListener("keyup", up);
+    const keydown = (e: KeyboardEvent) => { if (["ArrowLeft", "ArrowRight", " "].includes(e.key)) e.preventDefault(); keys.add(e.key); if (e.key === " " && !launched) launched = true; };
+    const keyup = (e: KeyboardEvent) => keys.delete(e.key);
+    const move = (e: PointerEvent) => { const rect = canvas.getBoundingClientRect(); paddle.x = Math.max(0, Math.min(W - paddle.w, (e.clientX - rect.left) * W / rect.width - paddle.w / 2)); };
+    canvas.addEventListener("pointermove", move);
+    window.addEventListener("keydown", keydown); window.addEventListener("keyup", keyup);
+    setScore(0); setLives(3); setStatus("ready");
+    let raf = 0;
     const draw = () => {
-      if (!active) return;
-      frame++;
-      const dx = (keys.has("ArrowRight") || keys.has("d") ? 1 : 0) - (keys.has("ArrowLeft") || keys.has("a") ? 1 : 0) + direction.x;
-      const dy = (keys.has("ArrowDown") || keys.has("s") ? 1 : 0) - (keys.has("ArrowUp") || keys.has("w") ? 1 : 0) + direction.y;
-      player.x = Math.max(13, Math.min(W - 13, player.x + dx * 2.7));
-      player.y = Math.max(13, Math.min(H - 13, player.y + dy * 2.7));
-      ctx.fillStyle = "#100d18"; ctx.fillRect(0, 0, W, H);
-      ctx.strokeStyle = "rgba(255,220,70,.10)"; ctx.lineWidth = 1;
-      for (let x=0;x<W;x+=20){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-      for (let y=0;y<H;y+=20){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-      coins.forEach(c => { if(c.taken)return; ctx.fillStyle="#ffd83d";ctx.fillRect(c.x-6,c.y-6,12,12);ctx.fillStyle="#fff3a0";ctx.fillRect(c.x-2,c.y-2,4,4); if(Math.hypot(player.x-c.x,player.y-c.y)<17){c.taken=true;points++;setScore(points);} });
-      hazards.forEach(h => {h.x+=h.vx;h.y+=h.vy;if(h.x<12||h.x>W-12)h.vx*=-1;if(h.y<12||h.y>H-12)h.vy*=-1;ctx.fillStyle="#e94b58";ctx.fillRect(h.x-9,h.y-9,18,18);ctx.fillStyle="#ffb0a5";ctx.fillRect(h.x-3,h.y-3,6,6);});
-      ctx.fillStyle="#79e0bc";ctx.fillRect(player.x-8,player.y-8,16,16);ctx.fillStyle="#f5bd20";ctx.fillRect(player.x-3,player.y-3,6,6);
-      ctx.fillStyle="#fff0c2";ctx.font="12px monospace";ctx.fillText("RECOLECTÁ LOS 7 CRISTALES · EVITÁ LOS BLOQUES ROJOS",12,20);
-      if(hazards.some(h=>Math.hypot(player.x-h.x,player.y-h.y)<18)){active=false;setFinished(true);}
-      if(points===7){active=false;setFinished(true);}
-      if(active) requestAnimationFrame(draw);
+      if (!running) return;
+      if (keys.has("ArrowLeft") || keys.has("a")) paddle.x -= 6;
+      if (keys.has("ArrowRight") || keys.has("d")) paddle.x += 6;
+      paddle.x = Math.max(0, Math.min(W - paddle.w, paddle.x));
+      if (launched) {
+        ball.x += ball.vx; ball.y += ball.vy;
+        if (ball.x < ball.r || ball.x > W - ball.r) ball.vx *= -1;
+        if (ball.y < ball.r) ball.vy *= -1;
+        if (ball.vy > 0 && ball.y + ball.r >= paddle.y && ball.y - ball.r <= paddle.y + paddle.h && ball.x >= paddle.x && ball.x <= paddle.x + paddle.w) {
+          ball.vy = -Math.abs(ball.vy); ball.vx = ((ball.x - (paddle.x + paddle.w / 2)) / (paddle.w / 2)) * 4.5;
+        }
+        const hit = bricks.find(b => b.alive && ball.x > b.x && ball.x < b.x + 55 && ball.y - ball.r < b.y + 15 && ball.y + ball.r > b.y);
+        if (hit) { hit.alive = false; ball.vy *= -1; points += 10; setScore(points); }
+        if (ball.y > H + 10) {
+          remaining--; setLives(remaining);
+          if (remaining <= 0) { running = false; setStatus("over"); }
+          else { ball = { x: W / 2, y: H - 45, vx: 3.1, vy: -3.5, r: 7 }; launched = false; setStatus("ready"); }
+        }
+        if (bricks.every(b => !b.alive)) { running = false; setStatus("won"); }
+      }
+      ctx.fillStyle = "#080b16"; ctx.fillRect(0, 0, W, H);
+      ctx.strokeStyle = "rgba(255,216,61,.12)"; for (let x=0;x<W;x+=24) {ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+      bricks.forEach(b => { if (!b.alive) return; ctx.fillStyle = b.color; ctx.fillRect(b.x,b.y,55,15); ctx.fillStyle="rgba(255,255,255,.28)";ctx.fillRect(b.x,b.y,55,3); });
+      ctx.fillStyle = "#ffd83d"; ctx.fillRect(paddle.x,paddle.y,paddle.w,paddle.h);
+      ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fillStyle="#fff";ctx.fill();
+      ctx.fillStyle="#fff0c2";ctx.font="12px monospace";ctx.fillText("ARKANOID  ·  " + points + " PTS  ·  VIDAS " + remaining,14,20);
+      if (!launched && running) {ctx.fillStyle="#fff0c2";ctx.font="14px monospace";ctx.textAlign="center";ctx.fillText("PRESIONÁ ESPACIO O TOCÁ LA PANTALLA",W/2,H-65);ctx.textAlign="left";}
+      if (running) raf = requestAnimationFrame(draw);
     };
-    const id=requestAnimationFrame(draw);
-    return()=>{active=false;cancelAnimationFrame(id);window.removeEventListener("keydown",down);window.removeEventListener("keyup",up);};
-  },[run,direction]);
-  const restart=()=>{setScore(0);setFinished(false);setDirection({x:0,y:0});setRun(v=>v+1);};
-  return <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/85 p-3 sm:p-6" role="dialog" aria-modal="true" aria-label={`Juego: ${game.title}`}>
-    <div className="arcade-cabinet my-auto w-full max-w-xl">
-      <div className="arcade-marquee"><span>VILANOVA ARCADE</span><span>PLAYER 1</span></div>
-      <div className="mb-3 flex items-center justify-between gap-3 px-1 text-[#321d15]"><div><p className="font-mono text-[10px] uppercase tracking-widest">Demo arcade original</p><h2 className="font-serif text-xl">{game.title}</h2></div><button onClick={onClose} aria-label="Cerrar juego" className="rounded border-2 border-[#321d15] p-2"><X size={20}/></button></div>
-      <div className="arcade-screen"><canvas ref={canvasRef} width={480} height={300} className="arcade-canvas" /></div>
-      <div className="mt-2 flex items-center justify-between px-2 font-mono text-xs text-[#321d15]"><span>PUNTOS: {score}/7</span><span>{finished ? (score===7 ? "¡MISIÓN CUMPLIDA!" : "FIN DE PARTIDA") : "EN JUEGO"}</span></div>
-      {finished && <div className="my-3 flex items-center justify-between gap-3 bg-[#68182f] p-3 text-sm text-[#fff0c2]"><span>{score===7?"¡Excelente! Completaste el desafío.":"Te atraparon. Probá otra vez."}</span><button onClick={restart} className="flex items-center gap-2 border border-[#ffdc32] px-3 py-2 text-xs"><RotateCcw size={14}/> Reintentar</button></div>}
-      <div className="arcade-controls"><button onClick={()=>setDirection({x:-1,y:0})} onTouchEnd={()=>setDirection({x:0,y:0})}>←</button><div><button onClick={()=>setDirection({x:0,y:-1})} onTouchEnd={()=>setDirection({x:0,y:0})}>↑</button><button onClick={()=>setDirection({x:0,y:1})} onTouchEnd={()=>setDirection({x:0,y:0})}>↓</button></div><button onClick={()=>setDirection({x:1,y:0})} onTouchEnd={()=>setDirection({x:0,y:0})}>→</button></div>
-      <div className="arcade-speaker">{Array.from({length:16},(_,i)=><i key={i}/>)}</div>
-      <p className="mt-2 text-center font-mono text-[10px] text-[#321d15]">TECLADO: FLECHAS O WASD · MÓVIL: CONTROLES EN PANTALLA</p>
-    </div>
-  </div>;
+    const launch = () => { if (!launched) launched = true; };
+    canvas.addEventListener("pointerdown", launch);
+    raf = requestAnimationFrame(draw);
+    return () => { running=false;cancelAnimationFrame(raf);canvas.removeEventListener("pointermove",move);canvas.removeEventListener("pointerdown",launch);window.removeEventListener("keydown",keydown);window.removeEventListener("keyup",keyup); };
+  }, [restartRef.current]);
+
+  const restart = () => { restartRef.current++; setStatus("ready"); setScore(0); setLives(3); };
+  return <GameFrame title="ARKANOID" subtitle="Destruí los bloques y evitá que caiga la pelota" score={score} detail={`VIDAS: ${lives}`} status={status} onRestart={restart}>
+    <canvas ref={canvasRef} width={480} height={360} className="block w-full touch-pan-y" />
+    <p className="px-3 pb-3 text-center font-mono text-[10px] text-[#ffe9ad]/70">← → / A D · ESPACIO PARA LANZAR · MOVER EL DEDO PARA CONTROLAR</p>
+  </GameFrame>;
 }
 
-
-function GardenDefense() {
+function SpaceInvaders() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [sun, setSun] = useState(100);
-  const [points, setPoints] = useState(0);
-  const [plantType, setPlantType] = useState<"sunflower" | "shooter">("sunflower");
-  const [ended, setEnded] = useState(false);
-  const gameRef = useRef({ sun: 100, points: 0, ended: false, frame: 0, plants: [] as any[], enemies: [] as any[], shots: [] as any[], suns: [] as any[] });
-  const selectedRef = useRef(plantType);
-  useEffect(() => { selectedRef.current = plantType; }, [plantType]);
+  const [score, setScore] = useState(0);
+  const [lives, setLives] = useState(3);
+  const [status, setStatus] = useState("ready");
+  const [restart, setRestart] = useState(0);
+  const controls = useRef({ left: false, right: false, fire: false });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
-    const CELL = 90, ROWS = 5, COLS = 9, W = CELL * COLS, H = CELL * ROWS;
-    const g = gameRef.current;
-    let active = true;
-    const sync = () => { setSun(g.sun); setPoints(g.points); };
-    const click = (event: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = (event.clientX - rect.left) * W / rect.width;
-      const y = (event.clientY - rect.top) * H / rect.height;
-      if (g.ended) {
-        g.sun = 100; g.points = 0; g.frame = 0; g.plants = []; g.enemies = []; g.shots = []; g.suns = []; g.ended = false; setEnded(false); sync(); return;
-      }
-      for (let i = g.suns.length - 1; i >= 0; i--) {
-        if (Math.hypot(x - g.suns[i].x, y - g.suns[i].y) < 30) { g.sun += 25; g.suns.splice(i, 1); sync(); return; }
-      }
-      const col = Math.floor(x / CELL), row = Math.floor(y / CELL);
-      const cost = selectedRef.current === "sunflower" ? 50 : 100;
-      if (col >= 0 && col < COLS && row >= 0 && row < ROWS && g.sun >= cost && !g.plants.some(p => p.col === col && p.row === row)) {
-        g.sun -= cost; g.plants.push({ col, row, x: col * CELL + CELL / 2, y: row * CELL + CELL / 2, type: selectedRef.current, life: 100, timer: 0 }); sync();
-      }
+    const W = 480, H = 360;
+    let ship = { x: W / 2, y: H - 35 };
+    let aliens = Array.from({ length: 24 }, (_, i) => ({ x: 45 + (i % 8) * 52, y: 55 + Math.floor(i / 8) * 38, alive: true }));
+    let shots: {x:number;y:number}[] = [], enemyShots: {x:number;y:number}[] = [];
+    let dir = 1, points = 0, remaining = 3, frame = 0, running = true, won = false;
+    const keys = new Set<string>();
+    const down = (e: KeyboardEvent) => { if (["ArrowLeft","ArrowRight"," ","a","d"].includes(e.key)) e.preventDefault(); keys.add(e.key); };
+    const up = (e: KeyboardEvent) => keys.delete(e.key);
+    const pointer = (e: PointerEvent) => { const rect=canvas.getBoundingClientRect();ship.x=Math.max(18,Math.min(W-18,(e.clientX-rect.left)*W/rect.width)); };
+    canvas.addEventListener("pointermove",pointer);
+    window.addEventListener("keydown",down);window.addEventListener("keyup",up);
+    setScore(0);setLives(3);setStatus("ready");
+    let raf=0;
+    const draw=()=>{
+      if(!running)return;
+      frame++;
+      const c=controls.current;
+      if(keys.has("ArrowLeft")||keys.has("a")||c.left)ship.x-=4.5;
+      if(keys.has("ArrowRight")||keys.has("d")||c.right)ship.x+=4.5;
+      ship.x=Math.max(18,Math.min(W-18,ship.x));
+      if((keys.has(" ")||c.fire)&&frame%12===0)shots.push({x:ship.x,y:ship.y-15});
+      if(frame%95===0&&aliens.some(a=>a.alive)){const a=aliens.filter(a=>a.alive)[Math.floor(Math.random()*aliens.filter(a=>a.alive).length)];enemyShots.push({x:a.x,y:a.y+10});}
+      const alive=aliens.filter(a=>a.alive);
+      if(alive.some(a=>a.x>W-22)||alive.some(a=>a.x<22)){dir*=-1;aliens.forEach(a=>a.y+=12);}
+      aliens.forEach(a=>{if(a.alive)a.x+=dir*(0.65+points/450);});
+      shots=shots.filter(s=>s.y>0);shots.forEach(s=>{s.y-=6;const hit=aliens.find(a=>a.alive&&Math.abs(a.x-s.x)<15&&Math.abs(a.y-s.y)<14);if(hit){hit.alive=false;s.y=-20;points+=10;setScore(points);}});
+      enemyShots=enemyShots.filter(s=>s.y<H);enemyShots.forEach(s=>{s.y+=3;if(Math.abs(s.x-ship.x)<15&&Math.abs(s.y-ship.y)<14){s.y=H+10;remaining--;setLives(remaining);if(remaining<=0){running=false;setStatus("over");}}});
+      if(aliens.some(a=>a.alive&&a.y>H-65)){running=false;setStatus("over");}
+      if(alive.length===0){running=false;won=true;setStatus("won");}
+      ctx.fillStyle="#050914";ctx.fillRect(0,0,W,H);
+      ctx.fillStyle="rgba(255,255,255,.55)";for(let i=0;i<55;i++){const x=(i*83)%W,y=(i*47)%H;ctx.fillRect(x,y,2,2);}
+      ctx.fillStyle="#65f58b";aliens.forEach(a=>{if(!a.alive)return;ctx.fillRect(a.x-10,a.y-7,20,14);ctx.fillRect(a.x-14,a.y-2,5,8);ctx.fillRect(a.x+9,a.y-2,5,8);ctx.fillStyle="#050914";ctx.fillRect(a.x-5,a.y-3,3,3);ctx.fillRect(a.x+3,a.y-3,3,3);ctx.fillStyle="#65f58b";});
+      ctx.fillStyle="#ffe04a";ctx.beginPath();ctx.moveTo(ship.x,ship.y-15);ctx.lineTo(ship.x-15,ship.y+10);ctx.lineTo(ship.x+15,ship.y+10);ctx.closePath();ctx.fill();
+      ctx.fillStyle="#fff";shots.forEach(s=>ctx.fillRect(s.x-2,s.y,4,10));ctx.fillStyle="#ff5964";enemyShots.forEach(s=>ctx.fillRect(s.x-2,s.y,4,10));
+      ctx.fillStyle="#fff0c2";ctx.font="12px monospace";ctx.fillText("SPACE INVADERS  ·  "+points+" PTS  ·  VIDAS "+remaining,12,20);
+      if(alive.length>0&&running)raf=requestAnimationFrame(draw);
     };
-    canvas.addEventListener("click", click);
-    const draw = () => {
-      if (!active) return;
-      if (!g.ended) {
-        g.frame++;
-        if (g.frame % 350 === 0) g.suns.push({ x: Math.random() * (W - 100) + 50, y: Math.random() * (H - 100) + 50, life: 400 });
-        const frequency = Math.max(110, 260 - Math.floor(g.points / 50) * 15);
-        if (g.frame % frequency === 0) { const row = Math.floor(Math.random() * ROWS); g.enemies.push({ row, x: W + 20, y: row * CELL + CELL / 2, life: 100 + Math.floor(g.points / 100) * 20, speed: 0.45 + Math.random() * 0.25 }); }
-        for (const p of g.plants) {
-          p.timer++;
-          if (p.type === "sunflower" && p.timer % 400 === 0) g.suns.push({ x: p.x + 15, y: p.y - 15, life: 400 });
-          if (p.type === "shooter" && p.timer % 95 === 0 && g.enemies.some(e => e.row === p.row && e.x > p.x)) g.shots.push({ x: p.x + 25, y: p.y, row: p.row });
-        }
-        g.plants = g.plants.filter(p => p.life > 0);
-        for (let i = g.shots.length - 1; i >= 0; i--) {
-          const b = g.shots[i]; b.x += 5;
-          if (b.x > W) { g.shots.splice(i, 1); continue; }
-          const j = g.enemies.findIndex(e => e.row === b.row && Math.abs(b.x - e.x) < 25);
-          if (j >= 0) { g.enemies[j].life -= 25; g.shots.splice(i, 1); if (g.enemies[j].life <= 0) { g.enemies.splice(j, 1); g.points += 10; sync(); } }
-        }
-        for (const e of g.enemies) {
-          const plant = g.plants.find(p => p.row === e.row && Math.abs(e.x - p.x) < 35);
-          if (plant) plant.life -= 0.4; else e.x -= e.speed;
-          if (e.x < 10) { g.ended = true; setEnded(true); }
-        }
-        for (let i = g.suns.length - 1; i >= 0; i--) { if (--g.suns[i].life <= 0) g.suns.splice(i, 1); }
-      }
-      ctx.clearRect(0, 0, W, H);
-      for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) { ctx.fillStyle = (r + c) % 2 === 0 ? "#4cd137" : "#44bd32"; ctx.fillRect(c * CELL, r * CELL, CELL, CELL); }
-      ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.font = "44px Arial";
-      g.plants.forEach(p => ctx.fillText(p.type === "sunflower" ? "🌻" : "🌱", p.x, p.y));
-      g.enemies.forEach(e => ctx.fillText("🧟", e.x, e.y));
-      ctx.fillStyle = "#0097e6"; g.shots.forEach(b => { ctx.beginPath(); ctx.arc(b.x, b.y, 8, 0, Math.PI * 2); ctx.fill(); });
-      ctx.font = "34px Arial"; g.suns.forEach(s => ctx.fillText("☀️", s.x, s.y));
-      if (g.ended) { ctx.fillStyle = "rgba(0,0,0,.75)"; ctx.fillRect(0, 0, W, H); ctx.fillStyle = "#fff"; ctx.font = "bold 40px Arial"; ctx.fillText("¡FIN DEL JUEGO!", W / 2, H / 2 - 20); ctx.font = "20px Arial"; ctx.fillText("Hacé clic para volver a jugar", W / 2, H / 2 + 25); }
-      requestAnimationFrame(draw);
-    };
-    const animation = requestAnimationFrame(draw);
-    return () => { active = false; cancelAnimationFrame(animation); canvas.removeEventListener("click", click); };
-  }, []);
-  const reset = () => { const g = gameRef.current; g.sun = 100; g.points = 0; g.frame = 0; g.plants = []; g.enemies = []; g.shots = []; g.suns = []; g.ended = false; setEnded(false); setSun(100); setPoints(0); };
-  return <section className="border-t-2 border-[#72172e] bg-[#1e272e] px-5 py-14 text-white md:px-10">
-    <div className="mx-auto max-w-5xl">
-      <p className="text-[10px] uppercase tracking-[0.3em] text-[#f5bd20]">Experiencia jugable · 02</p>
-      <h2 className="mt-2 font-serif text-3xl text-[#fff0c2] sm:text-4xl">Defensa del Jardín</h2>
-      <p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">Plantá girasoles para producir energía y lanzadores para detener a los zombis. Protegé el jardín el mayor tiempo posible.</p>
-      <div className="mt-6 flex flex-wrap items-center gap-3 rounded-lg bg-[#2f3640] p-3 sm:p-4">
-        <span className="font-bold text-[#ffe078]">☀️ Energía: {sun}</span><span className="font-bold text-white">🏆 Puntos: {points}</span>
-        <button onClick={() => setPlantType("sunflower")} className={`rounded-md bg-[#44bd32] px-3 py-2 text-sm font-bold ${plantType === "sunflower" ? "outline outline-3 outline-[#fbc531]" : ""}`}>🌻 Productor (50)</button>
-        <button onClick={() => setPlantType("shooter")} className={`rounded-md bg-[#44bd32] px-3 py-2 text-sm font-bold ${plantType === "shooter" ? "outline outline-3 outline-[#fbc531]" : ""}`}>🌱 Tirador (100)</button>
-        {ended && <button onClick={reset} className="rounded-md border border-[#fbc531] px-3 py-2 text-sm">Volver a jugar</button>}
-      </div>
-      <div className="mt-4 overflow-hidden rounded-lg border-4 border-[#2f3640] shadow-2xl">
-        <canvas ref={canvasRef} width={810} height={450} className="block h-auto w-full cursor-crosshair" />
-      </div>
-      <p className="mt-3 text-xs leading-5 text-white/65">Hacé clic en el césped para plantar. Recolectá los soles haciendo clic sobre ellos. Si un zombi llega al extremo izquierdo, termina la partida.</p>
+    raf=requestAnimationFrame(draw);
+    return()=>{running=false;cancelAnimationFrame(raf);canvas.removeEventListener("pointermove",pointer);window.removeEventListener("keydown",down);window.removeEventListener("keyup",up);};
+  },[restart]);
+  const hold=(key:"left"|"right"|"fire",value:boolean)=>{controls.current[key]=value;};
+  return <GameFrame title="SPACE INVADERS" subtitle="Defendé la Tierra de la invasión" score={score} detail={`VIDAS: ${lives}`} status={status} onRestart={()=>setRestart(v=>v+1)}>
+    <canvas ref={canvasRef} width={480} height={360} className="block w-full touch-pan-y" />
+    <div className="flex items-center justify-center gap-3 px-3 pb-3">
+      {(["left","fire","right"] as const).map(key=><button key={key} onPointerDown={()=>hold(key,true)} onPointerUp={()=>hold(key,false)} onPointerLeave={()=>hold(key,false)} onPointerCancel={()=>hold(key,false)} className="min-w-16 rounded border border-[#f5bd20]/70 bg-[#68182f] px-4 py-3 font-mono text-sm text-[#fff0c2] active:bg-[#a12b48]">{key==="left"?"←":key==="right"?"→":"FUEGO"}</button>)}
     </div>
-  </section>;
+    <p className="px-3 pb-3 text-center font-mono text-[10px] text-[#ffe9ad]/70">← → / A D PARA MOVER · ESPACIO PARA DISPARAR · TAMBIÉN PODÉS TOCAR LA PANTALLA</p>
+  </GameFrame>;
 }
 
-const CategoryCard = ({ item }: { item: typeof categories[number] }) => {
-  const count = games.filter((game) => game.genre === item.name).length;
-  return <Link to={`/videogames/${item.slug}`} className="group overflow-hidden border border-black/30 bg-[#fff0c2]/70 transition-all hover:-translate-y-1 hover:border-[#72172e]">
-    <div className={`relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br ${item.color}`}><div className="absolute inset-0 opacity-20" style={{backgroundImage:"linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)",backgroundSize:"20px 20px"}}/><span className="relative font-mono text-4xl font-black tracking-widest text-white drop-shadow-lg">{item.mark}</span><span className="absolute bottom-3 right-4 text-[10px] uppercase tracking-widest text-white">{count} juegos</span></div>
-    <div className="p-6"><p className="text-[10px] uppercase tracking-[0.2em] text-[#72172e]">{item.range}</p><h2 className="mt-2 font-serif text-2xl text-[#35101c]">{item.name}</h2><p className="mt-2 text-xs uppercase tracking-wider text-black/55">{item.subtitle}</p><p className="mt-4 text-sm leading-6 text-black/70">{item.description}</p><span className="mt-6 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#72172e]">Explorar categoría <ArrowRight size={14}/></span></div>
-  </Link>;
-};
+function GameFrame({title,subtitle,score,detail,status,onRestart,children}:{title:string;subtitle:string;score:number;detail:string;status:string;onRestart:()=>void;children:React.ReactNode}) {
+  return <article className="overflow-hidden border-[3px] border-[#f5bd20] bg-[#300d1b] shadow-[0_14px_40px_rgba(0,0,0,.35)]">
+    <header className="border-b-2 border-[#f5bd20]/70 bg-[#68182f] px-4 py-4 text-[#fff0c2]"><div className="flex items-center justify-between gap-2"><h2 className="font-mono text-lg font-black tracking-wider sm:text-xl">{title}</h2><span className="font-mono text-[10px] text-[#f5bd20]">PLAYER 1</span></div><p className="mt-1 text-xs text-[#fff0c2]/70">{subtitle}</p></header>
+    <div className="flex items-center justify-between bg-[#160913] px-4 py-2 font-mono text-xs text-[#ffe04a]"><span>PUNTOS: {score}</span><span>{detail}</span></div>
+    <div className="bg-[#050914]">{children}</div>
+    <footer className="flex items-center justify-between gap-3 border-t border-[#f5bd20]/30 bg-[#68182f] px-4 py-3"><span className="font-mono text-[10px] uppercase tracking-widest text-[#fff0c2]/70">{status==="won"?"¡GANASTE!":status==="over"?"FIN DE PARTIDA":"INSERT COIN · READY"}</span><button onClick={onRestart} className="rounded bg-[#f5bd20] px-4 py-2 font-mono text-xs font-bold text-[#35101c] hover:bg-[#ffe078]">REINICIAR ↻</button></footer>
+  </article>;
+}
 
-const Videogames = () => {
-  const { categorySlug } = useParams();
-  const category = categories.find((item) => item.slug === categorySlug);
-  const categoryGames = category ? games.filter((game) => game.genre === category.name) : [];
-  const [selectedGame,setSelectedGame] = useState<Game|null>(null);
-  return <div className="min-h-screen bg-[#f5bd20] text-[#241a0b]">
-    <SEO title={category ? `${category.name} | Videogames retro` : "Videogames retro"} description="Colección de videojuegos retro y experiencias arcade jugables directamente desde el navegador."/>
+export default function Videogames() {
+  return <div className="min-h-screen bg-[#160913] text-[#fff0c2]">
+    <SEO title="Videogames | Leandro Cuellar" description="Dos clásicos arcade jugables directamente en la web: Arkanoid y Space Invaders."/>
     <Header/>
-    <main>
-      <section className="border-b border-black/20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ffe078] via-[#f5bd20] to-[#d99a16] px-6 py-16 md:px-10 md:py-24 lg:px-14">
-        <div className="mx-auto max-w-6xl"><Link to="/videogames" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#72172e] hover:text-black"><ArrowLeft size={14}/>{category?"Todas las categorías":"Volver al archivo"}</Link><div className="mt-10 flex items-center gap-4 text-[#72172e]"><Gamepad2 size={28}/><span className="text-[10px] uppercase tracking-[0.35em]">Archivo de videojuegos clásicos</span></div><h1 className="mt-5 font-serif text-5xl leading-none text-[#35101c] sm:text-7xl">{category?category.name.toUpperCase():<>VIDEO<span className="text-[#72172e]">GAMES</span></>}</h1><p className="mt-6 max-w-2xl text-base leading-8 text-black/75">{category?category.description:"Quince clásicos para volver a jugar, descubrir y recordar. Elegí una categoría y recorré la historia del videojuego retro."}</p><div className="mt-8 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.18em] text-[#72172e]"><span className="border border-[#72172e]/50 px-3 py-2">{category?`${categoryGames.length} títulos`:"15 títulos"}</span><span className="border border-[#72172e]/50 px-3 py-2">{category?category.range:"5 categorías"}</span><span className="border border-[#72172e]/50 px-3 py-2">Juegos en navegador</span></div></div>
-      </section>
-      <section className="px-6 py-12 md:px-10 md:py-16 lg:px-14"><div className="mx-auto max-w-6xl">
-        {category?<><div className="mb-8"><p className="text-[10px] uppercase tracking-[0.3em] text-[#72172e]">Biblioteca temática</p><h2 className="mt-2 font-serif text-3xl text-[#35101c] sm:text-4xl">Los juegos</h2><p className="mt-2 text-sm text-black/60">Elegí "Jugar demo" para abrir una experiencia arcade original en esta misma página.</p></div><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{categoryGames.map((game,index)=><article key={game.title} className="overflow-hidden border border-black/25 bg-[#fff0c2]/75 transition-colors hover:border-[#72172e]"><div className={`relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br ${game.color}`}><div className="absolute inset-0 opacity-20" style={{backgroundImage:"linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)",backgroundSize:"18px 18px"}}/><span className="relative font-mono text-5xl font-black text-white drop-shadow-lg">{game.mark}</span><span className="absolute bottom-3 right-3 font-mono text-[10px] text-white">PLAYER 1 · #{String(index+1).padStart(2,"0")}</span></div><div className="p-5"><div className="flex justify-between gap-3 text-[10px] uppercase tracking-[0.16em] text-[#72172e]"><span>{game.genre}</span><span>{game.year}</span></div><h3 className="mt-3 font-serif text-xl leading-snug text-[#35101c]">{game.title}</h3><p className="mt-2 text-xs uppercase tracking-[0.12em] text-black/50">{game.platform}</p><p className="mt-4 text-sm leading-6 text-black/70">{game.note}</p><button onClick={()=>setSelectedGame(game)} className="mt-5 inline-flex w-full items-center justify-center gap-2 bg-[#68182f] px-4 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#fff0c2] hover:bg-[#421020]"><Play size={14}/> Jugar demo</button></div></article>)}</div><div className="mt-10 flex flex-wrap gap-3">{categories.filter(item=>item.slug!==category.slug).map(item=><Link key={item.slug} to={`/videogames/${item.slug}`} className="border border-[#72172e] px-4 py-3 text-[10px] uppercase tracking-wider text-[#72172e] hover:bg-[#68182f] hover:text-[#fff0c2]">{item.name}</Link>)}</div></>:<><div className="mb-8"><p className="text-[10px] uppercase tracking-[0.3em] text-[#72172e]">Explorá la colección</p><h2 className="mt-2 font-serif text-3xl text-[#35101c] sm:text-4xl">Elegí tu universo</h2><p className="mt-3 max-w-xl text-sm leading-6 text-black/65">Cada género tiene su propio espacio y dirección para recorrer la colección.</p></div><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{categories.map(item=><CategoryCard key={item.slug} item={item}/>)}</div></>}
-      </div></section>
-      <GardenDefense/>
-    </main><Footer/>{selectedGame&&<ArcadeGame game={selectedGame} onClose={()=>setSelectedGame(null)}/>}
+    <main className="relative overflow-hidden px-4 py-10 sm:px-8 sm:py-14 lg:px-12">
+      <div className="pointer-events-none absolute inset-0 opacity-[.08]" style={{backgroundImage:"linear-gradient(rgba(255,220,70,.5) 1px, transparent 1px),linear-gradient(90deg,rgba(255,220,70,.5) 1px,transparent 1px)",backgroundSize:"32px 32px"}}/>
+      <div className="relative mx-auto max-w-7xl">
+        <div className="mb-8 border-y-2 border-[#f5bd20] py-6 text-center sm:mb-10 sm:py-8">
+          <p className="font-mono text-[10px] uppercase tracking-[.4em] text-[#f5bd20]">Leandro Cuellar · Mi sala arcade</p>
+          <h1 className="mt-3 font-mono text-4xl font-black tracking-wider text-[#ffe078] sm:text-6xl">VIDEOGAMES</h1>
+          <p className="mt-3 text-sm text-[#fff0c2]/75">Dos clásicos de los 80. Una sola pantalla. Jugá acá mismo.</p>
+        </div>
+        <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
+          <Arkanoid/>
+          <SpaceInvaders/>
+        </div>
+        <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[.25em] text-[#f5bd20]/70">Arcade classics · Play in browser · PC & mobile</p>
+      </div>
+    </main>
+    <Footer/>
   </div>;
-};
-export default Videogames;
+}
