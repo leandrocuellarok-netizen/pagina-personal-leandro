@@ -100,15 +100,15 @@ export const ServiciosPage = () => (
       </div>
       <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">02 · Servicio destacado</p>
-        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Community Manager · Nivel Dios</h2>
+        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Community Manager · Nivel Dios by Vilanova AI Solutions</h2>
         <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#d8b978]">Lead / Head of Social Media · +10 años de experiencia</p>
-        <p className="mt-4 max-w-3xl text-sm leading-7">Estrategia, calendario editorial, contenidos y gestión de comunidades con una combinación de sensibilidad humana, creatividad e inteligencia artificial. No se trata de publicar por publicar: construimos conversación, consistencia y presencia digital con objetivos claros.</p>
+        <p className="mt-4 max-w-3xl text-sm leading-7">Estrategia, contenidos y gestión de comunidades. Desde sólo 50 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el bolsillo y a mí la filosofía de vida.</p>
         <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20Community%20Manager." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">Consultar por WhatsApp ↗</a>
       </div>
       <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">03 · Servicio destacado</p>
-        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">BRANDING / IA by Vilanova</h2>
-        <p className="mt-4 max-w-3xl text-sm leading-7">Necesitás un concepto de marca y una voz reconocible. Traducimos la identidad de tu proyecto en posicionamiento, personalidad, tono, narrativa y universo visual. Lo que antes podía llevar cien horas de brief, exploración y desarrollo hoy se agiliza radicalmente con IA como asistente de investigación y producción, bajo dirección creativa humana. Más velocidad, procesos eficientes y propuestas de valor más accesibles para tu bolsillo.</p>
+        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">BRANDING by Vilanova AI Solutions</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7">Identidad, posicionamiento, narrativa y universo visual. Desde sólo 50 mil ARS por única vez. Diseño de logotipo nivel GOD, con posibilidad de 3 modificaciones por 50 mil ARS adicionales; o hacelo vos sólo con IA y el brief de branding que te entrego (jaja).</p>
         <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20BRANDING%20%2F%20IA%20by%20Vilanova." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">Consultar por WhatsApp ↗</a>
       </div>
     </section>
