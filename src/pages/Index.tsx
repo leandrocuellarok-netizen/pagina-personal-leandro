@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Index = () => (
   <>
-    <SEO title="Leandro A. Cuellar" description="Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar." />
+    <SEO title="Leandro A. Cuellar" description="Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar. Más de 18.000 contactos profesionales en LinkedIn." />
     <div className="min-h-screen bg-[#35101f] text-[#f1e8df]">
       <Header />
       <main>
@@ -14,7 +14,7 @@ const Index = () => (
             <p className="text-[10px] uppercase tracking-[0.4em] text-[#d8b978]">Filosofía · Comunicación · Inteligencia artificial</p>
             <h1 className="mt-6 max-w-5xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">Leandro A. Cuellar</h1>
             <img src="/photos/leandro-cuellar.webp" alt="Leandro A. Cuellar" className="mt-8 h-48 w-48 rounded-sm border border-[#d8b978]/70 object-cover object-center sm:h-56 sm:w-56" />
-            <p className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9">Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar.</p>
+            <div className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9"><p>Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar.</p><p className="mt-3 text-sm sm:text-base"><a href="https://linkedin.com/in/leandrocuellar" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">+18.000 contactos profesionales en LinkedIn ↗</a></p></div>
           </div>
         </section>
 
