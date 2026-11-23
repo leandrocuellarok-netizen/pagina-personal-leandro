@@ -31,12 +31,34 @@ const Index = () => (
           </div>
         </section>
 
-        <section className="px-6 py-16 md:px-10 md:py-20 lg:px-14">
+        <section id="servicios-profesionales" className="border-y border-white/15 bg-[#2b0c19] px-6 py-16 md:px-10 md:py-20 lg:px-14">
           <div className="mx-auto max-w-6xl">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Identidad y trabajo público</p>
-            <h2 className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">Yo soy el comunicador libre</h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[#f1e8df]/80">Un espacio donde convergen cultura digital, inteligencia artificial, filosofía política y participación en los medios. Investigo cómo se transforma la conversación pública y cómo comunicar con autonomía, criterio y responsabilidad.</p>
-            <Link to="/yo-soy-el-comunicador-libre" className="mt-7 inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em] text-[#f1e8df] hover:bg-white/5">Entrar a esta sección ↗</Link>
+            <p className="text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Consultoría · Creatividad · Estrategia</p>
+            <h2 className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">Servicios profesionales</h2>
+            <p className="mt-5 max-w-3xl text-base leading-8 text-[#f1e8df]/80">Soluciones para marcas, profesionales y organizaciones. Creatividad humana potenciada por inteligencia artificial, con estrategia y dirección personalizada.</p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                ["Diseño web","Sitios y landing pages para comunicar, posicionar y convertir."],
+                ["Community Manager · Nivel Dios","Estrategia, contenidos y gestión de comunidades."],
+                ["BRANDING / IA by Vilanova","Identidad, posicionamiento, narrativa y universo visual."],
+                ["Inteligencia artificial para empresas","Capacitación, automatización y mejora de procesos."],
+                ["Comunicación estratégica","Prensa, reputación, contenidos y comunicación institucional."],
+                ["Conferencias y formación ejecutiva","Talleres y seminarios para equipos y organizaciones."]
+              ].map(([name,description]) => (
+                <article key={name} className="border border-[#d8b978]/50 p-5">
+                  <h3 className="font-serif text-xl text-[#f1e8df]">{name}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#f1e8df]/70">{description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-9 border border-[#d8b978] bg-[#f1e8df] p-6 text-[#35101f] sm:p-8">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#8d3c36]">Primera consulta sin cargo</p>
+              <h3 className="mt-2 font-serif text-2xl sm:text-3xl">Reservá un Meet de 30 minutos</h3>
+              <p className="mt-3 max-w-3xl text-sm leading-7">Conversamos sobre tu proyecto y recibís consejos, sugerencias y una auditoría rápida de tu marca, sin costo ni compromiso.</p>
+              <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20reservar%20un%20Meet%20de%2030%20minutos%20para%20recibir%20una%20consulta%20y%20una%20auditor%C3%ADa%20r%C3%A1pida%20de%20mi%20marca%20sin%20cargo." target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex bg-[#35101f] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#65283c]">Reservar mi Meet gratuito ↗</a>
+              <p className="mt-3 text-xs text-[#35101f]/70">Coordinamos día y horario por WhatsApp.</p>
+            </div>
+            <Link to="/servicios-profesionales" className="mt-7 inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em] text-[#f1e8df] hover:bg-white/5">Ver servicios y detalles ↗</Link>
           </div>
         </section>
 
