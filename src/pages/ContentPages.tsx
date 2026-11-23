@@ -90,23 +90,42 @@ export const ComunicadorPage = () => (
 );
 
 export const ServiciosPage = () => (
-  <PageShell title="Servicios profesionales" eyebrow="Consultoría · Formación · Estrategia" description="Soluciones para empresas, equipos profesionales e instituciones que buscan incorporar tecnología y mejorar su comunicación.">
+  <PageShell title="Servicios profesionales" eyebrow="Diseño · Contenido · Identidad · Inteligencia artificial" description="Creatividad humana potenciada por inteligencia artificial. Estrategia, diseño y comunicación para marcas, profesionales y organizaciones.">
+    <section className="space-y-5">
+      <div className="border-2 border-[#d8b978] bg-[#f1e8df] p-6 text-[#35101f] shadow-[8px_8px_0_#d8b978] sm:p-9">
+        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8d3c36]">01 · Servicio destacado</p>
+        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Diseño web</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7">Sitios web y landing pages pensados para comunicar, posicionar y convertir. Integro criterio visual, arquitectura de contenidos y creatividad humana con herramientas de IA para acelerar el desarrollo sin resignar identidad ni calidad.</p>
+        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20dise%C3%B1o%20web." className="mt-6 inline-flex bg-[#35101f] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#65283c]">Consultar por WhatsApp ↗</a>
+      </div>
+      <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
+        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">02 · Servicio destacado</p>
+        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Community Manager · Nivel Dios</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7">Estrategia, calendario editorial, contenidos y gestión de comunidades con una combinación de sensibilidad humana, creatividad e inteligencia artificial. No se trata de publicar por publicar: construimos conversación, consistencia y presencia digital con objetivos claros.</p>
+        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20Community%20Manager." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">Consultar por WhatsApp ↗</a>
+      </div>
+      <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
+        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">03 · Servicio destacado</p>
+        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">BRANDING / IA by Vilanova</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7">Necesitás un concepto de marca y una voz reconocible. Traducimos la identidad de tu proyecto en posicionamiento, personalidad, tono, narrativa y universo visual. Lo que antes podía llevar cien horas de brief, exploración y desarrollo hoy se agiliza radicalmente con IA como asistente de investigación y producción, bajo dirección creativa humana. Más velocidad, procesos eficientes y propuestas de valor más accesibles para tu bolsillo.</p>
+        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20BRANDING%20%2F%20IA%20by%20Vilanova." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">Consultar por WhatsApp ↗</a>
+      </div>
+    </section>
     <Block title="Inteligencia artificial para empresas">
       <p>Capacitaciones para equipos y profesionales que necesitan incorporar inteligencia artificial a su trabajo cotidiano, con criterio, seguridad y objetivos concretos.</p>
       <p>La propuesta combina alfabetización en IA, diseño de prompts, automatización de tareas, comunicación y análisis de procesos. El punto de partida es identificar dónde la IA puede ahorrar tiempo, mejorar decisiones y generar valor.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20la%20capacitaci%C3%B3n%20en%20inteligencia%20artificial." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Me interesa la capacitación en inteligencia artificial ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20la%20capacitaci%C3%B3n%20en%20inteligencia%20artificial." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Consultar por WhatsApp ↗</a>
     </Block>
     <Block title="Comunicación estratégica">
       <p>Asesoramiento en comunicación institucional, prensa, posicionamiento digital, narrativa de marca y desarrollo de contenidos. Trabajo orientado a ordenar mensajes, construir reputación y conectar organizaciones con sus públicos.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20comunicaci%C3%B3n%20estrat%C3%A9gica." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Me interesa la comunicación estratégica ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20comunicaci%C3%B3n%20estrat%C3%A9gica." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Consultar por WhatsApp ↗</a>
     </Block>
     <Block title="Conferencias y formación ejecutiva">
       <p>Charlas, talleres y seminarios sobre inteligencia artificial, cultura digital, filosofía de la tecnología, comunicación y transformaciones sociales. Formatos presenciales y virtuales para empresas, universidades e instituciones.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesan%20las%20conferencias%20y%20la%20formaci%C3%B3n%20ejecutiva." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Me interesan las conferencias y la formación ejecutiva ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesan%20las%20conferencias%20y%20la%20formaci%C3%B3n%20ejecutiva." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Consultar por WhatsApp ↗</a>
     </Block>
   </PageShell>
 );
-
 export const PrensaPage = () => (
   <PageShell title="Prensa y medios" eyebrow="Participaciones · Entrevistas · Publicaciones" description="Artículos, entrevistas y participaciones públicas sobre política, cultura, comunicación e inteligencia artificial.">
     <Block title="Artículos y participaciones">
