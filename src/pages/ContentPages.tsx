@@ -94,8 +94,8 @@ export const ServiciosPage = () => (
     <section className="space-y-5">
       <div className="border-2 border-[#d8b978] bg-[#f1e8df] p-6 text-[#35101f] shadow-[8px_8px_0_#d8b978] sm:p-9">
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8d3c36]">01 · Servicio destacado</p>
-        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Diseño web</h2>
-        <p className="mt-4 max-w-3xl text-sm leading-7">Sitios web y landing pages pensados para comunicar, posicionar y convertir. Integro criterio visual, arquitectura de contenidos y creatividad humana con herramientas de IA para acelerar el desarrollo sin resignar identidad ni calidad.</p>
+        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Diseño web + IA by Vilanova AI Solutions</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7">Sitios y landing pages para comunicar, posicionar y convertir. Desde sólo 30 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el precio y a mí la existencia.</p>
         <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20dise%C3%B1o%20web." className="mt-6 inline-flex bg-[#35101f] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#65283c]">Consultar por WhatsApp ↗</a>
       </div>
       <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
