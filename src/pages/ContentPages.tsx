@@ -96,34 +96,34 @@ export const ServiciosPage = () => (
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8d3c36]">01 · Servicio destacado</p>
         <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Diseño web + IA by Vilanova AI Solutions</h2>
         <p className="mt-4 max-w-3xl text-sm leading-7">Sitios y landing pages para comunicar, posicionar y convertir. Desde sólo 30 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el precio y a mí la existencia.</p>
-        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20dise%C3%B1o%20web." className="mt-6 inline-flex bg-[#35101f] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#65283c]">Consultar por WhatsApp ↗</a>
+        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20dise%C3%B1o%20web." className="mt-6 inline-flex bg-[#35101f] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#65283c]">INSERT COIN</a>
       </div>
       <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">02 · Servicio destacado</p>
         <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Community Manager · Nivel Dios by Vilanova AI Solutions</h2>
         <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#d8b978]">Lead / Head of Social Media · +10 años de experiencia</p>
         <p className="mt-4 max-w-3xl text-sm leading-7">Estrategia, contenidos y gestión de comunidades. Desde sólo 50 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el bolsillo y a mí la filosofía de vida.</p>
-        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20Community%20Manager." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">Consultar por WhatsApp ↗</a>
+        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20Community%20Manager." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">INSERT COIN</a>
       </div>
       <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">03 · Servicio destacado</p>
         <h2 className="mt-3 font-serif text-3xl sm:text-5xl">BRANDING by Vilanova AI Solutions</h2>
         <p className="mt-4 max-w-3xl text-sm leading-7">Identidad, posicionamiento, narrativa y universo visual. Desde sólo 50 mil ARS por única vez. Diseño de logotipo nivel GOD, con posibilidad de 3 modificaciones por 50 mil ARS adicionales; o hacelo vos sólo con IA y el brief de branding que te entrego (jaja).</p>
-        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20BRANDING%20%2F%20IA%20by%20Vilanova." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">Consultar por WhatsApp ↗</a>
+        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20BRANDING%20%2F%20IA%20by%20Vilanova." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">INSERT COIN</a>
       </div>
     </section>
     <Block title="Inteligencia artificial para empresas">
       <p>Capacitaciones para equipos y profesionales que necesitan incorporar inteligencia artificial a su trabajo cotidiano, con criterio, seguridad y objetivos concretos.</p>
       <p>La propuesta combina alfabetización en IA, diseño de prompts, automatización de tareas, comunicación y análisis de procesos. El punto de partida es identificar dónde la IA puede ahorrar tiempo, mejorar decisiones y generar valor.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20la%20capacitaci%C3%B3n%20en%20inteligencia%20artificial." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Consultar por WhatsApp ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20la%20capacitaci%C3%B3n%20en%20inteligencia%20artificial." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">INSERT COIN</a>
     </Block>
     <Block title="Comunicación estratégica">
       <p>Asesoramiento en comunicación institucional, prensa, posicionamiento digital, narrativa de marca y desarrollo de contenidos. Trabajo orientado a ordenar mensajes, construir reputación y conectar organizaciones con sus públicos.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20comunicaci%C3%B3n%20estrat%C3%A9gica." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Consultar por WhatsApp ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20comunicaci%C3%B3n%20estrat%C3%A9gica." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">INSERT COIN</a>
     </Block>
     <Block title="Conferencias y formación ejecutiva">
       <p>Charlas, talleres y seminarios sobre inteligencia artificial, cultura digital, filosofía de la tecnología, comunicación y transformaciones sociales. Formatos presenciales y virtuales para empresas, universidades e instituciones.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesan%20las%20conferencias%20y%20la%20formaci%C3%B3n%20ejecutiva." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">Consultar por WhatsApp ↗</a>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesan%20las%20conferencias%20y%20la%20formaci%C3%B3n%20ejecutiva." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">INSERT COIN</a>
     </Block>
   </PageShell>
 );
