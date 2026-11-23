@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ArcadePacman from "@/components/ArcadePacman";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
+import MonthlyVisits from "@/components/MonthlyVisits";
 
 const Index = () => (
   <>
