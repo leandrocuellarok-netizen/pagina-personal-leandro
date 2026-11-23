@@ -31,7 +31,7 @@ const Block = ({ title, children }: { title: string; children: ReactNode }) => (
 );
 
 export const EcosistemaPage = () => (
-  <PageShell title="Ecosistema Vilanova Group" eyebrow="Empresa · Innovación · Comunicación" description="Un ecosistema de proyectos que integra comunicación estratégica, formación, cultura, investigación e inteligencia artificial aplicada.">
+  <PageShell title="WIN with VILANOVA GROUP" eyebrow="Empresa · Innovación · Comunicación" description="Un ecosistema de proyectos que integra comunicación estratégica, formación, cultura, investigación e inteligencia artificial aplicada.">
     <Block title="Vilanova Group">
       <p>Vilanova Group® es un ecosistema a favor del pensamiento, la cultura, la libertad de expresión, la innovación y la comunicación política con responsabilidad ética. Fundado por Leandro A. Cuellar, articula proyectos de comunicación, cultura, formación e inteligencia artificial.</p>
       <p>El ecosistema integra comunicación estratégica, branding, consultoría institucional, formación, investigación social e IA aplicada a la toma de decisiones. Su enfoque combina tecnología, datos y comportamiento humano para ayudar a organizaciones a comprender escenarios y desarrollar estrategias de largo plazo.</p>
