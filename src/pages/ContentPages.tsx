@@ -90,41 +90,85 @@ export const ComunicadorPage = () => (
 );
 
 export const ServiciosPage = () => (
-  <PageShell title="Servicios profesionales" eyebrow="Diseño · Contenido · Identidad · Inteligencia artificial" description="Creatividad humana potenciada por inteligencia artificial. Estrategia, diseño y comunicación para marcas, profesionales y organizaciones.">
-    <section className="space-y-5">
-      <div className="border-2 border-[#d8b978] bg-[#f1e8df] p-6 text-[#35101f] shadow-[8px_8px_0_#d8b978] sm:p-9">
-        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8d3c36]">01 · Servicio destacado</p>
-        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Diseño web + IA by Vilanova AI Solutions</h2>
-        <p className="mt-4 max-w-3xl text-sm leading-7">Sitios y landing pages para comunicar, posicionar y convertir. Desde sólo 30 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el precio y a mí la existencia.</p>
-        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20dise%C3%B1o%20web." className="mt-6 inline-flex bg-[#35101f] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#65283c]">INSERT COIN</a>
+  <PageShell title="Servicios profesionales" eyebrow="Vilanova AI Solutions · Comunicación que mueve" description="Ideas bien pensadas. Imágenes que dejan huella. Tecnología puesta a trabajar. Soluciones para profesionales, marcas y organizaciones que quieren comunicar mejor y crecer.">
+    <section className="relative overflow-hidden border-[3px] border-[#211b17] bg-[#f3e8d2] text-[#211b17] shadow-[9px_9px_0_#e6a900]">
+      <div className="absolute inset-x-0 top-0 h-3 bg-[#e6a900]" />
+      <div className="grid md:grid-cols-[1.15fr_0.85fr]">
+        <div className="relative z-10 px-6 pb-9 pt-12 sm:px-10 sm:pb-12 sm:pt-14">
+          <p className="text-[10px] font-black uppercase tracking-[0.32em] text-[#9c3025]">Vilanova AI Solutions presenta</p>
+          <h2 className="mt-5 max-w-2xl font-serif text-4xl leading-[0.98] sm:text-6xl">Tu próxima gran idea merece <span className="text-[#c63b25]">hacerse ver.</span></h2>
+          <p className="mt-6 max-w-xl text-sm leading-7 text-[#342b25]/80">Diseño, estrategia y creatividad humana con herramientas de inteligencia artificial. Menos vueltas. Más claridad. Mejor comunicación.</p>
+          <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20conocer%20los%20servicios%20de%20Vilanova%20AI%20Solutions." className="mt-7 inline-flex items-center gap-3 border-2 border-[#211b17] bg-[#e6a900] px-6 py-4 text-[11px] font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#211b17] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none">Hablemos de tu proyecto <span aria-hidden="true">↗</span></a>
+        </div>
+        <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-[#e6a900] px-6 py-10">
+          <div className="absolute -right-12 -top-16 h-64 w-64 rounded-full border-[24px] border-[#f7edda]/70" />
+          <div className="absolute bottom-5 left-0 h-5 w-full -rotate-6 bg-[#c63b25]" />
+          <div className="relative z-10 max-w-xs text-center">
+            <div className="mx-auto flex h-36 w-36 items-center justify-center rounded-full border-[5px] border-[#211b17] bg-[#f3e8d2] shadow-[7px_7px_0_#211b17]">
+              <svg viewBox="0 0 120 120" className="h-24 w-24" role="img" aria-label="Ilustración de cámara fotográfica vintage">
+                <path d="M18 39h19l8-12h30l8 12h19a8 8 0 0 1 8 8v43a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V47a8 8 0 0 1 8-8Z" fill="#211b17"/>
+                <circle cx="60" cy="66" r="25" fill="#e6a900" stroke="#f3e8d2" strokeWidth="5"/>
+                <circle cx="60" cy="66" r="14" fill="#211b17"/>
+                <circle cx="91" cy="51" r="4" fill="#c63b25"/>
+                <path d="M22 48h15" stroke="#f3e8d2" strokeWidth="4" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <p className="mt-5 font-serif text-3xl font-bold">CREATIVIDAD<br/>EN FOCO</p>
+            <p className="mt-2 text-[9px] font-black uppercase tracking-[0.3em]">Ideas · Imagen · Acción</p>
+          </div>
+        </div>
       </div>
-      <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
-        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">02 · Servicio destacado</p>
-        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Community Manager · Nivel Dios by Vilanova AI Solutions</h2>
-        <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#d8b978]">Lead / Head of Social Media · +10 años de experiencia</p>
-        <p className="mt-4 max-w-3xl text-sm leading-7">Estrategia, contenidos y gestión de comunidades. Desde sólo 50 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el bolsillo y a mí la filosofía de vida.</p>
-        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20Community%20Manager." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">INSERT COIN</a>
-      </div>
-      <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
-        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">03 · Servicio destacado</p>
-        <h2 className="mt-3 font-serif text-3xl sm:text-5xl">BRANDING by Vilanova AI Solutions</h2>
-        <p className="mt-4 max-w-3xl text-sm leading-7">Identidad, posicionamiento, narrativa y universo visual. Desde sólo 50 mil ARS por única vez. Diseño de logotipo nivel GOD, con posibilidad de 3 modificaciones por 50 mil ARS adicionales; o hacelo vos sólo con IA y el brief de branding que te entrego (jaja).</p>
-        <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20BRANDING%20%2F%20IA%20by%20Vilanova." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">INSERT COIN</a>
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#211b17] bg-[#211b17] px-6 py-3 text-[9px] font-bold uppercase tracking-[0.22em] text-[#f3e8d2] sm:px-10">
+        <span>Una mirada estratégica. Herramientas actuales.</span><span>Est. Vilanova Group</span>
       </div>
     </section>
-    <Block title="Inteligencia artificial para empresas">
-      <p>Capacitaciones para equipos y profesionales que necesitan incorporar inteligencia artificial a su trabajo cotidiano, con criterio, seguridad y objetivos concretos.</p>
-      <p>La propuesta combina alfabetización en IA, diseño de prompts, automatización de tareas, comunicación y análisis de procesos. El punto de partida es identificar dónde la IA puede ahorrar tiempo, mejorar decisiones y generar valor.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20la%20capacitaci%C3%B3n%20en%20inteligencia%20artificial." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">INSERT COIN</a>
-    </Block>
-    <Block title="Comunicación estratégica">
-      <p>Asesoramiento en comunicación institucional, prensa, posicionamiento digital, narrativa de marca y desarrollo de contenidos. Trabajo orientado a ordenar mensajes, construir reputación y conectar organizaciones con sus públicos.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20comunicaci%C3%B3n%20estrat%C3%A9gica." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">INSERT COIN</a>
-    </Block>
-    <Block title="Conferencias y formación ejecutiva">
-      <p>Charlas, talleres y seminarios sobre inteligencia artificial, cultura digital, filosofía de la tecnología, comunicación y transformaciones sociales. Formatos presenciales y virtuales para empresas, universidades e instituciones.</p>
-      <a href="https://wa.me/5491130538404?text=Hola%2C%20me%20interesan%20las%20conferencias%20y%20la%20formaci%C3%B3n%20ejecutiva." className="inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em]">INSERT COIN</a>
-    </Block>
+
+    <section className="space-y-6">
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div><p className="text-[10px] uppercase tracking-[0.3em] text-[#d8b978]">Elegí tu punto de partida</p><h2 className="mt-2 font-serif text-3xl sm:text-4xl">Soluciones para poner en marcha</h2></div>
+        <p className="max-w-sm text-xs leading-6 text-[#f1e8df]/60">Cada proyecto se ajusta a tus objetivos, necesidades y alcance.</p>
+      </div>
+      <div className="grid gap-5 lg:grid-cols-3">
+        <article className="flex flex-col border-2 border-[#e6a900] bg-[#f3e8d2] p-6 text-[#211b17] shadow-[5px_5px_0_#e6a900] sm:p-7">
+          <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#a83226]">01 / Presencia digital</p>
+          <h3 className="mt-4 font-serif text-3xl leading-tight">Diseño web + IA</h3>
+          <p className="mt-3 text-sm leading-6 text-[#342b25]/80">Sitios web y landing pages para presentar tu propuesta, generar confianza y convertir visitas en consultas.</p>
+          <p className="mt-6 border-t border-[#211b17]/20 pt-4 text-[10px] font-bold uppercase tracking-[0.18em]">Desde</p>
+          <p className="mt-1 font-serif text-3xl">$30.000 <span className="font-sans text-xs font-bold">/ mes</span></p>
+          <p className="mt-1 text-[10px] text-[#342b25]/65">Precio sujeto al alcance del proyecto.</p>
+          <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20dise%C3%B1o%20web." className="mt-auto inline-flex justify-center border-2 border-[#211b17] bg-[#e6a900] px-4 py-3 mt-6 text-[10px] font-black uppercase tracking-[0.18em] hover:bg-[#211b17] hover:text-[#f3e8d2]">INSERT COIN ↗</a>
+        </article>
+        <article className="flex flex-col border border-[#d8b978]/70 bg-white/[0.045] p-6 sm:p-7">
+          <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#e6a900]">02 / Comunidad y contenidos</p>
+          <h3 className="mt-4 font-serif text-3xl leading-tight">Community Manager</h3>
+          <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.16em] text-[#d8b978]">Lead / Head of Social Media · +10 años</p>
+          <p className="mt-4 text-sm leading-6 text-[#f1e8df]/75">Estrategia, planificación, contenidos y gestión de comunidades para que tus redes tengan dirección y consistencia.</p>
+          <p className="mt-6 border-t border-white/15 pt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[#d8b978]">Desde</p>
+          <p className="mt-1 font-serif text-3xl">$50.000 <span className="font-sans text-xs font-bold">/ mes</span></p>
+          <p className="mt-1 text-[10px] text-[#f1e8df]/50">Precio sujeto al alcance del proyecto.</p>
+          <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20Community%20Manager." className="mt-auto inline-flex justify-center border border-[#d8b978] px-4 py-3 mt-6 text-[10px] font-black uppercase tracking-[0.18em] hover:bg-[#e6a900] hover:text-[#211b17]">INSERT COIN ↗</a>
+        </article>
+        <article className="flex flex-col border border-[#d8b978]/70 bg-white/[0.045] p-6 sm:p-7">
+          <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#e6a900]">03 / Identidad de marca</p>
+          <h3 className="mt-4 font-serif text-3xl leading-tight">Branding</h3>
+          <p className="mt-3 text-sm leading-6 text-[#f1e8df]/75">Identidad, posicionamiento, narrativa y universo visual. Una marca reconocible empieza por una idea clara.</p>
+          <p className="mt-6 border-t border-white/15 pt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[#d8b978]">Desde</p>
+          <p className="mt-1 font-serif text-3xl">$50.000 <span className="font-sans text-xs font-bold">/ única vez</span></p>
+          <p className="mt-1 text-[10px] leading-5 text-[#f1e8df]/50">Incluye diseño de logotipo. 3 modificaciones adicionales: $50.000. También podés crear con IA a partir de un brief estratégico.</p>
+          <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20branding." className="mt-auto inline-flex justify-center border border-[#d8b978] px-4 py-3 mt-6 text-[10px] font-black uppercase tracking-[0.18em] hover:bg-[#e6a900] hover:text-[#211b17]">INSERT COIN ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section className="border-y border-white/15 py-10">
+      <p className="text-[10px] uppercase tracking-[0.3em] text-[#d8b978]">También podemos trabajar juntos en</p>
+      <div className="mt-6 grid gap-6 md:grid-cols-3">
+        <div><h3 className="font-serif text-2xl">IA para empresas</h3><p className="mt-2 text-sm leading-7 text-[#f1e8df]/70">Capacitación práctica, prompts, automatización y rediseño de tareas para incorporar IA con criterio, seguridad y objetivos medibles.</p></div>
+        <div><h3 className="font-serif text-2xl">Comunicación estratégica</h3><p className="mt-2 text-sm leading-7 text-[#f1e8df]/70">Comunicación institucional, prensa, reputación, narrativa de marca y contenidos para conectar con tus públicos.</p></div>
+        <div><h3 className="font-serif text-2xl">Conferencias y formación</h3><p className="mt-2 text-sm leading-7 text-[#f1e8df]/70">Charlas y talleres sobre IA, cultura digital, filosofía de la tecnología y transformaciones del trabajo.</p></div>
+      </div>
+      <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20capacitaciones%20y%20servicios%20para%20mi%20organizaci%C3%B3n." className="mt-8 inline-flex border-2 border-[#e6a900] bg-[#e6a900] px-6 py-4 text-[10px] font-black uppercase tracking-[0.18em] text-[#211b17] hover:bg-transparent hover:text-[#f1e8df]">Contame qué necesitás ↗</a>
+    </section>
   </PageShell>
 );
 export const PrensaPage = () => (
