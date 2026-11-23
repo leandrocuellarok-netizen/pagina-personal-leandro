@@ -132,6 +132,84 @@ function SpaceInvaders() {
   </GameFrame>;
 }
 
+function Snake() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [score, setScore] = useState(0);
+  const [status, setStatus] = useState("ready");
+  const [restart, setRestart] = useState(0);
+  const direction = useRef({x:1,y:0});
+  const queued = useRef({x:1,y:0});
+
+  useEffect(() => {
+    const canvas=canvasRef.current;
+    const ctx=canvas?.getContext("2d");
+    if(!canvas||!ctx)return;
+    const cell=20, cols=24, rows=18, W=480, H=360;
+    let snake=[{x:7,y:9},{x:6,y:9},{x:5,y:9}];
+    let food={x:16,y:9};
+    let points=0, running=true, started=false;
+    direction.current={x:1,y:0};queued.current={x:1,y:0};
+    setScore(0);setStatus("ready");
+    const placeFood=()=>{
+      let p;
+      do { p={x:Math.floor(Math.random()*cols),y:Math.floor(Math.random()*rows)}; }
+      while(snake.some(part=>part.x===p.x&&part.y===p.y));
+      food=p;
+    };
+    const change=(x:number,y:number)=>{
+      if(x===-direction.current.x&&y===-direction.current.y)return;
+      queued.current={x,y};started=true;
+    };
+    const keydown=(e:KeyboardEvent)=>{
+      const map:Record<string,[number,number]>={ArrowUp:[0,-1],w:[0,-1],ArrowDown:[0,1],s:[0,1],ArrowLeft:[-1,0],a:[-1,0],ArrowRight:[1,0],d:[1,0]};
+      const d=map[e.key];
+      if(d){e.preventDefault();change(d[0],d[1]);}
+    };
+    window.addEventListener("keydown",keydown);
+    const draw=()=>{
+      ctx.fillStyle="#080b16";ctx.fillRect(0,0,W,H);
+      ctx.strokeStyle="rgba(255,216,61,.07)";
+      for(let x=0;x<=W;x+=cell){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+      for(let y=0;y<=H;y+=cell){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+      ctx.fillStyle="#ff5964";ctx.beginPath();ctx.arc(food.x*cell+10,food.y*cell+10,7,0,Math.PI*2);ctx.fill();
+      snake.forEach((p,i)=>{ctx.fillStyle=i===0?"#ffe04a":"#65f58b";ctx.fillRect(p.x*cell+2,p.y*cell+2,cell-4,cell-4);});
+      ctx.fillStyle="#fff0c2";ctx.font="12px monospace";ctx.fillText("SNAKE  ·  "+points+" PTS",12,18);
+      if(!started&&running){ctx.textAlign="center";ctx.font="14px monospace";ctx.fillText("PRESIONÁ UNA FLECHA PARA EMPEZAR",W/2,H/2);ctx.textAlign="left";}
+      if(!running){ctx.fillStyle="rgba(0,0,0,.65)";ctx.fillRect(0,0,W,H);ctx.textAlign="center";ctx.fillStyle="#ffe04a";ctx.font="bold 25px monospace";ctx.fillText("GAME OVER",W/2,H/2);ctx.font="13px monospace";ctx.fillStyle="#fff0c2";ctx.fillText("PUNTOS: "+points,W/2,H/2+27);ctx.textAlign="left";}
+    };
+    draw();
+    const timer=window.setInterval(()=>{
+      if(!running||!started)return;
+      direction.current=queued.current;
+      const head={x:snake[0].x+direction.current.x,y:snake[0].y+direction.current.y};
+      const eating=head.x===food.x&&head.y===food.y;
+      const body=eating?snake:snake.slice(0,-1);
+      if(head.x<0||head.x>=cols||head.y<0||head.y>=rows||body.some(p=>p.x===head.x&&p.y===head.y)){
+        running=false;setStatus("over");draw();return;
+      }
+      snake=[head,...snake];
+      if(eating){points+=10;setScore(points);placeFood();if(snake.length===cols*rows){running=false;setStatus("won");}}
+      else snake.pop();
+      draw();
+    },125);
+    return()=>{running=false;window.clearInterval(timer);window.removeEventListener("keydown",keydown);};
+  },[restart]);
+
+  const pad=(x:number,y:number)=>{if(x===-direction.current.x&&y===-direction.current.y)return;queued.current={x,y};};
+  return <GameFrame title="SNAKE" subtitle="Comé, crecé y no choques contra las paredes ni contra vos mismo" score={score} detail="3 VIDAS? NO. UNA SOLA." status={status} onRestart={()=>setRestart(v=>v+1)}>
+    <canvas ref={canvasRef} width={480} height={360} className="block w-full touch-pan-y"/>
+    <div className="grid grid-cols-3 gap-2 px-4 py-3 sm:max-w-xs sm:mx-auto">
+      <span/>
+      <button onClick={()=>pad(0,-1)} className="rounded border border-[#35101c]/35 bg-[#65172d] py-3 font-mono text-lg text-[#fff0c2] active:bg-[#a12b48]">↑</button>
+      <span/>
+      <button onClick={()=>pad(-1,0)} className="rounded border border-[#35101c]/35 bg-[#65172d] py-3 font-mono text-lg text-[#fff0c2] active:bg-[#a12b48]">←</button>
+      <button onClick={()=>pad(0,1)} className="rounded border border-[#35101c]/35 bg-[#65172d] py-3 font-mono text-lg text-[#fff0c2] active:bg-[#a12b48]">↓</button>
+      <button onClick={()=>pad(1,0)} className="rounded border border-[#35101c]/35 bg-[#65172d] py-3 font-mono text-lg text-[#fff0c2] active:bg-[#a12b48]">→</button>
+    </div>
+    <p className="px-3 pb-3 text-center font-mono text-[10px] text-[#21190b]/70">FLECHAS / W A S D · TAMBIÉN PODÉS USAR LOS BOTONES</p>
+  </GameFrame>;
+}
+
 function GameFrame({title,subtitle,score,detail,status,onRestart,children}:{title:string;subtitle:string;score:number;detail:string;status:string;onRestart:()=>void;children:React.ReactNode}) {
   return <article className="overflow-hidden border-[3px] border-[#35101c] bg-[#ffe078] shadow-[0_14px_40px_rgba(0,0,0,.35)]">
     <header className="border-b-2 border-[#35101c]/35 bg-[#65172d] px-4 py-4 text-[#fff0c2]"><div className="flex items-center justify-between gap-2"><h2 className="font-mono text-lg font-black tracking-wider sm:text-xl">{title}</h2><span className="font-mono text-[10px] text-[#f5bd20]">PLAYER 1</span></div><p className="mt-1 text-xs text-[#21190b]/70">{subtitle}</p></header>
@@ -156,6 +234,9 @@ export default function Videogames() {
         <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
           <Arkanoid/>
           <SpaceInvaders/>
+        </div>
+        <div className="mt-8">
+          <Snake/>
         </div>
         <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[.25em] text-[#65172d]/70">Arcade classics · Play in browser · PC & mobile</p>
       </div>
