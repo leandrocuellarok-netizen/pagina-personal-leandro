@@ -101,6 +101,7 @@ export const ServiciosPage = () => (
       <div className="border-2 border-[#d8b978] bg-white/5 p-6 sm:p-9">
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8b978]">02 · Servicio destacado</p>
         <h2 className="mt-3 font-serif text-3xl sm:text-5xl">Community Manager · Nivel Dios</h2>
+        <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#d8b978]">Lead / Head of Social Media · +10 años de experiencia</p>
         <p className="mt-4 max-w-3xl text-sm leading-7">Estrategia, calendario editorial, contenidos y gestión de comunidades con una combinación de sensibilidad humana, creatividad e inteligencia artificial. No se trata de publicar por publicar: construimos conversación, consistencia y presencia digital con objetivos claros.</p>
         <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20Community%20Manager." className="mt-6 inline-flex border border-[#d8b978] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1e8df] hover:bg-[#d8b978] hover:text-[#35101f]">Consultar por WhatsApp ↗</a>
       </div>
