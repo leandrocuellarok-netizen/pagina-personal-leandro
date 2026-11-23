@@ -66,7 +66,7 @@ function Arkanoid() {
   const restart = () => { restartRef.current++; setStatus("ready"); setScore(0); setLives(3); };
   return <GameFrame title="ARKANOID" subtitle="Destruí los bloques y evitá que caiga la pelota" score={score} detail={`VIDAS: ${lives}`} status={status} onRestart={restart}>
     <canvas ref={canvasRef} width={480} height={360} className="block w-full touch-pan-y" />
-    <p className="px-3 pb-3 text-center font-mono text-[10px] text-[#ffe9ad]/70">← → / A D · ESPACIO PARA LANZAR · MOVER EL DEDO PARA CONTROLAR</p>
+    <p className="px-3 pb-3 text-center font-mono text-[10px] text-[#21190b]/70">← → / A D · ESPACIO PARA LANZAR · MOVER EL DEDO PARA CONTROLAR</p>
   </GameFrame>;
 }
 
@@ -126,29 +126,29 @@ function SpaceInvaders() {
   return <GameFrame title="SPACE INVADERS" subtitle="Defendé la Tierra de la invasión" score={score} detail={`VIDAS: ${lives}`} status={status} onRestart={()=>setRestart(v=>v+1)}>
     <canvas ref={canvasRef} width={480} height={360} className="block w-full touch-pan-y" />
     <div className="flex items-center justify-center gap-3 px-3 pb-3">
-      {(["left","fire","right"] as const).map(key=><button key={key} onPointerDown={()=>hold(key,true)} onPointerUp={()=>hold(key,false)} onPointerLeave={()=>hold(key,false)} onPointerCancel={()=>hold(key,false)} className="min-w-16 rounded border border-[#f5bd20]/70 bg-[#68182f] px-4 py-3 font-mono text-sm text-[#fff0c2] active:bg-[#a12b48]">{key==="left"?"←":key==="right"?"→":"FUEGO"}</button>)}
+      {(["left","fire","right"] as const).map(key=><button key={key} onPointerDown={()=>hold(key,true)} onPointerUp={()=>hold(key,false)} onPointerLeave={()=>hold(key,false)} onPointerCancel={()=>hold(key,false)} className="min-w-16 rounded border border-[#35101c]/35 bg-[#65172d] px-4 py-3 font-mono text-sm text-[#fff0c2] active:bg-[#a12b48]">{key==="left"?"←":key==="right"?"→":"FUEGO"}</button>)}
     </div>
-    <p className="px-3 pb-3 text-center font-mono text-[10px] text-[#ffe9ad]/70">← → / A D PARA MOVER · ESPACIO PARA DISPARAR · TAMBIÉN PODÉS TOCAR LA PANTALLA</p>
+    <p className="px-3 pb-3 text-center font-mono text-[10px] text-[#21190b]/70">← → / A D PARA MOVER · ESPACIO PARA DISPARAR · TAMBIÉN PODÉS TOCAR LA PANTALLA</p>
   </GameFrame>;
 }
 
 function GameFrame({title,subtitle,score,detail,status,onRestart,children}:{title:string;subtitle:string;score:number;detail:string;status:string;onRestart:()=>void;children:React.ReactNode}) {
-  return <article className="overflow-hidden border-[3px] border-[#f5bd20] bg-[#300d1b] shadow-[0_14px_40px_rgba(0,0,0,.35)]">
-    <header className="border-b-2 border-[#f5bd20]/70 bg-[#68182f] px-4 py-4 text-[#fff0c2]"><div className="flex items-center justify-between gap-2"><h2 className="font-mono text-lg font-black tracking-wider sm:text-xl">{title}</h2><span className="font-mono text-[10px] text-[#f5bd20]">PLAYER 1</span></div><p className="mt-1 text-xs text-[#fff0c2]/70">{subtitle}</p></header>
-    <div className="flex items-center justify-between bg-[#160913] px-4 py-2 font-mono text-xs text-[#ffe04a]"><span>PUNTOS: {score}</span><span>{detail}</span></div>
-    <div className="bg-[#050914]">{children}</div>
-    <footer className="flex items-center justify-between gap-3 border-t border-[#f5bd20]/30 bg-[#68182f] px-4 py-3"><span className="font-mono text-[10px] uppercase tracking-widest text-[#fff0c2]/70">{status==="won"?"¡GANASTE!":status==="over"?"FIN DE PARTIDA":"INSERT COIN · READY"}</span><button onClick={onRestart} className="rounded bg-[#f5bd20] px-4 py-2 font-mono text-xs font-bold text-[#35101c] hover:bg-[#ffe078]">REINICIAR ↻</button></footer>
+  return <article className="overflow-hidden border-[3px] border-[#35101c] bg-[#ffe078] shadow-[0_14px_40px_rgba(0,0,0,.35)]">
+    <header className="border-b-2 border-[#35101c]/35 bg-[#65172d] px-4 py-4 text-[#fff0c2]"><div className="flex items-center justify-between gap-2"><h2 className="font-mono text-lg font-black tracking-wider sm:text-xl">{title}</h2><span className="font-mono text-[10px] text-[#f5bd20]">PLAYER 1</span></div><p className="mt-1 text-xs text-[#21190b]/70">{subtitle}</p></header>
+    <div className="flex items-center justify-between bg-[#35101c] px-4 py-2 font-mono text-xs text-[#ffe04a]"><span>PUNTOS: {score}</span><span>{detail}</span></div>
+    <div className="bg-[#080b16]">{children}</div>
+    <footer className="flex items-center justify-between gap-3 border-t border-[#35101c]/30 bg-[#65172d] px-4 py-3"><span className="font-mono text-[10px] uppercase tracking-widest text-[#21190b]/70">{status==="won"?"¡GANASTE!":status==="over"?"FIN DE PARTIDA":"INSERT COIN · READY"}</span><button onClick={onRestart} className="rounded bg-[#f5bd20] px-4 py-2 font-mono text-xs font-bold text-[#35101c] hover:bg-[#ffe078]">REINICIAR ↻</button></footer>
   </article>;
 }
 
 export default function Videogames() {
-  return <div className="min-h-screen bg-[#160913] text-[#fff0c2]">
+  return <div className="min-h-screen bg-[#f5bd20] text-[#21190b]">
     <SEO title="Videogames | Leandro Cuellar" description="Dos clásicos arcade jugables directamente en la web: Arkanoid y Space Invaders."/>
     <Header/>
     <main className="relative overflow-hidden px-4 py-10 sm:px-8 sm:py-14 lg:px-12">
       <div className="pointer-events-none absolute inset-0 opacity-[.08]" style={{backgroundImage:"linear-gradient(rgba(255,220,70,.5) 1px, transparent 1px),linear-gradient(90deg,rgba(255,220,70,.5) 1px,transparent 1px)",backgroundSize:"32px 32px"}}/>
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-8 border-y-2 border-[#f5bd20] py-6 text-center sm:mb-10 sm:py-8">
+        <div className="mb-8 border-y-2 border-[#35101c] py-6 text-center sm:mb-10 sm:py-8">
           <p className="font-mono text-[10px] uppercase tracking-[.4em] text-[#f5bd20]">Leandro Cuellar · Mi sala arcade</p>
           <h1 className="mt-3 font-mono text-4xl font-black tracking-wider text-[#ffe078] sm:text-6xl">VIDEOGAMES</h1>
           <p className="mt-3 text-sm text-[#fff0c2]/75">Dos clásicos de los 80. Una sola pantalla. Jugá acá mismo.</p>
@@ -157,7 +157,7 @@ export default function Videogames() {
           <Arkanoid/>
           <SpaceInvaders/>
         </div>
-        <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[.25em] text-[#f5bd20]/70">Arcade classics · Play in browser · PC & mobile</p>
+        <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[.25em] text-[#65172d]/70">Arcade classics · Play in browser · PC & mobile</p>
       </div>
     </main>
     <Footer/>
