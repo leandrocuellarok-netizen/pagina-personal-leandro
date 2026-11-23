@@ -100,22 +100,9 @@ export const ServiciosPage = () => (
           <p className="mt-6 max-w-xl text-sm leading-7 text-[#342b25]/80">Diseño, estrategia y creatividad humana con herramientas de inteligencia artificial. Menos vueltas. Más claridad. Mejor comunicación.</p>
           <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20conocer%20los%20servicios%20de%20Vilanova%20AI%20Solutions." className="mt-7 inline-flex items-center gap-3 border-2 border-[#211b17] bg-[#e6a900] px-6 py-4 text-[11px] font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#211b17] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none">Hablemos de tu proyecto <span aria-hidden="true">↗</span></a>
         </div>
-        <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-[#e6a900] px-6 py-10">
+        <div className="relative min-h-[260px] overflow-hidden bg-[#e6a900]">
           <div className="absolute -right-12 -top-16 h-64 w-64 rounded-full border-[24px] border-[#f7edda]/70" />
           <div className="absolute bottom-5 left-0 h-5 w-full -rotate-6 bg-[#c63b25]" />
-          <div className="relative z-10 max-w-xs text-center">
-            <div className="mx-auto flex h-36 w-36 items-center justify-center rounded-full border-[5px] border-[#211b17] bg-[#f3e8d2] shadow-[7px_7px_0_#211b17]">
-              <svg viewBox="0 0 120 120" className="h-24 w-24" role="img" aria-label="Ilustración de cámara fotográfica vintage">
-                <path d="M18 39h19l8-12h30l8 12h19a8 8 0 0 1 8 8v43a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V47a8 8 0 0 1 8-8Z" fill="#211b17"/>
-                <circle cx="60" cy="66" r="25" fill="#e6a900" stroke="#f3e8d2" strokeWidth="5"/>
-                <circle cx="60" cy="66" r="14" fill="#211b17"/>
-                <circle cx="91" cy="51" r="4" fill="#c63b25"/>
-                <path d="M22 48h15" stroke="#f3e8d2" strokeWidth="4" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <p className="mt-5 font-serif text-3xl font-bold">CREATIVIDAD<br/>EN FOCO</p>
-            <p className="mt-2 text-[9px] font-black uppercase tracking-[0.3em]">Ideas · Imagen · Acción</p>
-          </div>
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#211b17] bg-[#211b17] px-6 py-3 text-[9px] font-bold uppercase tracking-[0.22em] text-[#f3e8d2] sm:px-10">
