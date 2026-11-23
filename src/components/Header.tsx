@@ -16,7 +16,7 @@ const Header = () => {
         </Link>
         <nav className="hidden flex-wrap justify-end gap-x-5 gap-y-3 lg:flex">
           {navLinks.filter((link) => link.href !== "/").map((link) => (
-            <Link key={link.href} to={link.href} className={`text-[10px] uppercase tracking-[0.12em] transition-colors hover:text-[#d8b978] ${location.pathname === link.href ? "text-[#d8b978]" : "text-[#f1e8df]/75"}`}>
+            <Link key={link.href} to={link.href} className={`text-[10px] uppercase tracking-[0.12em] transition-colors hover:text-[#d8b978] ${location.pathname === link.href ? "text-[#f1e8df]" : "text-[#d8b978]"}`}>
               {link.label}
             </Link>
           ))}
@@ -28,7 +28,7 @@ const Header = () => {
       {open && (
         <nav className="border-t border-white/15 bg-[#35101f] px-6 py-3 lg:hidden">
           {navLinks.map((link) => (
-            <Link key={link.href} to={link.href} onClick={() => setOpen(false)} className="block border-b border-white/10 py-3 text-[11px] uppercase tracking-[0.15em] text-[#f1e8df]/85">
+            <Link key={link.href} to={link.href} onClick={() => setOpen(false)} className="block border-b border-white/10 py-3 text-[11px] uppercase tracking-[0.15em] text-[#d8b978]">
               {link.label}
             </Link>
           ))}
