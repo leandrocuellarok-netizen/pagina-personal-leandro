@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArcadePacman from "@/components/ArcadePacman";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 
@@ -19,11 +20,14 @@ const Index = () => (
         </section>
 
         <section aria-label="Video de presentación" className="border-y border-white/15 px-6 py-8 md:px-10 lg:px-14">
-          <div className="mx-auto max-w-5xl">
-            <div className="mx-auto aspect-[9/16] max-h-[720px] overflow-hidden border border-white/15 bg-black">
-              <iframe className="h-full w-full" src="https://www.youtube-nocookie.com/embed/DzLUr_J_xZc" title="Leandro A. Cuellar - presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+          <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
+            <div>
+              <div className="mx-auto aspect-[9/16] max-h-[720px] overflow-hidden border border-white/15 bg-black">
+                <iframe className="h-full w-full" src="https://www.youtube-nocookie.com/embed/DzLUr_J_xZc" title="Leandro A. Cuellar - presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+              </div>
+              <a href="https://www.youtube.com/shorts/DzLUr_J_xZc" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] text-[#d8b978]">Ver Short en YouTube ↗</a>
             </div>
-            <a href="https://www.youtube.com/shorts/DzLUr_J_xZc" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] text-[#d8b978]">Ver Short en YouTube ↗</a>
+            <ArcadePacman />
           </div>
         </section>
 
