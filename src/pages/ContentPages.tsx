@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import ArcadeDonkeyKong from "@/components/ArcadeDonkeyKong";
 
 type PageShellProps = { title: string; eyebrow: string; description: string; children: ReactNode };
 const PageShell = ({ title, eyebrow, description, children }: PageShellProps) => (
@@ -55,6 +56,7 @@ export const EcosistemaPage = () => (
         <a className="border border-white/20 px-4 py-3 text-xs" href="https://realpolitik.com.ar/nota/75068/deepfakes-en-dos-minutos-podes-arruinar-la-imagen-de-un-candidato-antes-de-votar/" target="_blank" rel="noreferrer">Deepfakes y política · RealPolitik ↗</a>
       </div>
     </Block>
+    <ArcadeDonkeyKong />
   </PageShell>
 );
 
