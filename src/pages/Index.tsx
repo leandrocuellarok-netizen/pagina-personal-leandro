@@ -39,8 +39,8 @@ const Index = () => (
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 ["Diseño web + IA by Vilanova AI Solutions","Sitios y landing pages para comunicar, posicionar y convertir. Desde sólo 30 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el precio y a mí la existencia."],
-                ["Community Manager · Nivel Dios","Lead / Head of Social Media · +10 años de experiencia. Estrategia, contenidos y gestión de comunidades."],
-                ["BRANDING / IA by Vilanova","Identidad, posicionamiento, narrativa y universo visual."],
+                ["Community Manager · Nivel Dios by Vilanova AI Solutions","Lead / Head of Social Media · +10 años de experiencia. Estrategia, contenidos y gestión de comunidades. Desde sólo 50 mil pesos mensuales, dependiendo del caso. La IA vino a solucionarte el bolsillo y a mí la filosofía de vida."],
+                ["BRANDING by Vilanova AI Solutions","Identidad, posicionamiento, narrativa y universo visual. Desde sólo 50 mil ARS por única vez. Diseño de logotipo nivel GOD, con posibilidad de 3 modificaciones por 50 mil ARS adicionales; o hacelo vos sólo con IA y el brief de branding que te entrego (jaja)."],
                 ["Inteligencia artificial para empresas","Capacitación, automatización y mejora de procesos."],
                 ["Comunicación estratégica","Prensa, reputación, contenidos y comunicación institucional."],
                 ["Conferencias y formación ejecutiva","Talleres y seminarios para equipos y organizaciones."]
