@@ -8,7 +8,7 @@ interface SEOProps {
 
 export const SEO = ({ title, description, image }: SEOProps) => {
   const siteTitle = title
-    ? `${title} | Leandro A. Cuellar`
+    ? `Leandro A. Cuellar | ${title}`
     : "Leandro A. Cuellar";
 
   const seoDescription = description ?? "Autor, intelectual, estratega y comunicador. Página editorial y biográfica de Leandro A. Cuellar.";
