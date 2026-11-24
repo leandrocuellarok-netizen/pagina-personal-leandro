@@ -17,6 +17,20 @@ const Index = () => (
             <h1 className="mt-6 max-w-5xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.035em] sm:text-7xl lg:text-8xl">Leandro A. Cuellar</h1>
             <img src="/photos/leandro-cuellar.webp" alt="Leandro A. Cuellar" className="mt-8 h-48 w-48 rounded-sm border border-[#d8b978]/70 object-cover object-center sm:h-56 sm:w-56" />
             <div className="mt-7 max-w-3xl text-base leading-8 text-[#f1e8df]/85 sm:text-lg sm:leading-9"><p>Docente, escritor, comunicador y analista de la transformación tecnológica y cultural. Fundador de Vilanova Group. Divulgación de inteligencia artificial, pensamiento crítico y comunicación pública. Activista en Belén de Escobar.</p><p className="mt-3 text-sm sm:text-base"><a href="https://linkedin.com/in/leandrocuellar" target="_blank" rel="noopener noreferrer" className="underline decoration-[#d8b978] underline-offset-4 hover:text-[#d8b978]">+18.000 contactos profesionales en LinkedIn ↗</a></p></div>
+            <div className="mt-8 max-w-3xl border border-[#d8b978]/50 bg-[#2b0c19] p-4 sm:p-5">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-[#d8b978]">Banda sonora personal</p>
+              <h2 className="mt-2 font-serif text-2xl">Babasónicos</h2>
+              <p className="mt-1 mb-4 text-xs text-[#f1e8df]/65">Un disco para acompañar la visita. Dale play cuando quieras.</p>
+              <iframe
+                title="Álbum de Babasónicos en Spotify"
+                src="https://open.spotify.com/embed/album/7FYLw9fTOiYnJFbFk2Mntn?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                style={{ borderRadius: "8px" }}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 
