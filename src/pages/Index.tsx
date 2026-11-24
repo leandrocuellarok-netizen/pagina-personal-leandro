@@ -20,6 +20,23 @@ const Index = () => (
           </div>
         </section>
 
+        <section aria-label="Tecnologías y plataformas" className="overflow-hidden border-y-2 border-[#e6a900] bg-[#f3e8d2] py-6 text-[#211b17]">
+          <style>{`@keyframes home-tech-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.home-tech-track{animation:home-tech-scroll 38s linear infinite;width:max-content}.home-tech-marquee:hover .home-tech-track{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.home-tech-track{animation:none}}`}</style>
+          <p className="mb-4 text-center text-[9px] font-black uppercase tracking-[.25em] text-[#9c3025]">Tecnologías y plataformas del ecosistema digital</p>
+          <div className="home-tech-marquee overflow-hidden" style={{maskImage:"linear-gradient(to right,transparent,black 6%,black 94%,transparent)"}}>
+            <div className="home-tech-track flex items-center">
+              {[0,1].map(copy=><div key={copy} aria-hidden={copy===1} className="flex shrink-0 items-center gap-10 px-6 sm:gap-14 sm:px-8">
+                {[
+                  ["OpenAI","openai"],["Gemini","googlegemini"],["Grok","xai"],["Pinterest","pinterest"],["Meta","meta"],["Anthropic","anthropic"],["Hostinger","hostinger"],["LinkedIn","linkedin"],["CapCut","capcut"],["Google Flow","google"]
+                ].map(([name,slug])=><div key={name} className="flex shrink-0 items-center gap-2 whitespace-nowrap">
+                  <img src={`https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/${slug}.svg`} alt="" loading="lazy" className="h-7 w-7 object-contain sm:h-8 sm:w-8" onError={e=>{e.currentTarget.style.display="none"}}/>
+                  <span className="font-sans text-sm font-extrabold sm:text-base">{name}</span>
+                </div>)}
+              </div>)}
+            </div>
+          </div>
+        </section>
+
         <section aria-label="Video de presentación" className="border-y border-white/15 px-6 py-8 md:px-10 lg:px-14">
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
             <div>
