@@ -111,6 +111,36 @@ function ServicesSnake() {
   return <section className="overflow-hidden border-[3px] border-[#211b17] bg-[#f3e8d2] text-[#211b17] shadow-[8px_8px_0_#e6a900]"><div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#211b17] bg-[#65172d] px-5 py-4 text-[#fff0c2]"><div><p className="text-[9px] font-black uppercase tracking-[.3em] text-[#f5bd20]">Bonus stage · Vilanova arcade</p><h2 className="mt-1 font-mono text-2xl font-black">SNAKE</h2></div><div className="text-right font-mono text-xs"><p>PUNTOS: {score}</p><p className="mt-1 text-[#f5bd20]">{status==="over"?"GAME OVER":status==="playing"?"EN JUEGO":"INSERT COIN"}</p></div></div><div className="bg-[#080b16]"><canvas ref={canvasRef} width={480} height={320} className="block w-full touch-pan-y"/></div><div className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"><p className="text-[10px] font-bold uppercase tracking-wider text-[#342b25]/70">Flechas o W A S D. Comé los puntos rojos y evitá chocar.</p><button onClick={()=>setRound(v=>v+1)} className="border-2 border-[#211b17] bg-[#e6a900] px-5 py-3 font-mono text-[10px] font-black tracking-widest shadow-[3px_3px_0_#211b17]">JUGAR / REINICIAR ↻</button></div><div className="grid grid-cols-3 gap-2 px-5 pb-5 sm:hidden"><span/><button onClick={()=>move(0,-1)} className="bg-[#65172d] py-3 text-xl text-white">↑</button><span/><button onClick={()=>move(-1,0)} className="bg-[#65172d] py-3 text-xl text-white">←</button><button onClick={()=>move(0,1)} className="bg-[#65172d] py-3 text-xl text-white">↓</button><button onClick={()=>move(1,0)} className="bg-[#65172d] py-3 text-xl text-white">→</button></div></section>;
 }
 
+const servicesTechLogos = [
+  {name:"OpenAI",slug:"openai"},
+  {name:"Gemini",slug:"googlegemini"},
+  {name:"Grok",slug:"xai"},
+  {name:"Pinterest",slug:"pinterest"},
+  {name:"Meta",slug:"meta"},
+  {name:"Anthropic",slug:"anthropic"},
+  {name:"Hostinger",slug:"hostinger"},
+  {name:"LinkedIn",slug:"linkedin"},
+  {name:"CapCut",slug:"capcut"},
+  {name:"Google Flow",slug:"google"},
+];
+
+function ServicesTechMarquee() {
+  return <section aria-label="Plataformas y herramientas digitales" className="overflow-hidden border-y-2 border-[#e6a900] bg-[#f3e8d2] py-7 text-[#211b17]">
+    <style>{`@keyframes services-tech-scroll {from{transform:translateX(0)}to{transform:translateX(-50%)}} .services-tech-track{animation:services-tech-scroll 38s linear infinite;width:max-content} .services-tech-marquee:hover .services-tech-track{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.services-tech-track{animation:none}}`}</style>
+    <div className="mb-5 px-5 text-center"><p className="text-[10px] font-black uppercase tracking-[.24em] text-[#9c3025]">Tecnologías y plataformas del ecosistema digital</p></div>
+    <div className="services-tech-marquee relative overflow-hidden" style={{maskImage:"linear-gradient(to right,transparent,black 6%,black 94%,transparent)"}}>
+      <div className="services-tech-track flex items-center">
+        {[0,1].map(copy=><div key={copy} aria-hidden={copy===1} className="flex shrink-0 items-center gap-12 px-6 sm:gap-16 sm:px-8">
+          {servicesTechLogos.map(brand=><div key={brand.name} className="flex shrink-0 items-center gap-3 whitespace-nowrap">
+            <img src={`https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/${brand.slug}.svg`} alt="" loading="lazy" className="h-8 w-8 object-contain sm:h-10 sm:w-10" onError={e=>{e.currentTarget.style.display="none"}}/>
+            <span className="font-sans text-base font-extrabold tracking-tight sm:text-lg">{brand.name}</span>
+          </div>)}
+        </div>)}
+      </div>
+    </div>
+  </section>;
+}
+
 export const ServiciosPage = () => (
   <PageShell title="Servicios profesionales" eyebrow="Vilanova AI Solutions · Comunicación que mueve" description="Ideas bien pensadas. Imágenes que dejan huella. Tecnología puesta a trabajar. Soluciones para profesionales, marcas y organizaciones que quieren comunicar mejor y crecer.">
     <section className="relative overflow-hidden border-[3px] border-[#211b17] bg-[#f3e8d2] text-[#211b17] shadow-[9px_9px_0_#e6a900]">
@@ -178,7 +208,7 @@ export const ServiciosPage = () => (
       </div>
       <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20consultar%20por%20capacitaciones%20y%20servicios%20para%20mi%20organizaci%C3%B3n." className="mt-8 inline-flex border-2 border-[#e6a900] bg-[#e6a900] px-6 py-4 text-[10px] font-black uppercase tracking-[0.18em] text-[#211b17] hover:bg-transparent hover:text-[#f1e8df]">Contame qué necesitás ↗</a>
     </section>
-    <ServicesSnake/>
+    <ServicesTechMarquee/>\n    <ServicesSnake/>
   </PageShell>
 );
 export const PrensaPage = () => (
