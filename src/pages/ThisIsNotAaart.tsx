@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
+import artwork from "@/assets/Unknown_Intervention_30x40cm_300dpi.png";
 
 const ThisIsNotAaart = () => (
   <div className="min-h-screen bg-[#35101f] text-[#f1e8df]">
@@ -20,7 +21,7 @@ const ThisIsNotAaart = () => (
           <div className="mt-12 grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
             <figure className="m-0 border border-[#d8b978]/50 bg-[#fff0c2] p-3 shadow-[9px_9px_0_rgba(35,20,8,.18)] md:p-5">
               <img
-                src="/photos/this-is-not-aaart.jpg"
+                src={artwork}
                 alt="Unknown Intervention, obra experimental de Leandro A. Cuellar: rostro fragmentado y texturas gestuales en tonos ocres, negros, rojizos y violetas."
                 className="h-auto w-full border-0 object-contain"
                 fetchPriority="high"
