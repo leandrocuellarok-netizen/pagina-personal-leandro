@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ProjectPage from "./pages/ProjectPage";
 import Videogames from "./pages/Videogames";
+import ThisIsNotAaart from "./pages/ThisIsNotAaart";
 import { EcosistemaPage, ComunicadorPage, ServiciosPage } from "./pages/ContentPages";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/this-is-not-aaart" element={<ThisIsNotAaart />} />
               <Route path="/videogames" element={<Videogames />} />
               <Route path="/videogames/:categorySlug" element={<Videogames />} />
               <Route path="/ecosistema-vilanova-group" element={<EcosistemaPage />} />
