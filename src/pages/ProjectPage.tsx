@@ -188,6 +188,19 @@ const ProjectPage = () => {
               <a href="https://www.notaalpie.com.ar/2023/08/03/el-cine-en-tiempos-de-angustia-una-obra-literaria-ideal-para-los-amantes-del-septimo-arte-y-la-filosofia/" target="_blank" rel="noreferrer" className="ml-3 mt-8 inline-flex border border-[#d8b978]/40 px-4 py-3 text-[10px] uppercase tracking-[0.2em] hover:bg-white/5">El cine en tiempos de angustia - Nota al Pie ↗</a>
             </section>
           )}
+          {slug === "vilanova-ai" && (
+            <section className="mt-16 border-t border-[#f1e8df]/15 pt-12">
+              <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">En los medios · Inteligencia artificial y comunicación</p>
+              <h2 className="mb-4 max-w-3xl font-serif text-2xl leading-tight md:text-3xl">Los medios más influyentes: qué palabras usan y cómo cambia la conversación pública</h2>
+              <p className="mb-8 max-w-3xl text-base leading-8 text-[#f1e8df]/85">Nota de Facundo Quiroga a Leandro Cuellar sobre el relevamiento de las palabras más utilizadas por los medios de comunicación más influyentes. Una conversación sobre análisis discursivo, agenda mediática e inteligencia artificial aplicada al estudio de la comunicación.</p>
+              <div className="max-w-4xl overflow-hidden border border-[#f1e8df]/15 bg-black">
+                <div className="aspect-video">
+                  <iframe className="h-full w-full" src="https://www.youtube-nocookie.com/embed/uPXXPpgLd-k" title="Facundo Quiroga entrevista a Leandro Cuellar sobre el relevamiento de palabras de los medios influyentes" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+                </div>
+              </div>
+              <a href="https://www.youtube.com/live/uPXXPpgLd-k?si=AoKwWkdRWoNOpsGV" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex border border-[#d8b978]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em] text-[#f1e8df] hover:bg-white/5">Ver entrevista en YouTube ↗</a>
+            </section>
+          )}
           {project.external && <a href={project.external.href} target="_blank" rel="noreferrer" className="mt-12 inline-flex border border-[#d8b978]/50 px-5 py-4 text-[10px] uppercase tracking-[0.25em] transition-colors hover:bg-white/5">{project.external.label} ↗</a>}
         </article>
       </main>
