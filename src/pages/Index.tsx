@@ -36,7 +36,7 @@ const Index = () => (
 
         <section aria-label="Tecnologías y plataformas" className="overflow-hidden border-y-2 border-[#e6a900] bg-[#f3e8d2] py-6 text-[#211b17]">
           <style>{`@keyframes home-tech-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.home-tech-track{animation:home-tech-scroll 38s linear infinite;width:max-content}.home-tech-marquee:hover .home-tech-track{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.home-tech-track{animation:none}}`}</style>
-          <p className="mb-4 text-center text-[9px] font-black uppercase tracking-[.25em] text-[#9c3025]">Tecnologías y plataformas del ecosistema digital</p>
+          <p className="mb-4 text-center text-[9px] font-black uppercase tracking-[.25em] text-[#65172d]">Tecnologías y plataformas del ecosistema digital</p>
           <div className="home-tech-marquee overflow-hidden" style={{maskImage:"linear-gradient(to right,transparent,black 6%,black 94%,transparent)"}}>
             <div className="home-tech-track flex items-center">
               {[0,1].map(copy=><div key={copy} aria-hidden={copy===1} className="flex shrink-0 items-center gap-10 px-6 sm:gap-14 sm:px-8">
