@@ -127,7 +127,7 @@ const servicesTechLogos = [
 function ServicesTechMarquee() {
   return <section aria-label="Plataformas y herramientas digitales" className="overflow-hidden border-y-2 border-[#e6a900] bg-[#f3e8d2] py-7 text-[#211b17]">
     <style>{`@keyframes services-tech-scroll {from{transform:translateX(0)}to{transform:translateX(-50%)}} .services-tech-track{animation:services-tech-scroll 38s linear infinite;width:max-content} .services-tech-marquee:hover .services-tech-track{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.services-tech-track{animation:none}}`}</style>
-    <div className="mb-5 px-5 text-center"><p className="text-[10px] font-black uppercase tracking-[.24em] text-[#9c3025]">Tecnologías y plataformas del ecosistema digital</p></div>
+    <div className="mb-5 px-5 text-center"><p className="text-[10px] font-black uppercase tracking-[.24em] text-[#65172d]">Tecnologías y plataformas del ecosistema digital</p></div>
     <div className="services-tech-marquee relative overflow-hidden" style={{maskImage:"linear-gradient(to right,transparent,black 6%,black 94%,transparent)"}}>
       <div className="services-tech-track flex items-center">
         {[0,1].map(copy=><div key={copy} aria-hidden={copy===1} className="flex shrink-0 items-center gap-12 px-6 sm:gap-16 sm:px-8">
@@ -147,14 +147,14 @@ export const ServiciosPage = () => (
       <div className="absolute inset-x-0 top-0 h-3 bg-[#e6a900]" />
       <div className="grid md:grid-cols-[1.15fr_0.85fr]">
         <div className="relative z-10 px-6 pb-9 pt-12 sm:px-10 sm:pb-12 sm:pt-14">
-          <p className="text-[10px] font-black uppercase tracking-[0.32em] text-[#9c3025]">Vilanova AI Solutions presenta</p>
-          <h2 className="mt-5 max-w-2xl font-serif text-4xl leading-[0.98] sm:text-6xl">Tu próxima gran idea merece <span className="text-[#c63b25]">hacerse ver.</span></h2>
+          <p className="text-[10px] font-black uppercase tracking-[0.32em] text-[#65172d]">Vilanova AI Solutions presenta</p>
+          <h2 className="mt-5 max-w-2xl font-serif text-4xl leading-[0.98] sm:text-6xl">Tu próxima gran idea merece <span className="text-[#65172d]">hacerse ver.</span></h2>
           <p className="mt-6 max-w-xl text-sm leading-7 text-[#342b25]/80">Diseño, estrategia y creatividad humana con herramientas de inteligencia artificial. Menos vueltas. Más claridad. Mejor comunicación.</p>
           <a href="https://wa.me/5491130538404?text=Hola%2C%20quiero%20conocer%20los%20servicios%20de%20Vilanova%20AI%20Solutions." className="mt-7 inline-flex items-center gap-3 border-2 border-[#211b17] bg-[#e6a900] px-6 py-4 text-[11px] font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#211b17] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none">Hablemos de tu proyecto <span aria-hidden="true">↗</span></a>
         </div>
         <div className="relative min-h-[260px] overflow-hidden bg-[#e6a900]">
           <div className="absolute -right-12 -top-16 h-64 w-64 rounded-full border-[24px] border-[#f7edda]/70" />
-          <div className="absolute bottom-5 left-0 h-5 w-full -rotate-6 bg-[#c63b25]" />
+          <div className="absolute bottom-5 left-0 h-5 w-full -rotate-6 bg-[#65172d]" />
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#211b17] bg-[#211b17] px-6 py-3 text-[9px] font-bold uppercase tracking-[0.22em] text-[#f3e8d2] sm:px-10">
@@ -169,7 +169,7 @@ export const ServiciosPage = () => (
       </div>
       <div className="grid gap-5 lg:grid-cols-3">
         <article className="flex flex-col border-2 border-[#e6a900] bg-[#f3e8d2] p-6 text-[#211b17] shadow-[5px_5px_0_#e6a900] sm:p-7">
-          <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#a83226]">01 / Presencia digital</p>
+          <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#65172d]">01 / Presencia digital</p>
           <h3 className="mt-4 font-serif text-3xl leading-tight">Diseño web + IA</h3>
           <p className="mt-3 text-sm leading-6 text-[#342b25]/80">Sitios web y landing pages para presentar tu propuesta, generar confianza y convertir visitas en consultas.</p>
           <p className="mt-6 border-t border-[#211b17]/20 pt-4 text-[10px] font-bold uppercase tracking-[0.18em]">Desde</p>
