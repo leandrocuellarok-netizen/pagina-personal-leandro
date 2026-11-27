@@ -50,6 +50,57 @@ const ThisIsNotAaart = () => (
               </div>
             </div>
           </div>
+
+          <section aria-labelledby="publicaciones-heading" className="mt-20 border-t border-[#d8b978]/40 pt-12">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-[#d8b978]">Escrituras · Relatos · Publicaciones</p>
+            <h2 id="publicaciones-heading" className="mt-3 max-w-4xl font-serif text-3xl leading-tight sm:text-4xl">Textos publicados</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#f1e8df]/70">Una selección de relatos, ficciones y ensayos de Leandro Cuellar publicados en revistas y plataformas culturales.</p>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <article className="flex flex-col justify-between border border-[#d8b978]/40 bg-[#2b0c19] p-5">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#d8b978]">Anomalía · Publicación cultural</p>
+                  <h3 className="mt-3 font-serif text-2xl leading-tight">Pollería La Esperanza</h3>
+                </div>
+                <a href="https://anomalia.com.ar/articulos/polleria-la-esperanza" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex self-start border border-[#d8b978]/60 px-4 py-3 text-[10px] uppercase tracking-[0.18em] hover:bg-white/5">Leer en Anomalía ↗</a>
+              </article>
+
+              <article className="flex flex-col justify-between border border-[#d8b978]/40 bg-[#2b0c19] p-5">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#d8b978]">Aporia Literary · English</p>
+                  <h3 className="mt-3 font-serif text-2xl leading-tight">A Certain Masculine Alteration</h3>
+                </div>
+                <a href="https://aporialit.com/piece-a-certain-masculine-alteration.html" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex self-start border border-[#d8b978]/60 px-4 py-3 text-[10px] uppercase tracking-[0.18em] hover:bg-white/5">Read at Aporia Literary ↗</a>
+              </article>
+
+              <article className="flex flex-col justify-between border border-[#d8b978]/40 bg-[#2b0c19] p-5">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#d8b978]">Tiempo Provincial · Relato · 24 noviembre 2025</p>
+                  <h3 className="mt-3 font-serif text-2xl leading-tight">A Large Week-end in Balvanera</h3>
+                  <p className="mt-3 text-xs leading-6 text-[#f1e8df]/65">Relato publicado en Tiempo Provincial. Ficha y versión disponible en Academia.edu.</p>
+                </div>
+                <a href="https://www.academia.edu/145408416/A_large_week_end_in_balvanera_Relato_de_Leandro_A_Cuellar" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex self-start border border-[#d8b978]/60 px-4 py-3 text-[10px] uppercase tracking-[0.18em] hover:bg-white/5">Consultar relato ↗</a>
+              </article>
+
+              <article className="flex flex-col justify-between border border-[#d8b978]/40 bg-[#2b0c19] p-5">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#d8b978]">LinkedIn · Amour du cinéma · 3 diciembre 2025</p>
+                  <h3 className="mt-3 font-serif text-2xl leading-tight">El Aleph onírico: Spinoza, Buñuel y la imaginación</h3>
+                  <p className="mt-3 text-xs leading-6 text-[#f1e8df]/65">El cine como espacio del inconsciente y lo indecible.</p>
+                </div>
+                <a href="https://www.linkedin.com/pulse/el-aleph-on%C3%ADrico-spinoza-bu%C3%B1uel-y-la-imaginaci%C3%B3n-cine-leandro-cuellar-1ibwf" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex self-start border border-[#d8b978]/60 px-4 py-3 text-[10px] uppercase tracking-[0.18em] hover:bg-white/5">Leer en LinkedIn ↗</a>
+              </article>
+
+              <article className="flex flex-col justify-between border border-[#d8b978]/40 bg-[#2b0c19] p-5">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#d8b978]">LinkedIn · 30 noviembre 2025</p>
+                  <h3 className="mt-3 font-serif text-2xl leading-tight">Una anécdota personal con un candidato presidencial 2027</h3>
+                  <p className="mt-3 text-xs leading-6 text-[#f1e8df]/65">Las tensiones de una reunión amistosa desde una obra de Hanna Pauli.</p>
+                </div>
+                <a href="https://www.linkedin.com/pulse/una-an%C3%A9cdota-personal-con-un-candidato-presidencial-2027-cuellar-qgsrf" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex self-start border border-[#d8b978]/60 px-4 py-3 text-[10px] uppercase tracking-[0.18em] hover:bg-white/5">Leer en LinkedIn ↗</a>
+              </article>
+            </div>
+          </section>
         </article>
       </section>
     </main>
