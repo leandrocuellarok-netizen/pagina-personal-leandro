@@ -50,10 +50,6 @@ const ThisIsNotAaart = () => (
               </div>
             </div>
           </div>
-          <div className="mt-16 border-y border-[#d8b978]/40 py-8">
-            <p className="font-serif text-2xl italic leading-relaxed md:text-3xl">“No todo lo que aparece en una imagen necesita ser explicado. A veces, alcanza con dejarlo intervenir.”</p>
-            <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-[#d8b978]">Leandro A. Cuellar</p>
-          </div>
         </article>
       </section>
     </main>
